@@ -6,7 +6,7 @@
   <title>Tal Roded</title>
   <meta name="description" content="Data scientist, researcher, and writer. NYCuriosity Substack author. MIT FutureTech affiliate.">
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://talr24.github.io/talroded_personal/">
+  <meta property="og:url"         content="https://talroded.nycuriosity.com/">
   <meta property="og:title"       content="Tal Roded">
   <meta property="og:description" content="Data scientist, researcher, and writer. NYCuriosity Substack author. MIT FutureTech affiliate.">
   <meta name="twitter:card"       content="summary">
@@ -28,10 +28,15 @@
       --bg:          #f8faff;
       --surface:     #ffffff;
       --border:      #e5e7eb;
-      --border-mid:  #d1d5db;
       --shadow-sm:   0 1px 3px rgba(17,24,39,0.08);
       --shadow-md:   0 4px 16px rgba(37,99,235,0.12);
       --radius:      10px;
+      /* NYC subway line colors */
+      --sub-blue:    #0039A6;
+      --sub-red:     #EE352E;
+      --sub-green:   #00933C;
+      --sub-orange:  #FF6319;
+      --sub-purple:  #B933AD;
     }
 
     body {
@@ -78,7 +83,6 @@
     .brand-dot {
       font-family: 'Roboto Mono', monospace;
       font-size: 0.95rem;
-      font-weight: 400;
       color: var(--text-faint);
     }
     .brand-last {
@@ -113,18 +117,31 @@
     .header-nav .nav-cta:hover {
       background: var(--blue-light);
       border-color: var(--blue);
-      color: var(--blue-hover);
     }
 
     /* ── HERO ────────────────────────────────────────────── */
     .hero {
-      padding: clamp(48px, 8vw, 80px) clamp(20px, 5vw, 48px) clamp(32px, 5vw, 56px);
-      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
       background: var(--surface);
+      /* dot-grid background — data/map aesthetic */
+      background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
+      background-size: 22px 22px;
+      border-bottom: 1px solid var(--border);
+    }
+    /* White fade so dots vanish at center */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 100% at 40% 50%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.75) 60%, transparent 100%);
+      pointer-events: none;
     }
     .hero-inner {
+      position: relative;
       max-width: 1000px;
       margin: 0 auto;
+      padding: clamp(48px, 8vw, 80px) clamp(20px, 5vw, 48px) 0;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 40px;
@@ -132,46 +149,53 @@
     }
     .hero-text h1 {
       font-family: 'Roboto Mono', monospace;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 6px;
+      line-height: 1.05;
+      margin-bottom: 10px;
     }
     .hero-text .hero-title {
       font-family: 'Roboto Mono', monospace;
-      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-size: 0.85rem;
       font-weight: 500;
       color: var(--blue);
-      letter-spacing: 0.01em;
-      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
     .hero-text p {
       font-size: clamp(0.95rem, 2vw, 1.05rem);
       color: var(--text-muted);
-      max-width: 540px;
-      line-height: 1.7;
+      max-width: 520px;
+      line-height: 1.75;
     }
+    .hero-text p a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blue-mid);
+    }
+    .hero-text p a:hover { border-color: var(--blue); }
     .hero-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      gap: 8px;
+      margin-top: 22px;
     }
     .hero-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--text-muted);
       text-decoration: none;
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 7px 13px;
-      background: var(--bg);
+      padding: 7px 12px;
+      background: rgba(255,255,255,0.85);
       transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
     .hero-link:hover {
@@ -184,13 +208,10 @@
       border-color: var(--blue);
       background: var(--blue-light);
     }
-    .hero-link.primary:hover {
-      background: #dbeafe;
-      border-color: var(--blue-hover);
-    }
+    .hero-link.primary:hover { background: #dbeafe; border-color: var(--blue-hover); }
     .hero-avatar {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       border: 3px solid var(--blue-mid);
       background: var(--blue-light);
@@ -198,11 +219,57 @@
       align-items: center;
       justify-content: center;
       font-family: 'Roboto Mono', monospace;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--blue);
       flex-shrink: 0;
       letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* NYC skyline silhouette */
+    .skyline {
+      display: block;
+      width: 100%;
+      margin-top: clamp(24px, 4vw, 40px);
+      opacity: 0.07;
+      pointer-events: none;
+      position: relative;
+    }
+
+    /* ── STATS STRIP ─────────────────────────────────────── */
+    .stats-strip {
+      background: var(--text);
+      padding: 0 clamp(20px, 5vw, 48px);
+    }
+    .stats-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 20px 0;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      padding-left: 24px;
+    }
+    .stat-item:first-child { padding-left: 0; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Roboto Mono', monospace;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--blue-mid);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+      letter-spacing: 0.01em;
     }
 
     /* ── MAIN ────────────────────────────────────────────── */
@@ -214,8 +281,8 @@
       max-width: 1000px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 48px;
+      grid-template-columns: 1fr 290px;
+      gap: 52px;
       align-items: start;
     }
 
@@ -223,12 +290,12 @@
     .section { margin-bottom: 48px; }
     .section-label {
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--text-faint);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -244,7 +311,7 @@
     .about-text {
       font-size: 0.975rem;
       color: var(--text-mid);
-      line-height: 1.75;
+      line-height: 1.78;
     }
     .about-text p + p { margin-top: 14px; }
     .about-text a {
@@ -256,90 +323,144 @@
     .about-text a:hover { border-color: var(--blue); }
     .about-text strong { color: var(--text); font-weight: 600; }
 
-    /* ── EXPERIENCE ──────────────────────────────────────── */
-    .exp-list { display: flex; flex-direction: column; gap: 20px; }
-    .exp-item {
+    /* Beats — subway bullet pills */
+    .beats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .beat {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-mid);
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow-sm);
-      transition: border-color 0.2s, box-shadow 0.2s;
+      border-radius: 20px;
+      padding: 5px 12px 5px 8px;
     }
-    .exp-item:hover {
-      border-color: var(--blue-mid);
-      box-shadow: var(--shadow-md);
+    .beat-bullet {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #fff;
     }
-    .exp-header {
+
+    /* ── EXPERIENCE TIMELINE ─────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue) 0%, var(--blue-mid) 60%, transparent 100%);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -25px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 2px solid var(--surface);
+      outline: 2px solid var(--blue-mid);
+    }
+    .timeline-item.past .timeline-dot {
+      background: var(--text-faint);
+      outline-color: var(--border);
+    }
+    .tl-header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 6px;
+      margin-bottom: 3px;
     }
-    .exp-role {
+    .tl-role {
       font-size: 0.925rem;
       font-weight: 600;
       color: var(--text);
       line-height: 1.3;
     }
-    .exp-period {
+    .tl-period {
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 500;
       color: var(--text-faint);
       white-space: nowrap;
-      padding-top: 2px;
+      padding-top: 3px;
     }
-    .exp-org {
+    .tl-org {
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: var(--blue);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: 0.01em;
     }
-    .exp-desc {
-      font-size: 0.85rem;
+    .timeline-item.past .tl-org { color: var(--text-muted); }
+    .tl-desc {
+      font-size: 0.845rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* ── WRITING CARDS ───────────────────────────────────── */
-    .writing-list { display: flex; flex-direction: column; gap: 1px; }
+    /* ── WRITING LIST ────────────────────────────────────── */
+    .writing-list { display: flex; flex-direction: column; }
     .writing-item {
       display: flex;
       align-items: baseline;
-      gap: 14px;
-      padding: 13px 0;
+      gap: 12px;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      transition: background 0.1s;
     }
     .writing-item:first-child { padding-top: 0; }
     .writing-item:last-child { border-bottom: none; }
     .writing-date {
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 500;
       color: var(--text-faint);
       white-space: nowrap;
       flex-shrink: 0;
-      width: 55px;
+      width: 52px;
     }
     .writing-title {
-      font-size: 0.88rem;
+      font-size: 0.875rem;
       font-weight: 500;
       color: var(--text-mid);
       line-height: 1.4;
+      flex: 1;
       transition: color 0.15s;
     }
     .writing-item:hover .writing-title { color: var(--blue); }
     .writing-tag {
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.62rem;
-      font-weight: 600;
+      font-size: 0.6rem;
+      font-weight: 700;
       color: var(--text-faint);
       background: var(--bg);
       border: 1px solid var(--border);
@@ -350,56 +471,110 @@
       margin-left: auto;
       transition: color 0.15s, border-color 0.15s;
     }
-    .writing-item:hover .writing-tag {
-      color: var(--blue);
-      border-color: var(--blue-mid);
-    }
+    .writing-item:hover .writing-tag { color: var(--blue); border-color: var(--blue-mid); }
 
     /* ── SIDEBAR ─────────────────────────────────────────── */
-    .sidebar { display: flex; flex-direction: column; gap: 32px; }
+    .sidebar { display: flex; flex-direction: column; gap: 30px; }
 
-    /* ── RESEARCH / PUBLICATIONS ─────────────────────────── */
-    .pub-list { display: flex; flex-direction: column; gap: 14px; }
+    /* ── SUBSTACK CARD ───────────────────────────────────── */
+    .substack-card {
+      background: var(--text);
+      border-radius: var(--radius);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .substack-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(37,99,235,0.25) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+    .substack-card .sc-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue-mid);
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .substack-card .sc-title {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .substack-card .sc-desc {
+      font-size: 0.81rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .substack-card .sc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--text);
+      background: #fff;
+      border-radius: 6px;
+      padding: 9px 15px;
+      text-decoration: none;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .substack-card .sc-btn:hover { background: var(--blue-light); }
+
+    /* ── RESEARCH ────────────────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; gap: 12px; }
     .pub-item {
-      padding: 14px 16px;
+      padding: 13px 15px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-left: 3px solid var(--blue-mid);
+      border-radius: 0 var(--radius) var(--radius) 0;
       box-shadow: var(--shadow-sm);
+      transition: border-left-color 0.2s;
     }
+    .pub-item:hover { border-left-color: var(--blue); }
     .pub-title {
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       font-weight: 600;
       color: var(--text);
       line-height: 1.35;
       margin-bottom: 4px;
     }
     .pub-meta {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       line-height: 1.5;
     }
     .pub-meta em { color: var(--blue); font-style: normal; font-weight: 500; }
 
-    /* ── CONNECT CARD ────────────────────────────────────── */
+    /* ── CONNECT ─────────────────────────────────────────── */
     .connect-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 18px;
       box-shadow: var(--shadow-sm);
     }
-    .connect-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 2px;
-    }
+    .connect-list { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
     .connect-link {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-muted);
       text-decoration: none;
@@ -409,8 +584,8 @@
     }
     .connect-link:hover { background: var(--blue-light); color: var(--blue); }
     .connect-icon {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border-radius: 6px;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -418,62 +593,13 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: background 0.15s, border-color 0.15s;
     }
-    .connect-link:hover .connect-icon {
-      background: var(--blue-light);
-      border-color: var(--blue-mid);
-    }
-
-    /* ── SUBSTACK PROMO ──────────────────────────────────── */
-    .substack-card {
-      background: linear-gradient(135deg, var(--blue-light) 0%, #dbeafe 100%);
-      border: 1px solid var(--blue-mid);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-    .substack-card .sc-label {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--blue);
-      margin-bottom: 8px;
-    }
-    .substack-card .sc-title {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    .substack-card .sc-desc {
-      font-size: 0.82rem;
-      color: var(--text-mid);
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
-    .substack-card .sc-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--surface);
-      background: var(--blue);
-      border-radius: 7px;
-      padding: 9px 16px;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .substack-card .sc-btn:hover { background: var(--blue-hover); }
+    .connect-link:hover .connect-icon { background: var(--blue-light); border-color: var(--blue-mid); }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
+      background: var(--text);
       padding: 20px clamp(20px, 5vw, 48px);
     }
     .footer-inner {
@@ -486,32 +612,31 @@
       gap: 12px;
     }
     .footer-copy {
-      font-size: 0.78rem;
-      color: var(--text-faint);
       font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
     }
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
+    .footer-links { display: flex; gap: 20px; }
     .footer-links a {
-      font-size: 0.78rem;
-      color: var(--text-faint);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
       text-decoration: none;
       transition: color 0.15s;
     }
-    .footer-links a:hover { color: var(--blue); }
+    .footer-links a:hover { color: var(--blue-mid); }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 760px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-avatar { display: none; }
       .main-inner { grid-template-columns: 1fr; }
-      .sidebar { gap: 28px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
     }
     @media (max-width: 480px) {
       .header-nav a:not(.nav-cta) { display: none; }
       .brand-dot, .brand-last { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -541,12 +666,12 @@
   <div class="hero-inner">
     <div class="hero-text">
       <h1>Tal Roded</h1>
-      <p class="hero-title">Data Scientist · Researcher · Writer</p>
+      <p class="hero-title">Data Scientist &nbsp;·&nbsp; Researcher &nbsp;·&nbsp; Writer</p>
       <p>
-        I analyze data for a living and write about what it reveals. Currently at
-        <strong>LinkedIn</strong> and
-        <strong>MIT FutureTech</strong> (AI progress research).
-        I also run <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener">NYCuriosity</a>,
+        I analyze data for a living and write about what it reveals. Currently a data scientist
+        at <strong>LinkedIn</strong> and an affiliate researcher at
+        <strong>MIT FutureTech</strong> studying AI progress. I also run
+        <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener">NYCuriosity</a>,
         a Substack covering NYC urban policy, transit, and streets through data.
       </p>
       <div class="hero-links">
@@ -574,7 +699,54 @@
     </div>
     <div class="hero-avatar" aria-hidden="true">TR</div>
   </div>
+
+  <!-- NYC skyline silhouette -->
+  <svg class="skyline" viewBox="0 0 1000 80" preserveAspectRatio="xMidYMax meet" aria-hidden="true" xmlns="https://www.w3.org/2000/svg">
+    <path fill="#111827" d="
+      M0,80 L0,58 L18,58 L18,52 L32,52 L32,46 L44,46 L44,40
+      L52,40 L52,22 L55,22 L55,14 L57,14 L57,8 L59,8 L59,14 L61,14 L61,22 L64,22
+      L64,40 L72,40 L72,46 L88,46 L88,42 L100,42 L100,36 L106,36
+      L106,20 L109,20 L109,13 L111,13 L111,8 L113,8 L113,13 L115,13 L115,20 L118,20
+      L118,36 L124,36 L124,44 L145,44 L145,40 L158,40 L158,34 L164,34
+      L164,18 L167,18 L167,11 L170,11 L170,6 L173,6 L173,11 L176,11 L176,18 L179,18
+      L179,34 L186,34 L186,42 L210,42 L210,48 L238,48 L238,42 L252,42 L252,36
+      L258,36 L258,22 L261,22 L261,16 L264,16 L264,10 L267,10 L267,16 L270,16 L270,22 L273,22
+      L273,36 L280,36 L280,44 L308,44 L308,50 L340,50 L340,44 L356,44 L356,36 L362,36
+      L362,24 L365,24 L365,18 L368,18 L368,12 L371,12 L371,18 L374,18 L374,24 L377,24
+      L377,36 L384,36 L384,44 L410,44 L410,50 L444,50 L444,44 L462,44 L462,36
+      L468,36 L468,20 L471,20 L471,12 L474,12 L474,6 L477,6 L477,12 L480,12 L480,20 L483,20
+      L483,36 L490,36 L490,44 L520,44 L520,50 L556,50 L556,46 L572,46 L572,40
+      L578,40 L578,26 L581,26 L581,18 L584,18 L584,14 L587,14 L587,18 L590,18 L590,26 L593,26
+      L593,40 L600,40 L600,46 L628,46 L628,52 L660,52 L660,48 L676,48 L676,40
+      L682,40 L682,28 L685,28 L685,22 L688,22 L688,16 L691,16 L691,22 L694,22 L694,28 L697,28
+      L697,40 L704,40 L704,50 L730,50 L730,56 L762,56 L762,52 L782,52 L782,58
+      L820,58 L820,54 L842,54 L842,58 L878,58 L878,62 L916,62 L916,58 L952,58 L952,62 L1000,62
+      L1000,80 Z
+    "/>
+  </svg>
 </section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Publications &amp; working papers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Data-driven articles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6 yrs</div>
+      <div class="stat-label">Research experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">NYC</div>
+      <div class="stat-label">Policy &amp; transit beat</div>
+    </div>
+  </div>
+</div>
 
 <!-- MAIN CONTENT -->
 <main>
@@ -608,64 +780,101 @@
           <p>
             Outside of my main work, I write
             <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener"><strong>NYCuriosity</strong></a> —
-            a Substack newsletter applying data-driven analysis to NYC politics and policy. Topics range
-            from transit funding and street design to Community Board votes and parking reform.
-            I co-founded <strong>Menti</strong>, a nonprofit providing resources to teenagers
-            and young adults navigating education and career decisions.
+            a Substack applying data-driven analysis to NYC politics and policy: transit funding, street
+            design, Community Board votes, and parking reform. I co-founded <strong>Menti</strong>,
+            a nonprofit providing resources to teenagers and young adults.
           </p>
+        </div>
+
+        <!-- Topic beats as subway-bullet pills -->
+        <div class="beats" aria-label="Topics I cover">
+          <span class="beat">
+            <span class="beat-bullet" style="background:var(--sub-blue)">A</span>
+            NYC Transit &amp; Streets
+          </span>
+          <span class="beat">
+            <span class="beat-bullet" style="background:var(--sub-red)">1</span>
+            Urban Policy
+          </span>
+          <span class="beat">
+            <span class="beat-bullet" style="background:var(--sub-green)">4</span>
+            Data Science
+          </span>
+          <span class="beat">
+            <span class="beat-bullet" style="background:var(--sub-orange)">B</span>
+            Labor &amp; Economics
+          </span>
+          <span class="beat">
+            <span class="beat-bullet" style="background:var(--sub-purple)">7</span>
+            AI &amp; Technology
+          </span>
         </div>
       </section>
 
       <!-- EXPERIENCE -->
       <section class="section" id="experience">
         <p class="section-label">Experience</p>
-        <div class="exp-list">
+        <div class="timeline">
 
-          <div class="exp-item">
-            <div class="exp-header">
-              <div class="exp-role">Data Scientist</div>
-              <div class="exp-period">2025 – present</div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="tl-header">
+              <div class="tl-role">Data Scientist</div>
+              <div class="tl-period">2025 – present</div>
             </div>
-            <div class="exp-org">LinkedIn</div>
-            <div class="exp-desc">
-              Data science across the LinkedIn platform.
-            </div>
+            <div class="tl-org">LinkedIn</div>
+            <div class="tl-desc">Data science across the LinkedIn platform.</div>
           </div>
 
-          <div class="exp-item">
-            <div class="exp-header">
-              <div class="exp-role">Affiliate Researcher</div>
-              <div class="exp-period">2023 – present</div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="tl-header">
+              <div class="tl-role">Affiliate Researcher</div>
+              <div class="tl-period">2023 – present</div>
             </div>
-            <div class="exp-org">MIT FutureTech</div>
-            <div class="exp-desc">
+            <div class="tl-org">MIT FutureTech</div>
+            <div class="tl-desc">
               Analyzing AI progress and economic trends. Research on generative AI's productivity
-              and GDP impacts, benchmarked against prior technology forecasts. Co-author of
+              and GDP impacts benchmarked against prior technology forecasts. Co-author of
               "What Drives Progress in AI? Trends in Data."
             </div>
           </div>
 
-          <div class="exp-item">
-            <div class="exp-header">
-              <div class="exp-role">Data Science Senior Analyst</div>
-              <div class="exp-period">2022 – 2023</div>
+          <div class="timeline-item past">
+            <div class="timeline-dot"></div>
+            <div class="tl-header">
+              <div class="tl-role">Data Scientist</div>
+              <div class="tl-period">2023 – 2025</div>
             </div>
-            <div class="exp-org">Accenture Research</div>
-            <div class="exp-desc">
-              Studied generative AI's impact on labor markets and produced technology forecasting
-              analyses for enterprise clients.
+            <div class="tl-org">Starbucks</div>
+            <div class="tl-desc">
+              Analytics support for international markets. User testing, product innovation,
+              and pricing recommendations across global regions.
             </div>
           </div>
 
-          <div class="exp-item">
-            <div class="exp-header">
-              <div class="exp-role">Research Associate</div>
-              <div class="exp-period">2019 – 2022</div>
+          <div class="timeline-item past">
+            <div class="timeline-dot"></div>
+            <div class="tl-header">
+              <div class="tl-role">Data Science Senior Analyst</div>
+              <div class="tl-period">2022 – 2023</div>
             </div>
-            <div class="exp-org">Federal Reserve Bank of Philadelphia</div>
-            <div class="exp-desc">
-              Macroeconomics and labor economics research. Supported monetary policy analysis
-              and published research on housing markets, employment, and economic recovery.
+            <div class="tl-org">Accenture Research</div>
+            <div class="tl-desc">
+              Generative AI's impact on labor markets and technology forecasting for enterprise clients.
+            </div>
+          </div>
+
+          <div class="timeline-item past">
+            <div class="timeline-dot"></div>
+            <div class="tl-header">
+              <div class="tl-role">Research Associate</div>
+              <div class="tl-period">2019 – 2022</div>
+            </div>
+            <div class="tl-org">Federal Reserve Bank of Philadelphia</div>
+            <div class="tl-desc">
+              Macroeconomics and labor economics research supporting monetary policy analysis.
+              Published on housing markets, employment, and economic recovery.
             </div>
           </div>
 
@@ -677,70 +886,59 @@
         <p class="section-label">Writing</p>
         <div class="writing-list">
 
-          <!-- NYCuriosity -->
           <a class="writing-item" href="https://nycuriosity.substack.com" target="_blank" rel="noopener">
             <span class="writing-date">2025 –</span>
-            <span class="writing-title">NYCuriosity — NYC urban policy, transit, and streets</span>
+            <span class="writing-title">NYCuriosity — NYC urban policy, transit &amp; streets</span>
             <span class="writing-tag">Substack</span>
           </a>
-
-          <!-- Older articles -->
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/data-science-job-market-2024" target="_blank" rel="noopener">
             <span class="writing-date">Jan '24</span>
             <span class="writing-title">What is the future of the data science job market?</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/rising-house-prices" target="_blank" rel="noopener">
             <span class="writing-date">Jan '23</span>
             <span class="writing-title">Rising House Prices — Winners and Losers</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/k-shaped-recovery" target="_blank" rel="noopener">
             <span class="writing-date">Apr '22</span>
             <span class="writing-title">A K-Shaped Recovery in Time? COVID-19's Effect on Time-Spending Habits of the Rich and the Poor</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/immigration-trends" target="_blank" rel="noopener">
             <span class="writing-date">Feb '22</span>
             <span class="writing-title">21st Century Trends in Immigration</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/2020/10/22/searching-for-2020-election-results-clues-using-voter-registrations" target="_blank" rel="noopener">
             <span class="writing-date">Oct '20</span>
             <span class="writing-title">Searching for 2020 Election Results Clues Using Voter Registrations</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/2020/8/19/rainy-days-ahead-for-restaurants" target="_blank" rel="noopener">
             <span class="writing-date">Aug '20</span>
             <span class="writing-title">Rainy Days Ahead for Restaurants?</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/2020/5/11/a-short-stroll-with-historical-presidential-approval-ratings" target="_blank" rel="noopener">
             <span class="writing-date">May '20</span>
             <span class="writing-title">A Short Stroll with Historical Presidential Approval Ratings</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com/posts/2020/3/31/charting-the-economics-of-a-pandemic-with-high-frequency-data" target="_blank" rel="noopener">
             <span class="writing-date">Apr '20</span>
             <span class="writing-title">Charting the Effects of a Pandemic with High-Frequency Data</span>
             <span class="writing-tag">VC</span>
           </a>
-
           <a class="writing-item" href="https://www.visualizecuriosity.com" target="_blank" rel="noopener">
             <span class="writing-date">2018–19</span>
-            <span class="writing-title">Is There A Student Loan Bubble? (Parts I & II) and more</span>
+            <span class="writing-title">Is There A Student Loan Bubble? (Parts I &amp; II) and more</span>
             <span class="writing-tag">VC</span>
           </a>
 
         </div>
-        <p style="margin-top:14px; font-size:0.78rem; color:var(--text-faint); font-family:'Roboto Mono',monospace;">
+        <p style="margin-top:12px; font-size:0.75rem; color:var(--text-faint); font-family:'Roboto Mono',monospace;">
           VC = <a href="https://www.visualizecuriosity.com" target="_blank" rel="noopener" style="color:var(--text-faint);text-decoration:underline;">Visualize Curiosity</a>
         </p>
       </section>
@@ -750,7 +948,7 @@
     <!-- RIGHT SIDEBAR -->
     <aside class="sidebar">
 
-      <!-- Substack promo -->
+      <!-- Substack card -->
       <div class="substack-card">
         <p class="sc-label">Newsletter</p>
         <p class="sc-title">NYCuriosity</p>
@@ -764,53 +962,34 @@
         </a>
       </div>
 
-      <!-- Publications / Research -->
+      <!-- Research -->
       <section id="research">
         <p class="section-label">Research</p>
         <div class="pub-list">
-
           <div class="pub-item">
             <div class="pub-title">What Drives Progress in AI? Trends in Data</div>
-            <div class="pub-meta">
-              With Peter Slattery, PhD · <em>MIT FutureTech</em> · 2024
-            </div>
+            <div class="pub-meta">With Peter Slattery, PhD · <em>MIT FutureTech</em> · 2024</div>
           </div>
-
           <div class="pub-item">
             <div class="pub-title">Forecasting GenAI's Productivity and GDP Impacts</div>
-            <div class="pub-meta">
-              <em>MIT FutureTech</em> · 2024 — compares GenAI forecasts to prior technology cycles
-            </div>
+            <div class="pub-meta"><em>MIT FutureTech</em> · 2024 — benchmarked against prior technology cycles</div>
           </div>
-
           <div class="pub-item">
             <div class="pub-title">Reopening the Economy</div>
-            <div class="pub-meta">
-              <em>Federal Reserve Bank of Philadelphia</em> · 2020 — economic brief on post-COVID recovery
-            </div>
+            <div class="pub-meta"><em>Federal Reserve Bank of Philadelphia</em> · 2020</div>
           </div>
-
           <div class="pub-item">
             <div class="pub-title">Income-Education Gradients in Developing Nations</div>
-            <div class="pub-meta">
-              <em>OSU Journal of Politics &amp; International Affairs</em>
-            </div>
+            <div class="pub-meta"><em>OSU Journal of Politics &amp; International Affairs</em></div>
           </div>
-
           <div class="pub-item">
             <div class="pub-title">New Jersey Housing Market Analysis</div>
-            <div class="pub-meta">
-              With Wenli Li · <em>Federal Reserve Bank of Philadelphia</em> · post-recession investor dynamics
-            </div>
+            <div class="pub-meta">With Wenli Li · <em>Federal Reserve Bank of Philadelphia</em></div>
           </div>
-
           <div class="pub-item">
             <div class="pub-title">WWII Unemployment Research</div>
-            <div class="pub-meta">
-              With Fujita &amp; Ramey · UC San Diego
-            </div>
+            <div class="pub-meta">With Fujita &amp; Ramey · UC San Diego</div>
           </div>
-
         </div>
       </section>
 
@@ -819,49 +998,30 @@
         <p class="section-label">Connect</p>
         <div class="connect-card">
           <div class="connect-list">
-
             <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener" class="connect-link">
-              <span class="connect-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M4 10h16v10l-8-4-8 4z"/></svg>
-              </span>
+              <span class="connect-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M4 10h16v10l-8-4-8 4z"/></svg></span>
               Substack
             </a>
-
             <a href="https://www.linkedin.com/in/tal-roded" target="_blank" rel="noopener" class="connect-link">
-              <span class="connect-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </span>
+              <span class="connect-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
               LinkedIn
             </a>
-
             <a href="https://github.com/TalR24" target="_blank" rel="noopener" class="connect-link">
-              <span class="connect-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </span>
+              <span class="connect-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
               GitHub / TalR24
             </a>
-
             <a href="https://twitter.com/TalR24" target="_blank" rel="noopener" class="connect-link">
-              <span class="connect-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-              </span>
+              <span class="connect-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></span>
               @TalR24
             </a>
-
             <a href="mailto:troded24@gmail.com" class="connect-link">
-              <span class="connect-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              </span>
+              <span class="connect-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
               troded24@gmail.com
             </a>
-
             <a href="https://data.nycuriosity.com" target="_blank" rel="noopener" class="connect-link">
-              <span class="connect-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-              </span>
+              <span class="connect-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
               NYCuriosity Data
             </a>
-
           </div>
         </div>
       </section>
