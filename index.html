@@ -210,22 +210,23 @@
     }
     .hero-link.primary:hover { background: #dbeafe; border-color: var(--blue-hover); }
     .hero-avatar {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 3px solid var(--blue-mid);
       background: var(--blue-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--blue);
       flex-shrink: 0;
-      letter-spacing: -0.04em;
       position: relative;
       z-index: 1;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     /* NYC skyline silhouette */
@@ -669,8 +670,8 @@
       <p class="hero-title">Data Scientist &nbsp;·&nbsp; Researcher &nbsp;·&nbsp; Writer</p>
       <p>
         I analyze data for a living and write about what it reveals. Currently a data scientist
-        at <strong>LinkedIn</strong> and an affiliate researcher at
-        <strong>MIT FutureTech</strong> studying AI progress. I also run
+        at <strong>LinkedIn</strong> and a member of
+        <strong>Manhattan Community Board 3</strong>. I run
         <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener">NYCuriosity</a>,
         a Substack covering NYC urban policy, transit, and streets through data.
       </p>
@@ -697,7 +698,9 @@
         </a>
       </div>
     </div>
-    <div class="hero-avatar" aria-hidden="true">TR</div>
+    <div class="hero-avatar">
+      <img src="/profile_pic_new.png" alt="Tal Roded">
+    </div>
   </div>
 
   <!-- NYC skyline silhouette -->
@@ -828,6 +831,20 @@
       <section class="section" id="experience">
         <p class="section-label">Experience</p>
         <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="tl-header">
+              <div class="tl-role">Community Board Member</div>
+              <div class="tl-period">2025 – present</div>
+            </div>
+            <div class="tl-org">Manhattan Community Board 3</div>
+            <div class="tl-desc">
+              Appointed member of CB3, covering the Lower East Side and East Village. Participates
+              in land use, street design, parks, and local budget decisions for one of Manhattan's
+              most densely populated districts. Informs coverage for NYCuriosity.
+            </div>
+          </div>
 
           <div class="timeline-item">
             <div class="timeline-dot"></div>
