@@ -47,8 +47,8 @@ body {
 
 /* ── HEADER ─────────────────────────────────────────────── */
 header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  background: var(--dark);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
   padding: 0 clamp(20px, 5vw, 48px);
   position: sticky;
   top: 0;
@@ -66,13 +66,13 @@ header {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--text);
+  color: rgba(255,255,255,0.9);
   text-decoration: none;
   letter-spacing: -0.02em;
   flex-shrink: 0;
   margin-right: 8px;
 }
-.brand span { color: var(--blue); }
+.brand span { color: var(--blue-mid); }
 .header-nav {
   display: flex;
   align-items: center;
@@ -82,15 +82,15 @@ header {
 .header-nav a {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.55);
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 6px;
   transition: color 0.15s, background 0.15s;
 }
 .header-nav a:hover, .header-nav a.active {
-  color: var(--blue);
-  background: var(--blue-light);
+  color: #fff;
+  background: rgba(255,255,255,0.1);
 }
 .header-right {
   display: flex;
@@ -105,30 +105,30 @@ header {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.55);
   text-decoration: none;
   padding: 5px 10px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 6px;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 .header-icon-link:hover {
-  color: var(--blue);
-  border-color: var(--blue-mid);
-  background: var(--blue-light);
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
 }
 .header-cta {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.72rem;
   font-weight: 700;
-  color: #fff;
-  background: var(--blue);
+  color: var(--dark);
+  background: #fff;
   text-decoration: none;
   padding: 6px 13px;
   border-radius: 6px;
   transition: background 0.15s;
 }
-.header-cta:hover { background: var(--blue-hover); }
+.header-cta:hover { background: var(--blue-light); }
 
 /* ── SECTION CHROME ──────────────────────────────────────── */
 .section-label {
