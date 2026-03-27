@@ -88,7 +88,13 @@ def main() -> None:
     # Fetch RSS
     print(f"Fetching {RSS_URL} …")
     try:
-        resp = requests.get(RSS_URL, timeout=15)
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (compatible; NYCuriosity-sync/1.0; "
+                "+https://github.com/TalR24/talroded_personal)"
+            )
+        }
+        resp = requests.get(RSS_URL, timeout=15, headers=headers)
         resp.raise_for_status()
     except Exception as e:
         sys.exit(f"Failed to fetch RSS feed: {e}")
