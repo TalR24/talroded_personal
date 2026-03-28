@@ -1,10 +1,8 @@
 name: Sync NYCuriosity Posts
 
 on:
-  # Run daily at 10am UTC (6am ET)
-  schedule:
-    - cron: "0 10 * * *"
-  # Allow manual trigger from the Actions tab
+  # Manual trigger only — Substack blocks GitHub Actions IPs, so the daily
+  # cron was non-functional. Run `python scripts/sync_posts.py` locally instead.
   workflow_dispatch:
 
 permissions:

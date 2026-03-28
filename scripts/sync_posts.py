@@ -97,7 +97,10 @@ def main() -> None:
         resp = requests.get(API_URL, timeout=15, headers=HEADERS)
         resp.raise_for_status()
     except Exception as e:
-        sys.exit(f"Failed to fetch posts: {e}")
+        # Substack/Cloudflare blocks requests from cloud/CI IP ranges (403).
+        # Run this script locally instead: python scripts/sync_posts.py
+        print(f"Warning: could not fetch posts ({e}). Run locally to sync.")
+        sys.exit(0)
 
     posts = resp.json()
     print(f"Found {len(posts)} posts in API response.")
