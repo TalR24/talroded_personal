@@ -1,7 +1,7 @@
 """
 sync_posts.py
-Fetches the NYCuriosity Substack RSS feed and inserts any posts
-not already listed into writing/index.html (newest first).
+Fetches recent NYCuriosity posts via the Substack JSON API and inserts any
+posts not already listed into writing/index.html (newest first).
 
 Run locally:  python scripts/sync_posts.py
 Run via CI:   see .github/workflows/sync_posts.yml
@@ -9,8 +9,7 @@ Run via CI:   see .github/workflows/sync_posts.yml
 
 import sys
 import html as html_lib
-import xml.etree.ElementTree as ET
-from email.utils import parsedate_to_datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -18,9 +17,15 @@ try:
 except ImportError:
     sys.exit("requests is not installed. Run: pip install requests")
 
-RSS_URL     = "https://nycuriosity.substack.com/feed"
+API_URL      = "https://nycuriosity.substack.com/api/v1/posts?limit=25"
 WRITING_HTML = Path(__file__).parent.parent / "writing" / "index.html"
 ARCHIVE_MARKER = '<div class="archive-list" id="archive">'
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; NYCuriosity-sync/1.0; "
+                  "+https://github.com/TalR24/talroded_personal)",
+    "Accept": "application/json",
+}
 
 
 # ── Category heuristics ──────────────────────────────────────────────────────
@@ -62,7 +67,8 @@ def categorize(title: str) -> tuple[str, str]:
 # ── Date formatting ──────────────────────────────────────────────────────────
 def format_date(date_str: str) -> str:
     try:
-        dt = parsedate_to_datetime(date_str)
+        # Substack API returns ISO 8601, e.g. "2026-03-27T12:00:00.000Z"
+        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
         return f"{dt.strftime('%b')} '{dt.strftime('%y')}"
     except Exception:
         return ""
@@ -85,38 +91,29 @@ def build_entry(link: str, title: str, date_str: str) -> str:
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 def main() -> None:
-    # Fetch RSS
-    print(f"Fetching {RSS_URL} …")
+    # Fetch posts via Substack JSON API
+    print(f"Fetching {API_URL} …")
     try:
-        headers = {
-            "User-Agent": (
-                "Mozilla/5.0 (compatible; NYCuriosity-sync/1.0; "
-                "+https://github.com/TalR24/talroded_personal)"
-            )
-        }
-        resp = requests.get(RSS_URL, timeout=15, headers=headers)
+        resp = requests.get(API_URL, timeout=15, headers=HEADERS)
         resp.raise_for_status()
     except Exception as e:
-        sys.exit(f"Failed to fetch RSS feed: {e}")
+        sys.exit(f"Failed to fetch posts: {e}")
 
-    root = ET.fromstring(resp.content)
-    items = root.findall(".//item")
-    print(f"Found {len(items)} items in feed.")
+    posts = resp.json()
+    print(f"Found {len(posts)} posts in API response.")
 
     # Read current HTML
     html = WRITING_HTML.read_text(encoding="utf-8")
 
     # Find new posts (not yet in the HTML)
     new_entries = []
-    for item in items:
-        link_el = item.find("link")
-        title_el = item.find("title")
-        date_el  = item.find("pubDate")
-        if link_el is None or title_el is None:
+    for post in posts:
+        link  = (post.get("canonical_url") or "").strip()
+        title = (post.get("title") or "").strip()
+        date  = (post.get("post_date") or "").strip()
+
+        if not link or not title:
             continue
-        link  = (link_el.text or "").strip()
-        title = (title_el.text or "").strip()
-        date  = (date_el.text or "").strip() if date_el is not None else ""
 
         # Skip if URL already present anywhere in the file
         if link in html:
