@@ -693,17 +693,30 @@ main {
 .dark-section .section-title { color: #fff; }
 
 /* ── WIKI ────────────────────────────────────────────────── */
+
+/* Hub page — category groupings */
+.wiki-hub-category { margin-bottom: 36px; }
+.wiki-hub-category-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
 .wiki-hub-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
-  gap: 14px;
-  margin-top: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
 }
 .wiki-hub-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px 20px 20px;
+  padding: 16px 18px 18px;
   text-decoration: none;
   color: inherit;
   display: block;
@@ -716,16 +729,16 @@ main {
 }
 .wiki-hub-num {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.58rem;
+  font-size: 0.57rem;
   font-weight: 700;
   color: var(--blue);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 .wiki-hub-title {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 5px;
@@ -733,7 +746,7 @@ main {
   transition: color 0.15s;
 }
 .wiki-hub-card:hover .wiki-hub-title { color: var(--blue); }
-.wiki-hub-desc { font-size: 0.77rem; color: var(--text-muted); line-height: 1.5; }
+.wiki-hub-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
 
 /* Subpage pill nav */
 .wiki-subnav {
@@ -742,7 +755,7 @@ main {
   gap: 6px;
   padding: 14px 0 18px;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 .wiki-subnav a {
   font-family: 'Roboto Mono', monospace;
@@ -759,11 +772,11 @@ main {
 .wiki-subnav a:hover { color: var(--blue); border-color: var(--blue-mid); background: var(--blue-light); }
 .wiki-subnav a.active { color: #fff; background: var(--blue); border-color: var(--blue); }
 
-/* Wiki content */
-.wiki-section { margin-bottom: 44px; }
+/* Subpage content sections */
+.wiki-section { margin-bottom: 40px; }
 .wiki-section-heading {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -771,49 +784,57 @@ main {
   background: var(--bg);
   padding: 7px 10px 7px 12px;
   border-radius: 5px;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
   border-left: 3px solid var(--blue);
 }
-.wiki-link-list { display: flex; flex-direction: column; }
-.wiki-link-item {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 8px 10px 12px;
-  border-bottom: 1px solid var(--border);
-  border-left: 2px solid transparent;
-  transition: border-color 0.15s, background 0.15s;
+
+/* Link tiles grid */
+.wiki-link-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
 }
-.wiki-link-item:last-child { border-bottom: none; }
-.wiki-link-item:hover { border-left-color: var(--blue-mid); background: var(--blue-light); }
+.wiki-link-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px 13px;
+  transition: border-color 0.2s, box-shadow 0.15s, transform 0.15s;
+}
+.wiki-link-item:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
 .wiki-link-title {
-  font-size: 0.875rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--blue);
   text-decoration: none;
   line-height: 1.35;
+  display: block;
 }
 .wiki-link-title:hover { text-decoration: underline; }
 .wiki-link-plain {
-  font-size: 0.875rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1.35;
 }
 .wiki-link-by {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.67rem;
+  font-size: 0.63rem;
   color: var(--text-faint);
-  margin-top: 2px;
+  margin-top: 3px;
+  margin-bottom: 5px;
 }
 .wiki-link-desc {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
-  margin-top: 3px;
   line-height: 1.5;
-  font-style: italic;
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
