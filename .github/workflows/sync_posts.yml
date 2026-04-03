@@ -1,0 +1,38 @@
+name: Sync NYCuriosity Posts
+
+on:
+  # Manual trigger only — Substack blocks GitHub Actions IPs, so the daily
+  # cron was non-functional. Run `python scripts/sync_posts.py` locally instead.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run sync script
+        run: python scripts/sync_posts.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet && echo "No new posts." || (
+            git add writing/index.html &&
+            git commit -m "sync: add new NYCuriosity posts [skip ci]" &&
+            git push
+          )
