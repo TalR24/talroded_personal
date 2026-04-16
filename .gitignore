@@ -1,0 +1,9 @@
+# Resumes and application materials — keep off public GitHub
+Roded_Resume*.pdf
+Roded Resume*.pdf
+resume_*.html
+cover_letter_*.html
+cover_letter_*.pdf
+
+# macOS
+.DS_Store
