@@ -174,6 +174,23 @@
   footer.foot{ text-align:center; margin-top:34px; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ink-faint)}
   footer.foot b{color:var(--accent)}
 
+  /* food section */
+  .food-section{margin-top:20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .food-hd{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 14px 10px;background:var(--card);border-bottom:1px dashed var(--line)}
+  .food-title{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--pine)}
+  .food-title span{font-family:var(--sans);font-weight:400;font-size:11px;color:var(--ink-faint);margin-left:8px}
+  .food-filters{display:flex;flex-wrap:wrap;gap:5px}
+  .ffbtn{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);background:transparent;border:1px solid var(--line);border-radius:20px;padding:4px 11px;cursor:pointer;transition:.2s}
+  .ffbtn:hover{border-color:var(--amber-lite);color:var(--amber)}
+  .ffbtn.active{background:var(--amber);color:#fff;border-color:var(--amber)}
+  #list-food{background:var(--paper-2);padding:8px;min-height:60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;align-items:start}
+  #list-food .card{cursor:grab}
+  #list-food .card .ctime{visibility:hidden}
+  #list-food.over{background:color-mix(in srgb,var(--amber) 10%,transparent)}
+  .card.is-food{border-left-color:var(--amber) !important}
+  .pill.food-price{background:rgba(196,104,43,.12);color:#8a4018;font-weight:600}
+  .pill.food-type{background:rgba(78,128,168,.12);color:#345d7e;text-transform:capitalize}
+
   @media (max-width:880px){
     .workspace{grid-template-columns:1fr}
     .dash-sticky{position:static}
@@ -465,6 +482,40 @@ const PARKS = {
   }
 };
 
+/* ===================== FOOD SPOTS ===================== */
+const FOOD = {
+  glacier: [
+    {id:'gf1',meal:'breakfast',icon:'☕',title:'Glacier Perks Espresso',sub:'Quick espresso bar at Apgar transit hub',price:'$',notes:'Opens 7 am',dur:.5,loc:'apgar'},
+    {id:'gf2',meal:'breakfast',icon:'🥞',title:"Eddie's Café",sub:'Hearty breakfasts + burgers · Apgar Village',price:'$$',notes:'Opens 7 am · popular',dur:1,loc:'apgar'},
+    {id:'gf3',meal:'lunch',icon:'🍔',title:'Lake McDonald Lodge Grill',sub:'Burgers, sandwiches, salads · lakeside deck',price:'$$',notes:'Seasonal · outdoor seating',dur:1,loc:'mcdonaldLodge'},
+    {id:'gf4',meal:'dinner',icon:'🍽️',title:"Russell's Fireside Dining",sub:'Full-service lodge dinner · lake views',price:'$$$',notes:'Reservations recommended',dur:1.5,loc:'mcdonaldLodge'},
+    {id:'gf5',meal:'lunch',icon:'🥧',title:'Park Café & Grocery',sub:'Famous homemade pies · St. Mary',price:'$$',notes:'Try the huckleberry pie ★',dur:1,loc:'stMaryVillage'},
+    {id:'gf6',meal:'lunch',icon:'🌮',title:'Two Sisters Café',sub:'Local favorite · sandwiches, huckleberry shakes',price:'$$',notes:'4 mi from St. Mary entrance',dur:1,loc:'stMaryVillage'},
+    {id:'gf7',meal:'dinner',icon:'🍷',title:'Snowgoose Grille',sub:'Sit-down dinner at St. Mary Lodge',price:'$$$',notes:'Good wine list',dur:1.5,loc:'stMaryVillage'},
+    {id:'gf8',meal:'picnic',icon:'🧺',title:'Apgar lakeside picnic',sub:'Pack in · lakeside tables · grab supplies at store',price:'$',notes:'Coffee cake from Eddie\'s',dur:.75,loc:'apgar'}
+  ],
+  teton: [
+    {id:'tf1',meal:'breakfast',icon:'🥐',title:'Persephone Bakery',sub:"Jackson's best pastries + coffee",price:'$$',notes:'Opens 7 am · can get busy',dur:.75,loc:'jackson'},
+    {id:'tf2',meal:'breakfast',icon:'🥞',title:'The Bunnery',sub:'Jackson classic since 1977 · OSM grain pancakes',price:'$$',notes:'Expect a short wait weekends',dur:1,loc:'jackson'},
+    {id:'tf3',meal:'lunch',icon:'🍕',title:"Dornan's Pizza & Pasta",sub:'Moose Junction · outdoor deck · Teton views',price:'$$',notes:'Opens 11:30 am',dur:1,loc:'moose'},
+    {id:'tf4',meal:'lunch',icon:'🧺',title:'Jenny Lake picnic',sub:'Pack in after the boat · tables by the shore',price:'$',notes:'Buy supplies in Jackson',dur:.75,loc:'jennyLake'},
+    {id:'tf5',meal:'dinner',icon:'🍺',title:'Snake River Brewing',sub:'Award-winning craft beer + pub food · Jackson',price:'$$',notes:'Always busy — go early',dur:1.5,loc:'jackson'},
+    {id:'tf6',meal:'dinner',icon:'🍽️',title:'Mural Room — Jackson Lake Lodge',sub:'Fine dining · floor-to-ceiling Teton views',price:'$$$',notes:'Reservations essential',dur:2,loc:'jacksonLake'},
+    {id:'tf7',meal:'dinner',icon:'🥩',title:'Local Restaurant & Bar',sub:'Upscale casual · great steaks + burgers',price:'$$$',notes:'Reservations recommended',dur:1.5,loc:'jackson'},
+    {id:'tf8',meal:'café',icon:'☕',title:'Cowboy Coffee',sub:'Quick espresso · Town Square walk-up window',price:'$',notes:'Opens early',dur:.33,loc:'jackson'}
+  ],
+  yellowstone: [
+    {id:'yf1',meal:'breakfast',icon:'🍳',title:'Old Faithful Inn Dining Room',sub:'Full breakfast inside the historic inn',price:'$$$',notes:'Reservations recommended · opens 7 am',dur:1,loc:'oldFaithful'},
+    {id:'yf2',meal:'lunch',icon:'🍔',title:'Old Faithful Snow Lodge Grill',sub:'Counter service · burgers, wraps · faster option',price:'$$',notes:'Faster than the Inn dining room',dur:.75,loc:'oldFaithful'},
+    {id:'yf3',meal:'lunch',icon:'🥗',title:'Canyon Lodge Eatery',sub:'Modern cafeteria · salads, hot food',price:'$$',notes:'Closest lunch to Grand Canyon area',dur:.75,loc:'canyon'},
+    {id:'yf4',meal:'dinner',icon:'🍽️',title:'Lake Yellowstone Hotel Dining',sub:'Best dinner in the park · elegant historic room',price:'$$$',notes:'Reservations required',dur:2,loc:'yellowstoneLake'},
+    {id:'yf5',meal:'dinner',icon:'🔥',title:'Roosevelt Lodge Cowboy Cookout',sub:'Outdoor cookout + wagon or horseback ride in',price:'$$$',notes:'Book well ahead · Jun–Aug only ★',dur:3,loc:'tower'},
+    {id:'yf6',meal:'breakfast',icon:'☕',title:'Mammoth Hot Springs Café',sub:'Quick coffee and pastries near the terraces',price:'$$',notes:'Opens early',dur:.5,loc:'mammoth'},
+    {id:'yf7',meal:'picnic',icon:'🧺',title:'Lamar Valley roadside picnic',sub:'Eat while scanning for wolves · no facilities',price:'$',notes:'Pack it in/out',dur:.75,loc:'lamarValley'},
+    {id:'yf8',meal:'lunch',icon:'🌭',title:'Yellowstone General Store',sub:'Grab-and-go near major attractions',price:'$',notes:'Multiple locations along Grand Loop',dur:.5,loc:'grandPrismatic'}
+  ]
+};
+
 function COMPASS(x,y){
   return '<g transform="translate('+x+','+y+')" opacity=".7"><circle r="13" fill="none" stroke="#8a7d56" stroke-width="1"/><path d="M0 -11 L4 0 L0 11 L-4 0 Z" fill="#A8402A"/><text y="-15" text-anchor="middle" font-family="Spline Sans Mono" font-size="8" fill="#6d6244">N</text></g>';
 }
@@ -474,6 +525,7 @@ const DEFS = '<defs><linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop 
 /* ===================== STATE ===================== */
 let currentPark='glacier', currentPlan='A';
 let items=[], party=4, dayStart={};
+let foodItems=[], currentFoodFilter='all';
 
 const $ = s => document.querySelector(s);
 const fmtTime = mins => { let h=Math.floor(mins/60)%24, m=Math.round(mins%60); const ap=h>=12?'p':'a'; let hh=h%12; if(hh===0)hh=12; return hh+(m?':'+String(m).padStart(2,'0'):'')+ap; };
@@ -494,6 +546,7 @@ function loadPark(pk){
   $('#foot-park').textContent = P.foot;
   $('#map-cap-route').textContent = P.map.cap;
   document.querySelectorAll('#parktabs button').forEach(b=>b.classList.toggle('active', b.dataset.park===pk));
+  currentFoodFilter='all';
   buildPicker();
   buildMapShell();
   loadPlan(currentPlan);
@@ -520,6 +573,8 @@ function loadPlan(k){
   currentPlan=k;
   items=JSON.parse(JSON.stringify(plan().items));
   dayStart={}; plan().days.forEach((d,i)=>dayStart[i]=d.start);
+  foodItems=(FOOD[currentPark]||[]).map(f=>({...f,day:'food',isFood:true,kind:'meal'}));
+  currentFoodFilter='all';
   document.querySelectorAll('#planpick .plan-opt').forEach(b=>b.classList.toggle('active', b.dataset.plan===k));
   buildDays();
   const ws=$('.workspace'); ws.classList.add('intro');
@@ -542,31 +597,48 @@ function buildDays(){
   html+='<div class="tray"><div class="day-head"><div class="dl">⌁ Options &amp; extras'+
         '<small style="font-family:var(--sans);font-weight:500">swap-in alternatives · drag into any day</small></div></div>'+
         '<div class="day-list" data-day="pool" id="list-pool"></div></div>';
+  html+='<div class="food-section"><div class="food-hd">'+
+    '<div class="food-title">🍽 Food &amp; Dining<span>drag into any day · click + to add to Day 1</span></div>'+
+    '<div class="food-filters" id="food-filters">'+
+    ['all','breakfast','lunch','dinner','café','picnic'].map(m=>'<button class="ffbtn'+(m==='all'?' active':'')+'" data-meal="'+m+'">'+(m.charAt(0).toUpperCase()+m.slice(1))+'</button>').join('')+
+    '</div></div>'+
+    '<div class="day-list" data-day="food" id="list-food"></div></div>';
   $('#board').innerHTML=html;
 }
 
 /* ===================== RENDER ===================== */
 function render(){
   document.querySelectorAll('.day-list').forEach(l=>l.innerHTML='');
-  items.forEach(it=>{ const l=document.getElementById('list-'+it.day); if(l) l.appendChild(makeCard(it)); });
+  [...items,...foodItems].forEach(it=>{ const l=document.getElementById('list-'+it.day); if(l) l.appendChild(makeCard(it)); });
   if(!items.some(i=>i.day==='pool')) $('#list-pool').innerHTML='<div class="tray-empty">nothing skipped — your full plan is live</div>';
+  const fl=$('#list-food');
+  if(fl&&!foodItems.some(i=>i.day==='food')) fl.innerHTML='<div class="tray-empty" style="grid-column:1/-1">all food spots added to your plan</div>';
+  applyFoodFilter(currentFoodFilter);
   compute();
 }
 
 function makeCard(it){
   const el=document.createElement('div');
-  el.className='card kind-'+it.kind; el.dataset.id=it.id;
+  el.className='card kind-'+it.kind+(it.isFood?' is-food':''); el.dataset.id=it.id;
+  if(it.isFood) el.dataset.meal=it.meal||'';
   const pills=[];
-  if(it.miles){ const m=it.miles[0]===it.miles[1]? it.miles[0] : it.miles[0]+'–'+it.miles[1]; pills.push('<span class="pill mi">'+m+' mi</span>'); }
-  if(it.diff) pills.push('<span class="pill diff-'+it.diff+'">'+DIFF[it.diff].label+'</span>');
-  if(it.cost) pills.push('<span class="pill cost">$'+it.cost+'/pp</span>');
-  if(it.day==='pool') pills.push('<span class="pill alt">swap-in</span>');
-  const moveBtn = it.day==='pool'
+  if(it.isFood){
+    if(it.meal) pills.push('<span class="pill food-type">'+it.meal.charAt(0).toUpperCase()+it.meal.slice(1)+'</span>');
+    if(it.price) pills.push('<span class="pill food-price">'+it.price+'</span>');
+  } else {
+    if(it.miles){ const m=it.miles[0]===it.miles[1]? it.miles[0] : it.miles[0]+'–'+it.miles[1]; pills.push('<span class="pill mi">'+m+' mi</span>'); }
+    if(it.diff) pills.push('<span class="pill diff-'+it.diff+'">'+DIFF[it.diff].label+'</span>');
+    if(it.cost) pills.push('<span class="pill cost">$'+it.cost+'/pp</span>');
+    if(it.day==='pool') pills.push('<span class="pill alt">swap-in</span>');
+  }
+  const inTray=it.day==='pool'||it.day==='food';
+  const moveBtn = inTray
     ? '<button class="cmove no-drag" title="Add to plan" data-act="restore">+</button>'
-    : '<button class="cmove no-drag" title="Move to options" data-act="skip">−</button>';
+    : '<button class="cmove no-drag" title="'+(it.isFood?'Back to food list':'Move to options')+'" data-act="skip">−</button>';
   el.innerHTML='<div class="ctime" data-time></div>'+
     '<div class="cbody"><div class="ct"><span class="icon" style="font-size:13px">'+it.icon+'</span> '+it.title+(it.star?' <span class="star">★</span>':'')+'</div>'+
     (it.sub?'<span class="cs">'+it.sub+'</span>':'')+
+    (it.isFood&&it.notes&&it.day==='food'?'<span class="cs" style="font-size:10.5px;color:var(--ink-faint)">'+it.notes+'</span>':'')+
     (pills.length?'<div class="pills">'+pills.join('')+'</div>':'')+'</div>'+moveBtn;
   el.addEventListener('mouseenter',()=>highlightPins(it,true));
   el.addEventListener('mouseleave',()=>highlightPins(it,false));
@@ -582,7 +654,7 @@ function compute(){
     const list=document.getElementById('list-'+i); if(!list) return;
     let t=dayStart[i]; $('#start-'+i).textContent=fmtTime(dayStart[i]);
     [...list.children].forEach(card=>{
-      const it=items.find(x=>x.id===card.dataset.id); if(!it) return;
+      const it=items.find(x=>x.id===card.dataset.id)||foodItems.find(x=>x.id===card.dataset.id); if(!it) return;
       card.querySelector('[data-time]').innerHTML=fmtTime(t)+'→'+fmtTime(t+it.dur*60)+'<span class="dur">'+fmtDur(it.dur)+'</span>';
       t+=it.dur*60;
       if(it.miles){ miMin+=it.miles[0]; miMax+=it.miles[1]; }
@@ -687,6 +759,7 @@ function onMove(e){ if(!dragEl) return; const x=e.clientX,y=e.clientY; let targe
   for(const l of lists()){ const r=l.getBoundingClientRect(); if(x>=r.left-30&&x<=r.right+30&&y>=r.top-24&&y<=r.bottom+24){target=l;break;} }
   lists().forEach(l=>l.classList.toggle('over',l===target)); if(!target) return;
   const ph=$('#list-pool .tray-empty'); if(ph) ph.remove();
+  const fph=$('#list-food .tray-empty'); if(fph) fph.remove();
   const after=getAfter(target,y); if(after==null) target.appendChild(dragEl); else target.insertBefore(dragEl,after);
 }
 function onUp(){ if(!dragEl) return; dragEl.classList.remove('dragging'); dragEl.style.pointerEvents='';
@@ -694,17 +767,25 @@ function onUp(){ if(!dragEl) return; dragEl.classList.remove('dragging'); dragEl
   document.removeEventListener('pointermove',onMove); document.removeEventListener('pointerup',onUp);
   syncOrder(); dragEl=null;
 }
-function syncOrder(){ const out=[];
-  lists().forEach(l=>{ const day = l.dataset.day==='pool'?'pool':+l.dataset.day;
-    [...l.querySelectorAll('.card')].forEach(c=>{ const it=items.find(i=>i.id===c.dataset.id); if(it){ it.day=day; out.push(it);} }); });
-  items=out; render();
+function syncOrder(){ const out=[],foodOut=[];
+  lists().forEach(l=>{ const day=l.dataset.day==='pool'?'pool':l.dataset.day==='food'?'food':+l.dataset.day;
+    [...l.querySelectorAll('.card')].forEach(c=>{
+      let it=items.find(i=>i.id===c.dataset.id); if(it){ it.day=day; out.push(it); return; }
+      it=foodItems.find(i=>i.id===c.dataset.id); if(it){ it.day=day; foodOut.push(it); }
+    }); });
+  items=out; foodItems=foodOut; render();
 }
 
 document.addEventListener('click',e=>{
   const btn=e.target.closest('.cmove[data-act]'); if(!btn) return;
-  const it=items.find(i=>i.id===btn.closest('.card').dataset.id); if(!it) return;
-  if(btn.dataset.act==='skip'){ if(it.origin==null) it.origin=it.day; it.day='pool'; }
-  else it.day = (it.origin!=null? it.origin : 0);
+  const id=btn.closest('.card').dataset.id;
+  const it=items.find(i=>i.id===id)||foodItems.find(i=>i.id===id); if(!it) return;
+  if(btn.dataset.act==='skip'){
+    if(it.isFood){ it.day='food'; }
+    else { if(it.origin==null) it.origin=it.day; it.day='pool'; }
+  } else {
+    it.day=(it.origin!=null?it.origin:0);
+  }
   render();
 });
 document.addEventListener('click',e=>{
@@ -718,6 +799,21 @@ $('#planpick').addEventListener('click',e=>{ const b=e.target.closest('.plan-opt
 $('#reset').addEventListener('click',()=>loadPlan(currentPlan));
 $('#party-up').addEventListener('click',()=>{ party=Math.min(12,party+1); compute(); });
 $('#party-dn').addEventListener('click',()=>{ party=Math.max(1,party-1); compute(); });
+
+/* ===================== FOOD FILTER ===================== */
+function applyFoodFilter(meal){
+  currentFoodFilter=meal;
+  const fl=$('#list-food'); if(!fl) return;
+  fl.querySelectorAll('.card').forEach(card=>{
+    const m=card.dataset.meal;
+    card.style.display=(meal==='all'||m===meal)?'':'none';
+  });
+  document.querySelectorAll('.ffbtn').forEach(b=>b.classList.toggle('active',b.dataset.meal===meal));
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.ffbtn[data-meal]'); if(!b) return;
+  applyFoodFilter(b.dataset.meal);
+});
 
 /* ===================== INIT ===================== */
 loadPark('glacier');
