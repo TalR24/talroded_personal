@@ -191,6 +191,19 @@
   .pill.food-price{background:rgba(196,104,43,.12);color:#8a4018;font-weight:600}
   .pill.food-type{background:rgba(78,128,168,.12);color:#345d7e;text-transform:capitalize}
 
+  /* daily miles panel */
+  .dmi-row{margin-bottom:16px}
+  .dmi-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .dmi-head .dl{font-family:var(--serif);font-weight:600;font-size:14px;color:var(--pine)}
+  .dmi-head .dm{font-family:var(--mono);font-size:13px;color:var(--pine);font-weight:600}
+  .dmi-head .dm.zero{color:var(--ink-faint);font-weight:400;font-style:italic;font-size:11.5px}
+  .dmi-bar{height:16px;border-radius:8px;background:var(--paper-2);border:1px solid var(--line-soft);overflow:hidden;display:flex}
+  .dmi-seg{height:100%;transition:width .55s cubic-bezier(.2,.8,.2,1);cursor:default}
+  .dmi-legend{display:flex;flex-wrap:wrap;gap:3px 10px;margin-top:5px}
+  .dmi-legend span{font-family:var(--mono);font-size:9.5px;color:var(--ink-soft);display:flex;align-items:center;gap:4px}
+  .dmi-legend i{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0}
+  .dmi-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;padding-top:6px;border-top:1px dashed var(--line)}
+
   @media (max-width:880px){
     .workspace{grid-template-columns:1fr}
     .dash-sticky{position:static}
@@ -242,6 +255,11 @@
             <b id="party-n" style="color:var(--pine);font-size:14px;min-width:18px;text-align:center">4</b>
             <button class="tinybtn" id="party-up">+</button>
           </div>
+        </div>
+
+        <div class="panel">
+          <h4>🥾 Miles per day</h4>
+          <div id="daymiles"></div>
         </div>
 
         <div class="panel">
@@ -322,7 +340,14 @@ const PARKS = {
             {id:'a4',day:'pool',origin:0,kind:'tour',icon:'🚌',title:'Western Alpine Red Bus Tour',sub:'Vintage open-top tour',dur:3.5,hours:[3,4],cost:90,loc:'apgar'},
             {id:'a15',day:'pool',origin:1,kind:'view',icon:'⛵',title:'Lake McDonald boat cruise',sub:'Historic wooden launch',dur:1.25,cost:25,loc:'mcdonaldLodge'},
             {id:'a16',day:'pool',origin:0,kind:'rest',icon:'🛶',title:'Apgar kayak / paddle',sub:'Calm morning on the lake',dur:2,loc:'apgar'},
-            {id:'a17',day:'pool',origin:1,kind:'hike',icon:'🥾',title:'Sun Point Nature Trail',sub:'Cliff-edge lake views',miles:[1.3,1.3],hours:[1,1],dur:1,diff:'easy',loc:'sunrift'}
+            {id:'a17',day:'pool',origin:1,kind:'hike',icon:'🥾',title:'Sun Point Nature Trail',sub:'Cliff-edge lake views',miles:[1.3,1.3],hours:[1,1],dur:1,diff:'easy',loc:'sunrift'},
+            {id:'ax1',day:'pool',origin:0,kind:'hike',icon:'🥾',title:'Grinnell Glacier Trail',sub:'Many Glacier · blue-green lake backed by a glacier wall',miles:[10.6,10.6],hours:[5,6],dur:5.5,diff:'strenuous',star:true,loc:'jackson'},
+            {id:'ax2',day:'pool',origin:0,kind:'hike',icon:'🏔️',title:'Iceberg Lake',sub:'Many Glacier · turquoise lake below sheer cliffs',miles:[9.7,9.7],hours:[5,5.5],dur:5,diff:'moderate',star:true,loc:'stMaryLake'},
+            {id:'ax3',day:'pool',origin:1,kind:'hike',icon:'⛰️',title:'Siyeh Pass',sub:'GTSR · high alpine pass at 8,000 ft · shuttle helps',miles:[10,10],hours:[5,6],dur:5.5,diff:'strenuous',loc:'loganPass'},
+            {id:'ax4',day:'pool',origin:0,kind:'hike',icon:'🗼',title:'Apgar Lookout',sub:'West Glacier · fire lookout with McDonald + range views',miles:[7.4,7.4],hours:[4,4.5],dur:4,diff:'strenuous',loc:'apgar'},
+            {id:'ax5',day:'pool',origin:0,kind:'hike',icon:'🌲',title:'Johns Lake Loop',sub:'Quiet old-growth forest loop near McDonald Lodge',miles:[3,3],hours:[1.5,2],dur:1.75,diff:'easy',loc:'mcdonaldLodge'},
+            {id:'ax6',day:'pool',origin:1,kind:'hike',icon:'💦',title:'St. Mary Falls + Virginia Falls',sub:'Easy waterfall pair — add-on near St. Mary',miles:[3.5,3.5],hours:[2,2],dur:2,diff:'easy',loc:'stMaryFalls'},
+            {id:'ax7',day:'pool',origin:0,kind:'hike',icon:'👁️',title:'Mt. Brown Lookout',sub:'Above Lake McDonald · very steep · aerial lake views',miles:[9.8,9.8],hours:[5,6],dur:5.5,diff:'strenuous',loc:'mcdonaldLodge'}
           ]
       },
       B:{ tag:'◇ Option B — no shuttle', title:'Avalanche Lake + full GTSR', blurb:'Two relaxed days, still stunning scenery.',
@@ -345,7 +370,14 @@ const PARKS = {
             {id:'b15',day:1,kind:'view',icon:'🌅',title:'Wild Goose Island — golden hour',sub:'Best light 7:30–8:30 pm',dur:1,star:true,loc:'wildGoose'},
             {id:'b16',day:1,kind:'meal',icon:'🍷',title:'Dinner · early bed',sub:'5:30 am sunrise tomorrow',dur:1.5,loc:'stMaryVillage'},
             {id:'b6',day:'pool',origin:0,kind:'tour',icon:'🚌',title:'Western Alpine Red Bus Tour',sub:'Vintage open-top tour',dur:3.5,hours:[3,4],cost:90,loc:'apgar'},
-            {id:'b17',day:'pool',origin:1,kind:'view',icon:'⛵',title:'Lake McDonald boat cruise',sub:'Historic wooden launch',dur:1.25,cost:25,loc:'mcdonaldLodge'}
+            {id:'b17',day:'pool',origin:1,kind:'view',icon:'⛵',title:'Lake McDonald boat cruise',sub:'Historic wooden launch',dur:1.25,cost:25,loc:'mcdonaldLodge'},
+            {id:'bx1',day:'pool',origin:0,kind:'hike',icon:'🥾',title:'Grinnell Glacier Trail',sub:'Many Glacier · blue-green lake backed by a glacier wall',miles:[10.6,10.6],hours:[5,6],dur:5.5,diff:'strenuous',star:true,loc:'jackson'},
+            {id:'bx2',day:'pool',origin:0,kind:'hike',icon:'🏔️',title:'Iceberg Lake',sub:'Many Glacier · turquoise lake below sheer cliffs',miles:[9.7,9.7],hours:[5,5.5],dur:5,diff:'moderate',star:true,loc:'stMaryLake'},
+            {id:'bx3',day:'pool',origin:1,kind:'hike',icon:'⛰️',title:'Siyeh Pass',sub:'GTSR · high alpine pass at 8,000 ft · shuttle helps',miles:[10,10],hours:[5,6],dur:5.5,diff:'strenuous',loc:'loganPass'},
+            {id:'bx4',day:'pool',origin:0,kind:'hike',icon:'🗼',title:'Apgar Lookout',sub:'West Glacier · fire lookout with McDonald + range views',miles:[7.4,7.4],hours:[4,4.5],dur:4,diff:'strenuous',loc:'apgar'},
+            {id:'bx5',day:'pool',origin:0,kind:'hike',icon:'🌲',title:'Johns Lake Loop',sub:'Quiet old-growth forest loop near McDonald Lodge',miles:[3,3],hours:[1.5,2],dur:1.75,diff:'easy',loc:'mcdonaldLodge'},
+            {id:'bx6',day:'pool',origin:0,kind:'hike',icon:'👁️',title:'Mt. Brown Lookout',sub:'Above Lake McDonald · very steep · aerial lake views',miles:[9.8,9.8],hours:[5,6],dur:5.5,diff:'strenuous',loc:'mcdonaldLodge'},
+            {id:'bx7',day:'pool',origin:1,kind:'hike',icon:'⛰️',title:'Ptarmigan Tunnel',sub:'Many Glacier · carved tunnel through the Divide',miles:[10.2,10.2],hours:[5,6],dur:5.5,diff:'strenuous',loc:'stMaryLake'}
           ]
       }
     }
@@ -408,7 +440,14 @@ const PARKS = {
             {id:'tp5',day:'pool',origin:1,kind:'view',icon:'🌅',title:'Schwabacher Landing — sunrise',sub:'Mirror reflections of the range',dur:1,star:true,loc:'schwabacher'},
             {id:'tp6',day:'pool',origin:1,kind:'view',icon:'🦌',title:'Oxbow Bend — wildlife & photos',sub:'Moose, elk, Mt Moran reflection',dur:1,loc:'oxbowBend'},
             {id:'tp7',day:'pool',origin:1,kind:'view',icon:'🚗',title:'Signal Mountain summit drive',sub:'Valley-wide panorama',dur:1,loc:'signalMtn'},
-            {id:'tp8',day:'pool',origin:1,kind:'view',icon:'🏞️',title:'Jackson Lake / Colter Bay',sub:'Big-water overlook',dur:1.5,loc:'jacksonLake'}
+            {id:'tp8',day:'pool',origin:1,kind:'view',icon:'🏞️',title:'Jackson Lake / Colter Bay',sub:'Big-water overlook',dur:1.5,loc:'jacksonLake'},
+            {id:'tp9',day:'pool',origin:1,kind:'hike',icon:'🧗',title:'Amphitheater Lake',sub:'Lupine Meadows TH · stunning view of the Teton wall',miles:[9.4,9.4],hours:[5,5.5],dur:5.5,diff:'strenuous',star:true,loc:'jennyLake'},
+            {id:'tp10',day:'pool',origin:1,kind:'hike',icon:'🥾',title:'Paintbrush Canyon (lower)',sub:'From String Lake · wildflowers + canyon views',miles:[10,10],hours:[5,5.5],dur:5,diff:'moderate',star:true,loc:'stringLake'},
+            {id:'tp11',day:'pool',origin:2,kind:'hike',icon:'🥾',title:'Phelps Lake',sub:'Via Death Canyon TH · beautiful canyon approach',miles:[7.2,7.2],hours:[3.5,4],dur:4,diff:'moderate',loc:'taggart'},
+            {id:'tp12',day:'pool',origin:2,kind:'hike',icon:'🌊',title:'Hermitage Point',sub:'Colter Bay area · Jackson Lake shore loop · wildlife',miles:[8.8,8.8],hours:[4,5],dur:4.5,diff:'easymod',loc:'jacksonLake'},
+            {id:'tp13',day:'pool',origin:1,kind:'hike',icon:'🦢',title:'Two Ocean Lake',sub:'Quiet glacial lake loop · great birding',miles:[6.4,6.4],hours:[3,3.5],dur:3.5,diff:'easy',loc:'oxbowBend'},
+            {id:'tp14',day:'pool',origin:2,kind:'hike',icon:'🥾',title:'Emma Matilda Lake',sub:'Longer loop above Two Ocean Lake · panoramic views',miles:[10.5,10.5],hours:[5,5.5],dur:5.5,diff:'moderate',loc:'oxbowBend'},
+            {id:'tp15',day:'pool',origin:1,kind:'hike',icon:'🌊',title:'Bradley Lake via Taggart TH',sub:'Extension of Taggart — adds a second lake',miles:[5.9,5.9],hours:[3,3.5],dur:3.5,diff:'moderate',loc:'taggart'}
           ]
       }
     }
@@ -475,7 +514,14 @@ const PARKS = {
             {id:'yp5',day:'pool',origin:1,kind:'hike',icon:'🥾',title:'Storm Point — Yellowstone Lake',sub:'Easy shoreline loop',miles:[2.3,2.3],hours:[1.5,1.5],dur:1.5,diff:'easy',loc:'yellowstoneLake'},
             {id:'yp6',day:'pool',origin:2,kind:'view',icon:'🎨',title:'Artist Point — sunset',sub:'The classic canyon view',dur:1,star:true,loc:'grandCanyonYS'},
             {id:'yp7',day:'pool',origin:0,kind:'hike',icon:'🚲',title:'Lone Star Geyser (bike or hike)',sub:'Quiet backcountry geyser',miles:[4.8,4.8],hours:[2.5,2.5],dur:2.5,diff:'easy',loc:'oldFaithful'},
-            {id:'yp8',day:'pool',origin:3,kind:'view',icon:'🔭',title:'Extended Lamar wildlife watch',sub:'Spotting scopes at dawn/dusk',dur:2,loc:'lamarValley'}
+            {id:'yp8',day:'pool',origin:3,kind:'view',icon:'🔭',title:'Extended Lamar wildlife watch',sub:'Spotting scopes at dawn/dusk',dur:2,loc:'lamarValley'},
+            {id:'yp9',day:'pool',origin:1,kind:'hike',icon:'🌈',title:'Fairy Falls + Grand Prismatic Overlook',sub:'Best overhead view of the spring — very photogenic',miles:[5.4,5.4],hours:[2.5,3],dur:2.5,diff:'easy',star:true,loc:'grandPrismatic'},
+            {id:'yp10',day:'pool',origin:0,kind:'hike',icon:'💦',title:'Mystic Falls',sub:'Gentle loop near Old Faithful · quiet waterfall',miles:[3,3],hours:[1.5,2],dur:1.75,diff:'easy',loc:'oldFaithful'},
+            {id:'yp11',day:'pool',origin:0,kind:'hike',icon:'👁️',title:'Observation Point',sub:'Above Old Faithful · best aerial geyser basin view',miles:[2.2,2.2],hours:[1.5,1.5],dur:1.5,diff:'easymod',loc:'oldFaithful'},
+            {id:'yp12',day:'pool',origin:2,kind:'hike',icon:'⛰️',title:'Elephant Back Mountain',sub:'Panoramic loop above Yellowstone Lake',miles:[3.5,3.5],hours:[2,2.5],dur:2,diff:'moderate',loc:'yellowstoneLake'},
+            {id:'yp13',day:'pool',origin:3,kind:'hike',icon:'⛰️',title:'Bunsen Peak',sub:'Near Mammoth · exposed summit · 360° plateau views',miles:[4.2,4.2],hours:[2.5,3],dur:2.5,diff:'moderate',loc:'mammoth'},
+            {id:'yp14',day:'pool',origin:3,kind:'hike',icon:'🌊',title:'Osprey Falls',sub:'Down into the Gardner Canyon · remote & uncrowded',miles:[9.4,9.4],hours:[4.5,5],dur:4.5,diff:'strenuous',loc:'mammoth'},
+            {id:'yp15',day:'pool',origin:1,kind:'hike',icon:'🌋',title:'Shoshone Lake via Lone Star',sub:'Most remote frontcountry lake in lower-48',miles:[10.6,10.6],hours:[5,5.5],dur:5.5,diff:'moderate',loc:'oldFaithful'}
           ]
       }
     }
@@ -675,7 +721,7 @@ function compute(){
   $('#s-cost-sub').textContent = cost? party+' × $'+cost+' add-ons' : 'no paid add-ons';
   $('#party-n').textContent=party;
 
-  renderMix(mix,trail); renderIntensity(days,dayLoad); renderMap();
+  renderMix(mix,trail); renderDailyMiles(days); renderIntensity(days,dayLoad); renderMap();
 }
 
 function tweenNum(sel,target,fmt,endHTML){
@@ -683,6 +729,45 @@ function tweenNum(sel,target,fmt,endHTML){
   const t0=performance.now(),dur=420;
   (function step(now){ const k=Math.min(1,(now-t0)/dur); const e=1-Math.pow(1-k,3); const v=start+(target-start)*e;
     el.innerHTML=(k>=1&&endHTML)?endHTML:fmt(v); if(k<1) requestAnimationFrame(step); })(performance.now());
+}
+
+function renderDailyMiles(days){
+  const box=$('#daymiles'); if(!box) return;
+  // collect hikes per day
+  const dayHikes={};
+  days.forEach((d,i)=>{ dayHikes[i]=[]; });
+  [...items,...foodItems].forEach(it=>{
+    if(typeof it.day==='number'&&it.kind==='hike'&&it.miles){
+      if(!dayHikes[it.day]) dayHikes[it.day]=[];
+      const avg=(it.miles[0]+it.miles[1])/2;
+      dayHikes[it.day].push({title:it.title,miles:avg,diff:it.diff||'easymod'});
+    }
+  });
+  const totals=days.map((d,i)=>(dayHikes[i]||[]).reduce((s,h)=>s+h.miles,0));
+  const maxMi=Math.max(1,...totals);
+  box.innerHTML='';
+  days.forEach((d,i)=>{
+    const hikes=dayHikes[i]||[]; const total=totals[i];
+    const row=document.createElement('div'); row.className='dmi-row';
+    const segs=hikes.map(h=>{
+      const w=(h.miles/maxMi*100).toFixed(1);
+      const col=DIFF[h.diff]?DIFF[h.diff].color:'var(--teal)';
+      return '<div class="dmi-seg" style="width:'+w+'%;background:'+col+'" title="'+h.title+' · '+fmt1(h.miles)+' mi"></div>';
+    }).join('');
+    const leg=hikes.map(h=>{
+      const col=DIFF[h.diff]?DIFF[h.diff].color:'var(--teal)';
+      const short=h.title.split(/[·—]/)[0].trim().split(' ').slice(0,4).join(' ');
+      return '<span><i style="background:'+col+'"></i>'+short+' · '+fmt1(h.miles)+'mi</span>';
+    }).join('');
+    row.innerHTML='<div class="dmi-head"><span class="dl">'+d.label+'</span>'+
+      '<span class="dm'+(total===0?' zero':'')+'">'+(total>0?fmt1(total)+' mi':'rest day')+'</span></div>'+
+      '<div class="dmi-bar">'+(segs||'')+'</div>'+
+      (leg?'<div class="dmi-legend">'+leg+'</div>':'');
+    box.appendChild(row);
+  });
+  const scale=document.createElement('div'); scale.className='dmi-scale';
+  scale.innerHTML='<span>0</span><span>'+fmt1(maxMi/2)+' mi</span><span>'+fmt1(maxMi)+' mi</span>';
+  box.appendChild(scale);
 }
 
 function renderMix(mix,trail){
