@@ -204,6 +204,50 @@
   .dmi-legend i{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0}
   .dmi-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;padding-top:6px;border-top:1px dashed var(--line)}
 
+  /* overview strip */
+  #ov-strip{display:flex;gap:8px;margin:16px 0 0;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;scroll-snap-type:x mandatory}
+  .ov-day{flex:1;min-width:140px;max-width:260px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;transition:border-color .2s,transform .2s}
+  .ov-day:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .ov-day-hd{padding:8px 10px 6px;border-bottom:1px dashed var(--line)}
+  .ov-day-hd .odl{font-family:var(--serif);font-weight:600;font-size:13px;color:var(--pine)}
+  .ov-day-hd .osub{font-family:var(--mono);font-size:8.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ov-acts{flex:1;display:flex;flex-direction:column;gap:2px;padding:5px;min-height:60px}
+  .ov-act{border-radius:4px;padding:3px 7px;display:flex;align-items:center;gap:4px;overflow:hidden}
+  .ov-act .oa-icn{font-size:10px;flex-shrink:0}
+  .ov-act .oa-nm{font-size:10.5px;color:#fff;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;font-family:var(--sans)}
+  .ov-act .oa-d{font-family:var(--mono);font-size:8.5px;color:rgba(255,255,255,.6);flex-shrink:0}
+  .ov-empty-act{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--ink-faint);text-align:center;padding:16px 0}
+  .ov-ft{padding:6px 10px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px}
+  .ov-ft .omi{color:var(--pine);font-weight:600}
+  .ov-ft .owrap{color:var(--ink-soft)}
+  .ov-ft .owrap.late{color:var(--rust)}
+  /* library panel */
+  .lib-section{margin-top:20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .lib-hd{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 14px;background:var(--card);border-bottom:1px dashed var(--line)}
+  .lib-title{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--pine);margin-right:4px}
+  .lib-tabs{display:flex;gap:4px}
+  .libtab{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);background:transparent;border:1px solid var(--line);border-radius:20px;padding:4px 12px;cursor:pointer;transition:.2s}
+  .libtab:hover{color:var(--pine);border-color:var(--pine)}
+  .libtab.active{background:var(--pine);color:#fff;border-color:var(--pine)}
+  .lib-body{background:var(--paper-2);padding:8px}
+  #list-pool{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;min-height:60px}
+  #list-pool .card .ctime{visibility:hidden}
+  #list-pool.over{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  /* day notes */
+  .day-note-wrap{padding:4px 10px 8px;border-top:1px dashed var(--line-soft)}
+  .note-btn{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);background:none;border:none;cursor:pointer;padding:4px 2px;transition:.2s}
+  .note-btn:hover{color:var(--accent)}
+  .note-area{display:none;margin-top:5px}
+  .note-area.open{display:block}
+  .note-area textarea{width:100%;box-sizing:border-box;font-family:var(--sans);font-size:12px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 9px;resize:vertical;min-height:52px;line-height:1.5;outline:none}
+  .note-area textarea:focus{border-color:var(--accent)}
+  /* day warnings */
+  .day-warn{display:none;flex-wrap:wrap;gap:5px;padding:4px 10px 8px}
+  .warn-chip{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;padding:2px 9px;border-radius:12px;color:#fff}
+  .warn-chip.w-late{background:var(--rust)}
+  .warn-chip.w-long{background:var(--moderate)}
+  .warn-chip.w-epic{background:var(--strenuous)}
+
   @media (max-width:880px){
     .workspace{grid-template-columns:1fr}
     .dash-sticky{position:static}
@@ -218,7 +262,7 @@
   <header class="masthead">
     <div class="eyebrow" id="eyebrow"></div>
     <h1 class="title" id="title"></h1>
-    <p class="subtitle">Drag slots between days, swap in alternatives from the options tray, and tune each day's start — totals, effort, and the route map update live.</p>
+    <p class="subtitle">Build your day-by-day itinerary: drag cards between days, pull extras from the library, track daily mileage, and watch the route map light up live.</p>
     <div class="meta-strip" id="meta"></div>
   </header>
 
@@ -229,6 +273,7 @@
   </div>
 
   <div class="planpick" id="planpick"></div>
+  <div id="ov-strip"></div>
 
   <div class="workspace">
     <section>
@@ -293,6 +338,10 @@ const DIFF = {
   easymod:   {label:'Easy–mod',  color:'var(--easymod)',   w:1.5},
   moderate:  {label:'Moderate',  color:'var(--moderate)',  w:2},
   strenuous: {label:'Strenuous', color:'var(--strenuous)', w:3}
+};
+const OV_COLORS = {
+  hike:'#3C8E86', drive:'#4E80A8', view:'#C4682B',
+  meal:'#8A968B', rest:'#5c8a6b', logistics:'#8A968B', tour:'#A8402A'
 };
 
 /* ===================== PARKS ===================== */
@@ -572,6 +621,7 @@ const DEFS = '<defs><linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop 
 let currentPark='glacier', currentPlan='A';
 let items=[], party=4, dayStart={};
 let foodItems=[], currentFoodFilter='all';
+let dayNotes={};
 
 const $ = s => document.querySelector(s);
 const fmtTime = mins => { let h=Math.floor(mins/60)%24, m=Math.round(mins%60); const ap=h>=12?'p':'a'; let hh=h%12; if(hh===0)hh=12; return hh+(m?':'+String(m).padStart(2,'0'):'')+ap; };
@@ -621,6 +671,7 @@ function loadPlan(k){
   dayStart={}; plan().days.forEach((d,i)=>dayStart[i]=d.start);
   foodItems=(FOOD[currentPark]||[]).map(f=>({...f,day:'food',isFood:true,kind:'meal'}));
   currentFoodFilter='all';
+  dayNotes={};
   document.querySelectorAll('#planpick .plan-opt').forEach(b=>b.classList.toggle('active', b.dataset.plan===k));
   buildDays();
   const ws=$('.workspace'); ws.classList.add('intro');
@@ -631,24 +682,48 @@ function loadPlan(k){
 function buildDays(){
   let html='';
   plan().days.forEach((d,i)=>{
-    html+='<div class="day" data-day="'+i+'"><div class="day-head">'+
-      '<div class="dl">'+d.label+(d.sub?'<small>'+d.sub+'</small>':'')+'</div>'+
-      '<div class="dayctl"><div class="startctl"><span class="sclbl">start</span>'+
-        '<button class="tinybtn no-drag" data-start="'+i+'" data-dir="-1">−</button>'+
-        '<b id="start-'+i+'">—</b>'+
-        '<button class="tinybtn no-drag" data-start="'+i+'" data-dir="1">+</button></div>'+
-        '<div class="endtime" id="end-'+i+'"></div></div></div>'+
-      '<div class="day-list" data-day="'+i+'" id="list-'+i+'"></div></div>';
+    html+='<div class="day" data-day="'+i+'">'+
+      '<div class="day-head">'+
+        '<div class="dl">'+d.label+(d.sub?'<small>'+d.sub+'</small>':'')+'</div>'+
+        '<div class="dayctl">'+
+          '<div class="startctl"><span class="sclbl">start</span>'+
+            '<button class="tinybtn no-drag" data-start="'+i+'" data-dir="-1">−</button>'+
+            '<b id="start-'+i+'">—</b>'+
+            '<button class="tinybtn no-drag" data-start="'+i+'" data-dir="1">+</button>'+
+          '</div>'+
+          '<div class="endtime" id="end-'+i+'"></div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="day-warn" id="warn-'+i+'"></div>'+
+      '<div class="day-list" data-day="'+i+'" id="list-'+i+'"></div>'+
+      '<div class="day-note-wrap">'+
+        '<button class="note-btn no-drag" data-noteday="'+i+'">✏ add note</button>'+
+        '<div class="note-area" id="note-area-'+i+'">'+
+          '<textarea placeholder="Notes, reminders, reservations..." data-noteday="'+i+'"></textarea>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
   });
-  html+='<div class="tray"><div class="day-head"><div class="dl">⌁ Options &amp; extras'+
-        '<small style="font-family:var(--sans);font-weight:500">swap-in alternatives · drag into any day</small></div></div>'+
-        '<div class="day-list" data-day="pool" id="list-pool"></div></div>';
-  html+='<div class="food-section"><div class="food-hd">'+
-    '<div class="food-title">🍽 Food &amp; Dining<span>drag into any day · click + to add to Day 1</span></div>'+
-    '<div class="food-filters" id="food-filters">'+
-    ['all','breakfast','lunch','dinner','café','picnic'].map(m=>'<button class="ffbtn'+(m==='all'?' active':'')+'" data-meal="'+m+'">'+(m.charAt(0).toUpperCase()+m.slice(1))+'</button>').join('')+
-    '</div></div>'+
-    '<div class="day-list" data-day="food" id="list-food"></div></div>';
+  html+='<div class="lib-section">'+
+    '<div class="lib-hd">'+
+      '<span class="lib-title">📚 Library</span>'+
+      '<div class="lib-tabs">'+
+        '<button class="libtab active" data-pane="pool">⌁ Swaps &amp; Extras</button>'+
+        '<button class="libtab" data-pane="food">🍽 Food &amp; Dining</button>'+
+      '</div>'+
+    '</div>'+
+    '<div class="lib-body">'+
+      '<div class="lib-pane" id="pane-pool">'+
+        '<div class="day-list" data-day="pool" id="list-pool"></div>'+
+      '</div>'+
+      '<div class="lib-pane" id="pane-food" style="display:none">'+
+        '<div id="food-filters" style="display:flex;flex-wrap:wrap;gap:5px;padding:4px 2px 8px">'+
+        ['all','breakfast','lunch','dinner','café','picnic'].map(m=>'<button class="ffbtn'+(m==='all'?' active':'')+'" data-meal="'+m+'">'+(m.charAt(0).toUpperCase()+m.slice(1))+'</button>').join('')+
+        '</div>'+
+        '<div class="day-list" data-day="food" id="list-food"></div>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
   $('#board').innerHTML=html;
 }
 
@@ -656,7 +731,7 @@ function buildDays(){
 function render(){
   document.querySelectorAll('.day-list').forEach(l=>l.innerHTML='');
   [...items,...foodItems].forEach(it=>{ const l=document.getElementById('list-'+it.day); if(l) l.appendChild(makeCard(it)); });
-  if(!items.some(i=>i.day==='pool')) $('#list-pool').innerHTML='<div class="tray-empty">nothing skipped — your full plan is live</div>';
+  if(!items.some(i=>i.day==='pool')) $('#list-pool').innerHTML='<div class="tray-empty" style="grid-column:1/-1">nothing skipped — your full plan is live</div>';
   const fl=$('#list-food');
   if(fl&&!foodItems.some(i=>i.day==='food')) fl.innerHTML='<div class="tray-empty" style="grid-column:1/-1">all food spots added to your plan</div>';
   applyFoodFilter(currentFoodFilter);
@@ -694,21 +769,30 @@ function makeCard(it){
 /* ===================== COMPUTE ===================== */
 function compute(){
   let miMin=0,miMax=0,trail=0,hikes=0,cost=0; const mix={easy:0,easymod:0,moderate:0,strenuous:0};
-  const days=plan().days; const dayLoad={};
+  const days=plan().days; const dayLoad={},dayMi={};
   days.forEach((d,i)=>{
-    dayLoad[i]=0;
+    dayLoad[i]=0; dayMi[i]=0;
     const list=document.getElementById('list-'+i); if(!list) return;
     let t=dayStart[i]; $('#start-'+i).textContent=fmtTime(dayStart[i]);
     [...list.children].forEach(card=>{
       const it=items.find(x=>x.id===card.dataset.id)||foodItems.find(x=>x.id===card.dataset.id); if(!it) return;
       card.querySelector('[data-time]').innerHTML=fmtTime(t)+'→'+fmtTime(t+it.dur*60)+'<span class="dur">'+fmtDur(it.dur)+'</span>';
       t+=it.dur*60;
-      if(it.miles){ miMin+=it.miles[0]; miMax+=it.miles[1]; }
+      if(it.miles){ miMin+=it.miles[0]; miMax+=it.miles[1]; dayMi[i]+=(it.miles[0]+it.miles[1])/2; }
       if(it.kind==='hike'){ hikes++; trail+=it.dur; if(it.diff) mix[it.diff]+=it.dur; }
       if(it.cost) cost+=it.cost;
       if(it.kind==='hike'&&it.diff) dayLoad[i]+=it.dur*DIFF[it.diff].w;
       else if(it.kind==='tour'||it.kind==='view'||it.kind==='drive') dayLoad[i]+=it.dur*0.35;
     });
+    const warnEl=document.getElementById('warn-'+i);
+    if(warnEl){
+      const chips=[];
+      if(t>21.5*60) chips.push('<span class="warn-chip w-late">⏰ Ends after 9:30 pm</span>');
+      if(dayMi[i]>=15) chips.push('<span class="warn-chip w-epic">🗻 Epic day — '+fmt1(dayMi[i])+' mi on trail</span>');
+      else if(dayMi[i]>=10) chips.push('<span class="warn-chip w-long">🥾 Big hike day — '+fmt1(dayMi[i])+' mi on trail</span>');
+      warnEl.innerHTML=chips.join('');
+      warnEl.style.display=chips.length?'flex':'none';
+    }
     const end=$('#end-'+i); const late=t>21.5*60;
     end.className='endtime'+(late?' late':''); end.innerHTML='wraps ~<b>'+fmtTime(t)+'</b>'+(late?' · long day':'');
   });
@@ -721,7 +805,7 @@ function compute(){
   $('#s-cost-sub').textContent = cost? party+' × $'+cost+' add-ons' : 'no paid add-ons';
   $('#party-n').textContent=party;
 
-  renderMix(mix,trail); renderDailyMiles(days); renderIntensity(days,dayLoad); renderMap();
+  renderMix(mix,trail); renderDailyMiles(days); renderIntensity(days,dayLoad); renderMap(); renderOverview();
 }
 
 function tweenNum(sel,target,fmt,endHTML){
@@ -768,6 +852,35 @@ function renderDailyMiles(days){
   const scale=document.createElement('div'); scale.className='dmi-scale';
   scale.innerHTML='<span>0</span><span>'+fmt1(maxMi/2)+' mi</span><span>'+fmt1(maxMi)+' mi</span>';
   box.appendChild(scale);
+}
+
+function renderOverview(){
+  const strip=$('#ov-strip'); if(!strip) return;
+  const days=plan().days; strip.innerHTML='';
+  days.forEach((d,i)=>{
+    const list=document.getElementById('list-'+i);
+    const scheduled=list?[...list.querySelectorAll('.card')]:[];
+    let t=dayStart[i]; let totalMi=0;
+    const actHtml=scheduled.map(card=>{
+      const it=items.find(x=>x.id===card.dataset.id)||foodItems.find(x=>x.id===card.dataset.id); if(!it) return null;
+      t+=it.dur*60;
+      if(it.miles) totalMi+=(it.miles[0]+it.miles[1])/2;
+      const col=OV_COLORS[it.kind]||'#8A968B';
+      return '<div class="ov-act" style="background:'+col+'1a;border-left:2px solid '+col+'">'+
+        '<span class="oa-icn">'+it.icon+'</span>'+
+        '<span class="oa-nm">'+it.title+'</span>'+
+        '<span class="oa-d">'+fmtDur(it.dur)+'</span></div>';
+    }).filter(Boolean);
+    const late=t>21.5*60;
+    const miTxt=totalMi>0?fmt1(totalMi)+' mi':'—';
+    strip.innerHTML+='<div class="ov-day" data-day="'+i+'" title="Jump to '+d.label+'">'+
+      '<div class="ov-day-hd"><div class="odl">'+d.label+'</div>'+
+        '<div class="osub">'+(d.sub||'')+'</div></div>'+
+      '<div class="ov-acts">'+(actHtml.length?actHtml.join(''):'<div class="ov-empty-act">nothing yet</div>')+'</div>'+
+      '<div class="ov-ft"><span class="omi">'+miTxt+'</span>'+
+        '<span class="'+(late?'owrap late':'owrap')+'">wraps '+fmtTime(t)+'</span></div>'+
+    '</div>';
+  });
 }
 
 function renderMix(mix,trail){
@@ -884,6 +997,36 @@ $('#planpick').addEventListener('click',e=>{ const b=e.target.closest('.plan-opt
 $('#reset').addEventListener('click',()=>loadPlan(currentPlan));
 $('#party-up').addEventListener('click',()=>{ party=Math.min(12,party+1); compute(); });
 $('#party-dn').addEventListener('click',()=>{ party=Math.max(1,party-1); compute(); });
+
+/* ===================== LIBRARY TABS ===================== */
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.libtab[data-pane]'); if(!btn) return;
+  const pane=btn.dataset.pane;
+  document.querySelectorAll('.libtab').forEach(b=>b.classList.toggle('active',b.dataset.pane===pane));
+  document.querySelectorAll('.lib-pane').forEach(p=>p.style.display='none');
+  const p=document.getElementById('pane-'+pane); if(p) p.style.display='';
+});
+
+/* ===================== DAY NOTES ===================== */
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.note-btn[data-noteday]'); if(!btn) return;
+  const i=btn.dataset.noteday;
+  const area=document.getElementById('note-area-'+i); if(!area) return;
+  const open=area.classList.toggle('open');
+  btn.textContent=open?'✏ hide note':'✏ add note';
+  if(open&&dayNotes[i]) area.querySelector('textarea').value=dayNotes[i];
+});
+document.addEventListener('input',e=>{
+  const ta=e.target.closest('textarea[data-noteday]'); if(!ta) return;
+  dayNotes[ta.dataset.noteday]=ta.value;
+});
+
+/* ===================== OVERVIEW CLICK → SCROLL ===================== */
+document.addEventListener('click',e=>{
+  const ov=e.target.closest('.ov-day[data-day]'); if(!ov) return;
+  const dayEl=document.querySelector('.day[data-day="'+ov.dataset.day+'"]');
+  if(dayEl) dayEl.scrollIntoView({behavior:'smooth',block:'start'});
+});
 
 /* ===================== FOOD FILTER ===================== */
 function applyFoodFilter(meal){
