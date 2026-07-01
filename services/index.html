@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — NYCuriosity Studio — Tal Roded</title>
+  <meta name="description" content="NYCuriosity Studio — independent, rigorous data analysis, dashboards, research reports, and writing for orgs that need the numbers to hold up. Hire Tal Roded.">
+  <meta property="og:title" content="NYCuriosity Studio — Data-driven research & writing">
+  <meta property="og:description" content="Independent, rigorous analysis and writing for orgs that need the numbers to hold up.">
+  <meta property="og:url" content="https://talroded.nycuriosity.com/services/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/website_logo.png">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    /* studio badge on the hero */
+    .svc-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Roboto Mono', monospace; font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.09em; color: var(--blue);
+      background: var(--blue-light); border: 1px solid var(--blue-mid);
+      border-radius: 20px; padding: 5px 13px; margin-bottom: 4px;
+    }
+    .svc-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+    .page-hero .svc-tag { font-family: 'Roboto Mono', monospace; font-size: 0.95rem; color: var(--text-muted); max-width: 620px; line-height: 1.6; margin-top: 6px; }
+
+    .svc-intro { font-size: 1.02rem; color: var(--text-mid); line-height: 1.8; max-width: 720px; }
+    .svc-intro a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue-mid); }
+    .svc-intro a:hover { border-color: var(--blue); }
+    .svc-intro strong { color: var(--text); font-weight: 600; }
+
+    /* audience chips */
+    .svc-audience { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .svc-aud {
+      font-family: 'Roboto Mono', monospace; font-size: 0.74rem; font-weight: 500; color: var(--text-mid);
+      border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; background: var(--surface);
+    }
+
+    /* offerings grid */
+    .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 4px; }
+    .svc-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow-sm); padding: 24px 24px 22px; display: flex; flex-direction: column;
+      transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+    }
+    .svc-card:hover { border-color: var(--blue-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .svc-card.feature { border-color: var(--blue-mid); border-top: 3px solid var(--blue); }
+    .svc-card.wide { grid-column: 1 / -1; }
+    .svc-ico {
+      width: 40px; height: 40px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
+      background: var(--blue-light); color: var(--blue); margin-bottom: 14px;
+    }
+    .svc-card.feature .svc-ico { background: var(--blue); color: #fff; }
+    .svc-flag {
+      font-family: 'Roboto Mono', monospace; font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--blue); margin-bottom: 8px;
+    }
+    .svc-card h3 { font-family: 'Roboto Mono', monospace; font-size: 1.06rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
+    .svc-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+    .svc-meta { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .svc-turn { font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: var(--text-faint); }
+    .svc-req { font-family: 'Roboto Mono', monospace; font-size: 0.72rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
+    .svc-req:hover { text-decoration: underline; }
+
+    /* independence callout */
+    .svc-independence {
+      background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--blue);
+      border-radius: var(--radius); padding: 26px 28px; box-shadow: var(--shadow-sm);
+    }
+    .svc-independence h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+    .svc-independence p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; max-width: 760px; }
+    .svc-independence p + p { margin-top: 12px; }
+    .svc-independence strong { color: var(--text); font-weight: 600; }
+
+    /* process steps */
+    .svc-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: step; }
+    .svc-step { position: relative; }
+    .svc-step .num {
+      font-family: 'Roboto Mono', monospace; font-size: 0.72rem; font-weight: 700; color: #fff;
+      background: var(--blue); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
+    }
+    .svc-step h4 { font-family: 'Roboto Mono', monospace; font-size: 0.86rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .svc-step p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* proof cards */
+    .svc-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .svc-proof a {
+      display: flex; flex-direction: column; gap: 6px; text-decoration: none;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm);
+      transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+    }
+    .svc-proof a:hover { border-color: var(--blue-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .svc-proof .lab { font-family: 'Roboto Mono', monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
+    .svc-proof .ti { font-family: 'Roboto Mono', monospace; font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .svc-proof .de { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    .svc-proof .go { font-family: 'Roboto Mono', monospace; font-size: 0.72rem; color: var(--blue); margin-top: auto; }
+
+    /* credentials strip */
+    .svc-creds { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; }
+    .svc-cred { font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 600; color: var(--text-mid); }
+    .svc-cred span { color: var(--text-faint); font-weight: 400; }
+
+    /* FAQ */
+    .svc-faq { max-width: 780px; }
+    .svc-faq details { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .svc-faq summary { font-family: 'Roboto Mono', monospace; font-size: 0.92rem; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .svc-faq summary::-webkit-details-marker { display: none; }
+    .svc-faq summary::after { content: '+'; color: var(--blue); font-weight: 700; }
+    .svc-faq details[open] summary::after { content: '\2212'; }
+    .svc-faq p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-top: 12px; }
+
+    /* CTA */
+    .svc-cta {
+      background: var(--dark); border-radius: 14px; padding: clamp(30px, 5vw, 48px);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .svc-cta::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(520px 260px at 82% 10%, rgba(37,99,235,0.34), transparent 60%); }
+    .svc-cta h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 400; color: #fff; margin-bottom: 12px; position: relative; }
+    .svc-cta p { color: #cbd5e1; font-size: 0.98rem; line-height: 1.6; max-width: 520px; margin: 0 auto 24px; position: relative; }
+    .svc-cta .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-primary, .btn-ghost {
+      font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      padding: 12px 22px; border-radius: 8px; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-ghost { background: transparent; color: #e2e8f0; border: 1px solid #334155; }
+    .btn-ghost:hover { border-color: #60a5fa; color: #fff; }
+    .svc-note { font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: var(--text-faint); margin-top: 16px; }
+
+    @media (max-width: 860px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .svc-steps { grid-template-columns: repeat(2, 1fr); }
+      .svc-proof { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="brand"><span>tal</span>·roded</a>
+    <nav class="header-nav">
+      <a href="/writing/">Writing</a>
+      <a href="/research/">Research</a>
+      <a href="/wiki/">Wiki</a>
+      <a href="/about/">About</a>
+      <a href="/services/" class="active">Services</a>
+    </nav>
+    <div class="header-right">
+      <a href="https://github.com/TalR24" target="_blank" rel="noopener" class="header-icon-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://data.nycuriosity.com" target="_blank" rel="noopener" class="header-icon-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Data ↗
+      </a>
+      <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener" class="header-cta">NYCuriosity ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="svc-badge"><span class="dot"></span>NYCuriosity Studio</span>
+    <h1>Data-driven research &amp; writing, on commission</h1>
+    <p class="svc-tag">Independent, rigorous analysis and writing for organizations that need the numbers to hold up.</p>
+  </div>
+</div>
+
+<main>
+  <div class="main-inner">
+
+    <!-- INTRO -->
+    <section class="section">
+      <p class="svc-intro">
+        I'm <strong>Tal Roded</strong> — a data scientist and economic researcher (Federal Reserve, Accenture, Starbucks, LinkedIn, MIT FutureTech) and the writer behind <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener">NYCuriosity</a>. Through <strong>NYCuriosity Studio</strong>, I take on a small number of commissions: turning messy data and hard questions into <strong>analysis, dashboards, reports, and writing</strong> that a board, a funder, a newsroom, or the public can actually act on.
+      </p>
+      <div class="svc-audience">
+        <span class="svc-aud">Nonprofits &amp; advocacy</span>
+        <span class="svc-aud">Think tanks &amp; foundations</span>
+        <span class="svc-aud">Business &amp; real estate</span>
+        <span class="svc-aud">Newsrooms &amp; writers</span>
+        <span class="svc-aud">Government &amp; civic</span>
+      </div>
+    </section>
+
+    <!-- OFFERINGS -->
+    <section class="section">
+      <p class="section-label">What I do</p>
+      <h2 class="section-title">Ways to <em>work together</em></h2>
+      <div class="svc-grid">
+
+        <div class="svc-card feature">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div class="svc-flag">Signature</div>
+          <h3>Interactive Dashboards &amp; Tools</h3>
+          <p>Custom, interactive dashboards and data explorers — like the ones on <a href="https://data.nycuriosity.com" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-mid)">data.nycuriosity.com</a>. Built to make your data legible to a board, a funder, or the public, with a clean pipeline and documentation behind it.</p>
+          <div class="svc-meta"><span class="svc-turn">~3–5 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+        <div class="svc-card feature">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 2 4-6"/></svg></div>
+          <div class="svc-flag">Signature</div>
+          <h3>Data Analysis &amp; Visualization</h3>
+          <p>Rigorous analysis with publication-ready charts. Causal inference, forecasting, econometrics, and program evaluation — translated into visuals a non-specialist audience understands and trusts.</p>
+          <div class="svc-meta"><span class="svc-turn">~2–3 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></div>
+          <h3>Research Reports &amp; White Papers</h3>
+          <p>Full research — original analysis, sourced and designed for a specific audience, from a focused study to a flagship report.</p>
+          <div class="svc-meta"><span class="svc-turn">~4–8 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+          <h3>Policy Memos &amp; Briefs</h3>
+          <p>One focused question, answered with data. A tight 2–5 page brief plus a chart or two — fast, and often the start of something bigger.</p>
+          <div class="svc-meta"><span class="svc-turn">~1–2 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+        <div class="svc-card wide">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Custom Writing &amp; Ongoing Advisory</h3>
+          <p>Data-backed writing of any length, a talk or deck, or ongoing analytics support on retainer. If it sits at the intersection of data, policy, and clear communication, let's scope it.</p>
+          <div class="svc-meta"><span class="svc-turn">Custom scope</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INDEPENDENCE -->
+    <section class="section">
+      <p class="section-label">How I work</p>
+      <div class="svc-independence">
+        <h3>Independence first</h3>
+        <p>I'm a policy journalist and an appointed member of <strong>Manhattan Community Board 3</strong>, so independence isn't a slogan — it's a constraint I hold myself to. You're buying <strong>rigorous, nonpartisan analysis and a great deliverable — not a predetermined conclusion.</strong></p>
+        <p>In practice: I take on analytical work, not advocacy or lobbying. I decline engagements that conflict with my Community Board seat or with NYCuriosity's editorial coverage, and I'm transparent with you about methods and sources. For many of my clients, that independence is exactly the point — a credible, unbiased read they can put in front of a board, a funder, or a reporter.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title">From inquiry to <em>delivery</em></h2>
+      <div class="svc-steps">
+        <div class="svc-step"><div class="num">1</div><h4>Tell me about it</h4><p>Send your goal, rough scope, timeline, and budget range.</p></div>
+        <div class="svc-step"><div class="num">2</div><h4>Fit call</h4><p>A short call to confirm scope and that it's a good, conflict-free fit.</p></div>
+        <div class="svc-step"><div class="num">3</div><h4>Proposal</h4><p>A written proposal: deliverable, timeline, price, and terms.</p></div>
+        <div class="svc-step"><div class="num">4</div><h4>Book it</h4><p>A 50% deposit and a short agreement get us started.</p></div>
+        <div class="svc-step"><div class="num">5</div><h4>Build &amp; deliver</h4><p>I do the work with a check-in, then deliver the final product.</p></div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="section">
+      <p class="section-label">Proof of work</p>
+      <h2 class="section-title">See the <em>real thing</em></h2>
+      <p class="svc-intro" style="margin-bottom:22px">Everything I publish shows its methods and source data. The clearest sense of what a commission looks like is the published work itself:</p>
+      <div class="svc-proof">
+        <a href="https://data.nycuriosity.com" target="_blank" rel="noopener">
+          <span class="lab">Dashboards</span>
+          <span class="ti">data.nycuriosity.com</span>
+          <span class="de">Interactive explorers and data tools — the same style I build on commission.</span>
+          <span class="go">Explore the data site →</span>
+        </a>
+        <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener">
+          <span class="lab">Reports &amp; writing</span>
+          <span class="ti">NYCuriosity</span>
+          <span class="de">Data-driven policy analysis and long-form writing for a general audience.</span>
+          <span class="go">Read NYCuriosity →</span>
+        </a>
+        <a href="/research/">
+          <span class="lab">Research</span>
+          <span class="ti">Publications</span>
+          <span class="de">Peer-reviewed and institutional research — Federal Reserve, MIT FutureTech, WEF.</span>
+          <span class="go">See research →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="section">
+      <p class="section-label">Background</p>
+      <div class="svc-creds">
+        <span class="svc-cred">Federal Reserve <span>· research</span></span>
+        <span class="svc-cred">Accenture <span>· WEF / Davos</span></span>
+        <span class="svc-cred">Starbucks <span>· data science</span></span>
+        <span class="svc-cred">LinkedIn <span>· analytics</span></span>
+        <span class="svc-cred">MIT FutureTech <span>· affiliate</span></span>
+        <span class="svc-cred">NYU <span>· MPA</span></span>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <p class="section-label">Questions</p>
+      <h2 class="section-title">Good to <em>know</em></h2>
+      <div class="svc-faq">
+        <details>
+          <summary>Why aren't prices listed?</summary>
+          <p>Every project is scoped to your specific question, data, and timeline, so I quote per project after a short conversation. Smaller engagements like a memo or a focused dashboard are the usual starting point; larger analyses and reports scale from there.</p>
+        </details>
+        <details>
+          <summary>How long does a project take?</summary>
+          <p>A memo is often about 1–2 weeks; data analysis and dashboards typically 2–5 weeks; full reports 4–8 weeks, depending on scope and data readiness. Rush timelines can sometimes be accommodated for an added fee.</p>
+        </details>
+        <details>
+          <summary>Can you keep it confidential or sign an NDA?</summary>
+          <p>Yes. By default I may reference finished, non-confidential work as portfolio, but fully confidential engagements are available and I'm happy to sign a reasonable NDA.</p>
+        </details>
+        <details>
+          <summary>What won't you take on?</summary>
+          <p>Advocacy or lobbying content, anything with a predetermined conclusion, and any engagement that conflicts with my Community Board seat or with NYCuriosity's coverage. When in doubt, I'll tell you up front.</p>
+        </details>
+        <details>
+          <summary>Who owns the final work?</summary>
+          <p>You own the final deliverable. Unless we agree otherwise, I retain the right to reference non-confidential work as portfolio, always in an analytical, nonpartisan framing.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" id="start">
+      <div class="svc-cta">
+        <h2>Have a project in mind?</h2>
+        <p>Tell me the goal, rough scope, timeline, and budget range, and I'll come back with next steps.</p>
+        <div class="btns">
+          <a class="btn-primary" href="mailto:troded24@gmail.com?subject=NYCuriosity%20Studio%20%E2%80%94%20Project%20inquiry&body=Project%20type%20(dashboard%20%2F%20analysis%20%2F%20report%20%2F%20memo%20%2F%20other)%3A%0A%0AGoal%20or%20question%3A%0A%0AApprox.%20budget%20range%3A%0A%0ATimeline%3A%0A%0AOrganization%3A%0A%0AAnything%20I%20should%20know%20(including%20any%20possible%20conflicts%20of%20interest)%3A%0A">Start a project →</a>
+          <a class="btn-ghost" href="https://nycuriosity.substack.com" target="_blank" rel="noopener">See my work first</a>
+        </div>
+        <p class="svc-note">Prefer email? troded24@gmail.com</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-brand"><span>tal</span>·roded</a>
+    <nav class="footer-links">
+      <a href="/writing/">Writing</a>
+      <a href="/research/">Research</a>
+      <a href="/wiki/">Wiki</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="https://nycuriosity.substack.com" target="_blank" rel="noopener">NYCuriosity</a>
+      <a href="https://data.nycuriosity.com" target="_blank" rel="noopener">Data</a>
+      <a href="https://github.com/TalR24" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <span class="footer-copy">© Tal Roded · 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
