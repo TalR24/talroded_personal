@@ -128,6 +128,8 @@
     .btn-primary:hover { background: var(--blue-hover); }
     .btn-ghost { background: transparent; color: #e2e8f0; border: 1px solid #334155; }
     .btn-ghost:hover { border-color: #60a5fa; color: #fff; }
+    .svc-formwrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(10px, 2vw, 20px); }
+    .svc-formwrap iframe { display: block; width: 100%; border: 0; }
     .svc-note { font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: var(--text-faint); margin-top: 16px; }
 
     @media (max-width: 860px) {
@@ -325,17 +327,15 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- START A PROJECT (embedded inquiry form) -->
     <section class="section" id="start">
-      <div class="svc-cta">
-        <h2>Have a project in mind?</h2>
-        <p>Tell me the goal, rough scope, timeline, and budget range, and I'll come back with next steps.</p>
-        <div class="btns">
-          <a class="btn-primary" href="mailto:troded24@gmail.com?subject=NYCuriosity%20Studio%20%E2%80%94%20Project%20inquiry&body=Project%20type%20(dashboard%20%2F%20analysis%20%2F%20report%20%2F%20memo%20%2F%20other)%3A%0A%0AGoal%20or%20question%3A%0A%0AApprox.%20budget%20range%3A%0A%0ATimeline%3A%0A%0AOrganization%3A%0A%0AAnything%20I%20should%20know%20(including%20any%20possible%20conflicts%20of%20interest)%3A%0A">Start a project →</a>
-          <a class="btn-ghost" href="https://nycuriosity.substack.com" target="_blank" rel="noopener">See my work first</a>
-        </div>
-        <p class="svc-note">Prefer email? troded24@gmail.com</p>
+      <p class="section-label">Start a project</p>
+      <h2 class="section-title">Tell me <em>what you need</em></h2>
+      <p class="svc-intro" style="margin-bottom:22px">Share your goal, rough scope, budget range, and timeline. I'll review it for fit — and any conflicts of interest — and get back to you within a few days. If it's a match, we'll set up a short intro call.</p>
+      <div class="svc-formwrap">
+        <iframe data-tally-src="https://tally.so/embed/ZjgKve?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="NYCuriosity Studio — project inquiry"></iframe>
       </div>
+      <p class="svc-note" style="margin-top:14px;color:var(--text-faint)">Prefer email? <a href="mailto:troded24@gmail.com" style="color:var(--blue);text-decoration:none;">troded24@gmail.com</a></p>
     </section>
 
   </div>
@@ -357,6 +357,11 @@
     <span class="footer-copy">© Tal Roded · 2026</span>
   </div>
 </footer>
+
+<!-- Tally embed loader (populates iframe src + dynamic height) -->
+<script>
+(function(){var d=document,w="https://tally.so/widgets/embed.js",load=function(){if("undefined"!=typeof Tally){Tally.loadEmbeds();return;}d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});};if("undefined"!=typeof Tally){load();}else if(null===d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=load;s.onerror=load;d.body.appendChild(s);}})();
+</script>
 
 </body>
 </html>
