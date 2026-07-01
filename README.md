@@ -37,3 +37,13 @@ Reference pages on: career advice, data science, economics courses and readings,
 - Plain HTML/CSS — no build step, no framework
 - Shared stylesheet: `assets/style.css`
 - Hosted on GitHub Pages; custom domain set via `CNAME`
+
+## Site chrome & shared components
+
+Header and footer markup is duplicated per page, but all styling lives in the shared `assets/style.css`. When adding a new page, copy the header/footer from an existing page.
+
+- **Header** — dark bar with brand (`tal·roded`), nav, then a `.header-right` row of outlined `.header-icon-link` external links (GitHub, Data, **Support my work**) followed by the white `.header-cta` (`NYCuriosity ↗`).
+- **Footer** — `.footer-inner` with brand, `.footer-links` nav, the `.footer-support` pill, and copyright.
+- **Buy Me a Coffee** — links to `https://buymeacoffee.com/nycuriosity`, label **"Support my work"**, coffee-cup icon, `target="_blank"`. In both header (class `header-icon-link header-support`, subtle blue-tinted outline) and footer (class `footer-support`). Fills solid blue on hover.
+- The old **Block Party** header link has been removed site-wide (a Block Party project card may still appear in page bodies — that's intentional, leave it).
+- **Standalone pages without the shared shell** — `resume_oti_business_analysis.html` and `western-parks-planner.html` have no header/footer; skip them when propagating chrome. (`western-parks-planner.html` also tends to carry uncommitted local edits — don't stage it.)
