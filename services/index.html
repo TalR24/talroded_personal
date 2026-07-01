@@ -23,6 +23,7 @@
       border-radius: 20px; padding: 5px 13px; margin-bottom: 4px;
     }
     .svc-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+    .svc-logo { display: block; margin-bottom: 18px; height: auto; }
     .page-hero .svc-tag { font-family: 'Roboto Mono', monospace; font-size: 0.95rem; color: var(--text-muted); max-width: 620px; line-height: 1.6; margin-top: 6px; }
 
     .svc-intro { font-size: 1.02rem; color: var(--text-mid); line-height: 1.8; max-width: 720px; }
@@ -171,7 +172,11 @@
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <span class="svc-badge"><span class="dot"></span>NYCuriosity Studio</span>
+    <svg class="svc-logo" width="230" height="43" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NYCuriosity Studio">
+      <g transform="translate(2,8)"><circle cx="17" cy="17" r="12.5" fill="none" stroke="#2563eb" stroke-width="3"/><line x1="26" y1="26" x2="35.5" y2="35.5" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/><rect x="11.6" y="18" width="2.7" height="5.5" rx="0.9" fill="#60a5fa"/><rect x="15.5" y="14.5" width="2.7" height="9" rx="0.9" fill="#2563eb"/><rect x="19.4" y="11.5" width="2.7" height="12" rx="0.9" fill="#FF6319"/></g>
+      <text font-family="'Roboto Mono',monospace" font-weight="700" font-size="22" letter-spacing="-0.5"><tspan x="52" y="32" fill="#2563eb">NYC</tspan><tspan fill="#111827">uriosity</tspan></text>
+      <text x="53" y="47" font-family="'Roboto Mono',monospace" font-weight="700" font-size="9" letter-spacing="4.5" fill="#FF6319">STUDIO</text>
+    </svg>
     <h1>Data-driven research &amp; writing, on commission</h1>
     <p class="svc-tag">Independent, rigorous analysis and writing for organizations that need the numbers to hold up.</p>
   </div>
