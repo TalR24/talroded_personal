@@ -129,6 +129,35 @@ header {
   transition: background 0.15s;
 }
 .header-cta:hover { background: var(--blue-light); }
+.header-support {
+  color: var(--blue-mid);
+  border-color: rgba(37, 99, 235, 0.4);
+}
+.header-support:hover {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.footer-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--blue-mid);
+  text-decoration: none;
+  padding: 5px 11px;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  border-radius: 6px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.footer-support:hover {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.footer-support svg { flex-shrink: 0; }
 
 /* ── SECTION CHROME ──────────────────────────────────────── */
 .section-label {
