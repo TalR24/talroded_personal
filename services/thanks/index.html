@@ -54,6 +54,14 @@
     .thanks-link:hover { color: var(--blue); border-color: var(--blue-mid); background: var(--blue-light); }
     .thanks-link.primary { color: #fff; background: var(--blue); border-color: var(--blue); }
     .thanks-link.primary:hover { background: var(--blue-hover); }
+    .thanks-cal {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: 'Roboto Mono', monospace; font-size: 0.92rem; font-weight: 600; text-decoration: none;
+      color: #fff; background: var(--blue); border-radius: 10px; padding: 14px 26px;
+      box-shadow: var(--shadow-md); transition: background 0.15s, transform 0.15s;
+    }
+    .thanks-cal:hover { background: var(--blue-hover); transform: translateY(-1px); }
+    .thanks-cal-cap { font-size: 0.8rem; color: var(--text-muted); max-width: 440px; margin: 12px auto 26px; line-height: 1.55; }
   </style>
 </head>
 <body>
@@ -100,13 +108,19 @@
           <p class="lab">What happens next</p>
           <ol>
             <li>I <strong>review your project</strong> for scope, fit, and any conflicts of interest, usually within a few days.</li>
-            <li>If it's a match, I'll reply to set up a short <strong>intro call</strong> and then send a written proposal.</li>
+            <li>If it's a match, we'll have a short <strong>intro call</strong>. Book one below, or I'll reach out to schedule. Then I send a written proposal.</li>
             <li>Once we agree on scope, a <strong>deposit and short agreement</strong> get the work started.</li>
           </ol>
         </div>
 
+        <a class="thanks-cal" href="https://calendly.com/troded24/nycuriosity-studio-fit-call" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a 15-minute intro call
+        </a>
+        <p class="thanks-cal-cap">Optional, and the fastest way to get moving. I'll still review your inquiry first to confirm it's a good, conflict-free fit.</p>
+
         <div class="thanks-links">
-          <a class="thanks-link primary" href="/services/">← Back to Services</a>
+          <a class="thanks-link" href="/services/">← Back to Services</a>
           <a class="thanks-link" href="https://nycuriosity.substack.com" target="_blank" rel="noopener">Read NYCuriosity</a>
           <a class="thanks-link" href="https://data.nycuriosity.com" target="_blank" rel="noopener">Explore the dashboards</a>
         </div>
