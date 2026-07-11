@@ -445,7 +445,7 @@ footer {
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-links a {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.6);
   text-decoration: none;
   transition: color 0.15s;
 }
@@ -875,7 +875,9 @@ main {
 @media (max-width: 600px) {
   .project-grid { grid-template-columns: 1fr; }
   .skills-grid  { grid-template-columns: 1fr; }
-  .header-nav a:not(.active) { display: none; }
+  .header-nav { overflow-x: auto; scrollbar-width: none; }
+  .header-nav::-webkit-scrollbar { display: none; }
+  .header-nav a { white-space: nowrap; }
   .header-icon-link { display: none; }
 }
 @media (max-width: 480px) {
