@@ -166,7 +166,7 @@ header {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--text-faint);
+  color: var(--sub-orange);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -467,7 +467,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--blue);
+  color: var(--sub-orange);
   margin-bottom: 10px;
 }
 .page-hero h1 {
@@ -817,7 +817,7 @@ main {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-left: 3px solid var(--blue);
+  border-left: 3px solid var(--sub-orange);
 }
 
 /* Link tiles grid */
