@@ -461,7 +461,7 @@ footer {
   max-width: 1060px;
   margin: 0 auto;
 }
-.page-hero-label {
+.page-hero p.page-hero-label {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.62rem;
   font-weight: 700;
