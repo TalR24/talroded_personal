@@ -17,7 +17,7 @@ try:
 except ImportError:
     sys.exit("requests is not installed. Run: pip install requests")
 
-API_URL      = "https://nycuriosity.substack.com/api/v1/posts?limit=25"
+API_URL      = "https://nycuriosity.substack.com/api/v1/archive?sort=new&limit=25"
 WRITING_HTML = Path(__file__).parent.parent / "writing" / "index.html"
 ARCHIVE_MARKER = '<div class="archive-list" id="archive">'
 
@@ -28,40 +28,55 @@ HEADERS = {
 }
 
 
-# ── Category heuristics ──────────────────────────────────────────────────────
-# Checked in order; first match wins.
-RULES = [
-    # Community Board — checked first so "Parks Committee" lands here, not Parks
-    ("cb3", "Community Board", [
-        "community board", "parks committee", "cb3",
-        "demystifying nyc community board",
-    ]),
-    # Parks & Environment
-    ("parks", "Parks &amp; Environment", [
-        "east river park", " park ", "tree", "ginkgo", "escr",
-        "coastal resiliency", "garden", "playground", "greenway",
-    ]),
-    # Transit & Streets
-    ("transit", "Transit &amp; Streets", [
-        "street", "bike", "bus lane", "transit", "subway", "ibx",
-        "interborough", "canal", "avenue", "scaffold", "sidewalk",
-        "open street", "parking", "traffic", "pedestrian",
-        "low traffic", "greenway",
-    ]),
-    # Budget & Policy
-    ("budget", "Budget &amp; Policy", [
-        "budget", " tax", "fiscal", "ibo ", "charter", "civil service",
-        "comptroller", "fund", "revenue", "job growth", "economy",
-        "economic", "hiring", "cso", "savings",
-    ]),
+# ── Categories, mirrored from the publication's own Substack tags ────────────
+# The Substack API returns each post's real tags in `postTags`, so we map those
+# instead of guessing from the title. Keyword RULES are only a fallback for a
+# post that somehow has no tags yet. Canonical Substack tags (Aug 2026):
+#   Infrastructure & Streets · Policy & Economics · Civic Tech ·
+#   Manhattan CB3 / CB3 Reports / CB Guide · Parks
+CAT_FROM_TAGS = [
+    ("cb3",       "Community Board",             {"Manhattan CB3", "CB3 Reports", "CB Guide"}),
+    ("infra",     "Infrastructure &amp; Streets", {"Infrastructure & Streets"}),
+    ("parks",     "Parks",                        {"Parks"}),
+    ("civictech", "Civic Tech",                   {"Civic Tech"}),
+    ("policy",    "Policy &amp; Economics",       {"Policy & Economics"}),
 ]
 
-def categorize(title: str) -> tuple[str, str]:
+# Fallback only (post with no tags): first match wins.
+RULES = [
+    ("cb3", "Community Board", ["community board", "parks committee", "cb3",
+                                "demystifying nyc community board"]),
+    ("parks", "Parks", ["east river park", " park ", "tree", "ginkgo", "escr",
+                        "coastal resiliency", "garden", "playground", "greenway"]),
+    ("infra", "Infrastructure &amp; Streets", ["street", "bike", "bus lane", "transit",
+                        "subway", "ibx", "interborough", "canal", "avenue", "scaffold",
+                        "sidewalk", "open street", "parking", "traffic", "pedestrian",
+                        "low traffic", "greenway", "infrastructure", "resiliency"]),
+    ("civictech", "Civic Tech", ["ai ", " ai", "civic tech", "state capacity", "knowledge base",
+                        "government is", "toolkit", "dashboard", "tracker"]),
+    ("policy", "Policy &amp; Economics", ["budget", " tax", "fiscal", "ibo ", "charter",
+                        "civil service", "comptroller", "fund", "revenue", "job growth",
+                        "economy", "economic", "hiring", "cso", "savings", "mandates"]),
+]
+
+
+def categorize(title: str, post_tags=None) -> tuple[str, str]:
+    """Return (data-cat tokens, visible label). Tags win; title is the fallback.
+
+    data-cat may hold several space-separated tokens, mirroring the fact that a
+    post can be tagged e.g. both Infrastructure & Streets and Civic Tech. The
+    filter JS in writing/index.html splits on whitespace.
+    """
+    names = {t.get("name") for t in (post_tags or []) if isinstance(t, dict)}
+    if names:
+        hits = [(cid, label) for cid, label, want in CAT_FROM_TAGS if names & want]
+        if hits:
+            return " ".join(c for c, _ in hits), hits[0][1]
     t = title.lower()
     for cat_id, cat_label, keywords in RULES:
         if any(kw in t for kw in keywords):
             return cat_id, cat_label
-    return "essay", "Essay &amp; Profile"
+    return "essay", "Essay"
 
 
 # ── Date formatting ──────────────────────────────────────────────────────────
@@ -75,8 +90,8 @@ def format_date(date_str: str) -> str:
 
 
 # ── HTML entry builder ───────────────────────────────────────────────────────
-def build_entry(link: str, title: str, date_str: str) -> str:
-    cat_id, cat_label = categorize(title)
+def build_entry(link: str, title: str, date_str: str, post_tags=None) -> str:
+    cat_id, cat_label = categorize(title, post_tags)
     date_fmt = format_date(date_str)
     safe_title = html_lib.escape(title)
     return (
@@ -111,7 +126,8 @@ def main() -> None:
     # Find new posts (not yet in the HTML)
     new_entries = []
     for post in posts:
-        link  = (post.get("canonical_url") or "").strip()
+        link  = (post.get("canonical_url")
+                 or (f"https://www.nycuriosity.com/p/{post.get('slug')}" if post.get("slug") else "")).strip()
         title = (post.get("title") or "").strip()
         date  = (post.get("post_date") or "").strip()
 
@@ -122,7 +138,7 @@ def main() -> None:
         if link in html:
             continue
 
-        new_entries.append(build_entry(link, title, date))
+        new_entries.append(build_entry(link, title, date, post.get("postTags")))
         print(f"  + New post: {title}")
 
     if not new_entries:
