@@ -21,7 +21,7 @@
     <a href="/" class="brand"><span>tal</span>·roded</a>
     <nav class="header-nav">
       <a href="/writing/" class="active">Writing</a>
-      <a href="/research/">Publications</a>
+      <a href="/publications/">Publications &amp; Press</a>
       <a href="/wiki/">Wiki</a>
       <a href="/about/">About</a>
       <a href="/services/">Services</a>
@@ -44,7 +44,7 @@
   <div class="page-hero-inner">
     <p class="page-hero-label">Writing</p>
     <h1>NYCuriosity</h1>
-    <p>Data-driven analysis of NYC transit, streets, housing, and how the city governs itself. All 66 posts, filterable by topic.</p>
+    <p>Data-driven analysis of NYC transit, streets, housing, and how the city governs itself. All 68 posts, filterable by topic, ten to a page.</p>
   </div>
 </div>
 
@@ -64,6 +64,11 @@
 
       <div class="archive-list" id="archive">
 
+        <a class="archive-item" data-cat="civictech policy" href="https://www.nycuriosity.com/p/the-demand-for-cutting-agency-burden" target="_blank" rel="noopener">
+          <span class="archive-item-date">Aug '26</span>
+          <span class="archive-title">The Demand for Cutting Agency Burden Is Real</span>
+          <span class="archive-tag">Civic Tech</span>
+        </a>
         <a class="archive-item" data-cat="civictech policy" href="https://www.nycuriosity.com/p/nyc-agencies-answer-to-over-5000" target="_blank" rel="noopener">
           <span class="archive-item-date">Aug '26</span>
           <span class="archive-title">NYC Agencies Answer to Over 5,000 Standing Council Mandates</span>
@@ -403,27 +408,10 @@
         </a>
 
       </div>
+      <div id="archive-pager" style="display:none; gap:8px; margin-top:18px; flex-wrap:wrap; align-items:center;"></div>
     </section>
 
     <!-- MENTIONS & FEATURES -->
-    <section class="section">
-      <p class="section-label">In the press</p>
-      <h2 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Mentions &amp; features</h2>
-      <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:20px; max-width:620px;">Coverage and citations of my writing and tools in other outlets.</p>
-      <div class="archive-list">
-        <a class="archive-item" href="https://www.thecityreporter.nyc/2026/08/18/mamdani-agency-reporting-requirements-city-council-laws/" target="_blank" rel="noopener">
-          <span class="archive-item-date">Aug '26</span>
-          <span class="archive-title">Mamdani Wants To Speed up NYC Government. He Could Tackle Cumbersome Agency Reports. <span style="color:var(--text-faint); font-weight:400;">· features the Legislation Implementation Tracker</span></span>
-          <span class="archive-tag">The City Reporter</span>
-        </a>
-        <a class="archive-item" href="https://searchlight.citizensunion.org/unfunded-and-unfinished-how-council-mandates-slow-the-city-down/" target="_blank" rel="noopener">
-          <span class="archive-item-date">Aug '26</span>
-          <span class="archive-title">Unfunded and Unfinished: How Council Mandates Slow the City Down <span style="color:var(--text-faint); font-weight:400;">· my piece on the tracker's findings for Citizens Union's Searchlight</span></span>
-          <span class="archive-tag">Searchlight</span>
-        </a>
-      </div>
-    </section>
-
     <!-- OLDER WRITING -->
     <section class="section">
       <p class="section-label">Earlier work</p>
@@ -483,7 +471,7 @@
     <a href="/" class="footer-brand"><span>tal</span>·roded</a>
     <nav class="footer-links" style="flex-wrap:wrap">
       <a href="/writing/">Writing</a>
-      <a href="/research/">Publications</a>
+      <a href="/publications/">Publications &amp; Press</a>
       <a href="/wiki/">Wiki</a>
       <a href="/about/">About</a>
       <a href="/services/">Services</a>
@@ -505,19 +493,53 @@
 </footer>
 
 <script>
-  const filters = document.querySelectorAll('.filter-btn');
-  const items   = document.querySelectorAll('.archive-item');
+  const filters = document.querySelectorAll('#filters .filter-btn');
+  const items = Array.from(document.querySelectorAll('#archive .archive-item'));
+  const pager = document.getElementById('archive-pager');
+  const PAGE_SIZE = 10;
+  let activeFilter = 'all', currentPage = 1;
+
+  function visibleItems() {
+    return items.filter(it => activeFilter === 'all' || (it.dataset.cat || '').split(/\s+/).includes(activeFilter));
+  }
+  function paint() {
+    const vis = visibleItems();
+    const pages = Math.max(1, Math.ceil(vis.length / PAGE_SIZE));
+    if (currentPage > pages) currentPage = pages;
+    items.forEach(it => { it.style.display = 'none'; });
+    vis.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE).forEach(it => { it.style.display = 'flex'; });
+    let html = '';
+    if (pages > 1) {
+      html += '<button class="filter-btn" data-p="prev"' + (currentPage === 1 ? ' disabled' : '') + '>&larr;</button>';
+      for (let p = 1; p <= pages; p++) {
+        html += '<button class="filter-btn' + (p === currentPage ? ' active' : '') + '" data-p="' + p + '">' + p + '</button>';
+      }
+      html += '<button class="filter-btn" data-p="next"' + (currentPage === pages ? ' disabled' : '') + '>&rarr;</button>';
+    }
+    pager.innerHTML = html;
+    pager.style.display = pages > 1 ? 'flex' : 'none';
+  }
+  pager.addEventListener('click', e => {
+    const b = e.target.closest('.filter-btn');
+    if (!b || b.disabled) return;
+    const pages = Math.max(1, Math.ceil(visibleItems().length / PAGE_SIZE));
+    const pv = b.dataset.p;
+    if (pv === 'prev') currentPage = Math.max(1, currentPage - 1);
+    else if (pv === 'next') currentPage = Math.min(pages, currentPage + 1);
+    else currentPage = parseInt(pv, 10);
+    paint();
+    document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   filters.forEach(btn => {
     btn.addEventListener('click', () => {
       filters.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const f = btn.dataset.filter;
-      items.forEach(item => {
-        const cats = (item.dataset.cat || '').split(/\s+/);
-        item.style.display = (f === 'all' || cats.includes(f)) ? 'flex' : 'none';
-      });
+      activeFilter = btn.dataset.filter;
+      currentPage = 1;
+      paint();
     });
   });
+  paint();
 </script>
 
 </body>
