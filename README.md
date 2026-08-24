@@ -48,7 +48,7 @@ Header and footer markup is duplicated per page, but all styling lives in the sh
 - **Footer** — `.footer-inner` with brand, `.footer-links` nav, the `.footer-support` pill, and copyright.
 - **Buy Me a Coffee** — links to `https://buymeacoffee.com/nycuriosity`, label **"Support my work"**, coffee-cup icon, `target="_blank"`. In both header (class `header-icon-link header-support`, subtle blue-tinted outline) and footer (class `footer-support`). Fills solid blue on hover.
 - The old **Block Party** header link has been removed site-wide (a Block Party project card may still appear in page bodies — that's intentional, leave it).
-- **Standalone pages without the shared shell** — `resume_oti_business_analysis.html` and `western-parks-planner.html` have no header/footer; skip them when propagating chrome. (Both are untracked local files, not deployed; `western-parks-planner.html` also carries uncommitted local edits — don't stage it.)
+- **Standalone pages without the shared shell** — `resume_oti_business_analysis.html` has no header/footer; skip it when propagating chrome (untracked local file, not deployed). `western-parks-planner.html` was deleted Aug 24 2026.
 - **Link previews** — every shell page carries `og:image`/`twitter:card` meta pointing at `/og_card.png` (1200×630). Regenerate the card by rendering an HTML mock at that size via headless Chrome `--screenshot`.
 - **Canonical NYCuriosity descriptor** — use verbatim wherever the newsletter is described: "data-driven analysis of NYC transit, streets, housing, and how the city governs itself."
 - **All Substack links point at `https://www.nycuriosity.com`** (the custom domain), not `nycuriosity.substack.com`.
