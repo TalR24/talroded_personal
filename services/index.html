@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://talroded.nycuriosity.com/services/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta property="og:image" content="https://talroded.nycuriosity.com/og_card.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/og_card.png">
@@ -22,14 +22,14 @@
     /* studio badge on the hero */
     .svc-badge {
       display: inline-flex; align-items: center; gap: 7px;
-      font-family: 'Roboto Mono', monospace; font-size: 0.7rem; font-weight: 600;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.09em; color: var(--blue);
       background: var(--blue-light); border: 1px solid var(--blue-mid);
       border-radius: 20px; padding: 5px 13px; margin-bottom: 4px;
     }
     .svc-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
     .svc-logo { display: block; margin-bottom: 18px; height: auto; }
-    .page-hero .svc-tag { font-family: 'Roboto Mono', monospace; font-size: 0.95rem; color: var(--text-muted); max-width: 620px; line-height: 1.6; margin-top: 6px; }
+    .page-hero .svc-tag { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.95rem; color: var(--text-muted); max-width: 620px; line-height: 1.6; margin-top: 6px; }
 
     .svc-intro { font-size: 1.02rem; color: var(--text-mid); line-height: 1.8; max-width: 720px; }
     .svc-intro a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue-mid); }
@@ -39,7 +39,7 @@
     /* audience chips */
     .svc-audience { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .svc-aud {
-      font-family: 'Roboto Mono', monospace; font-size: 0.74rem; font-weight: 500; color: var(--text-mid);
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.74rem; font-weight: 500; color: var(--text-mid);
       border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; background: var(--surface);
     }
 
@@ -59,16 +59,16 @@
     }
     .svc-card.feature .svc-ico { background: var(--blue); color: #fff; }
     .svc-flag {
-      font-family: 'Roboto Mono', monospace; font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.1em; color: var(--blue); margin-bottom: 8px;
     }
-    .svc-card h3 { font-family: 'Roboto Mono', monospace; font-size: 1.06rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
+    .svc-card h3 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 1.06rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
     .svc-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
     .svc-ex { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; margin-top: 10px; }
-    .svc-ex b { font-family: 'Roboto Mono', monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); display: block; margin-bottom: 2px; }
+    .svc-ex b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); display: block; margin-bottom: 2px; }
     .svc-meta { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .svc-turn { font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: var(--text-faint); }
-    .svc-req { font-family: 'Roboto Mono', monospace; font-size: 0.72rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
+    .svc-turn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; color: var(--text-faint); }
+    .svc-req { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
     .svc-req:hover { text-decoration: underline; }
 
     /* independence callout */
@@ -85,10 +85,10 @@
     .svc-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: step; }
     .svc-step { position: relative; }
     .svc-step .num {
-      font-family: 'Roboto Mono', monospace; font-size: 0.72rem; font-weight: 700; color: #fff;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 700; color: #fff;
       background: var(--blue); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
     }
-    .svc-step h4 { font-family: 'Roboto Mono', monospace; font-size: 0.86rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .svc-step h4 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.86rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
     .svc-step p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
 
     /* proof cards */
@@ -99,20 +99,20 @@
       transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
     }
     .svc-proof a:hover { border-color: var(--blue-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .svc-proof .lab { font-family: 'Roboto Mono', monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
-    .svc-proof .ti { font-family: 'Roboto Mono', monospace; font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .svc-proof .lab { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
+    .svc-proof .ti { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.95rem; font-weight: 700; color: var(--text); }
     .svc-proof .de { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
-    .svc-proof .go { font-family: 'Roboto Mono', monospace; font-size: 0.72rem; color: var(--blue); margin-top: auto; }
+    .svc-proof .go { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; color: var(--blue); margin-top: auto; }
 
     /* credentials strip */
     .svc-creds { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; }
-    .svc-cred { font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 600; color: var(--text-mid); }
+    .svc-cred { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.82rem; font-weight: 600; color: var(--text-mid); }
     .svc-cred span { color: var(--text-faint); font-weight: 400; }
 
     /* FAQ */
     .svc-faq { max-width: 780px; }
     .svc-faq details { border-bottom: 1px solid var(--border); padding: 16px 0; }
-    .svc-faq summary { font-family: 'Roboto Mono', monospace; font-size: 0.92rem; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .svc-faq summary { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.92rem; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
     .svc-faq summary::-webkit-details-marker { display: none; }
     .svc-faq summary::after { content: '+'; color: var(--blue); font-weight: 700; }
     .svc-faq details[open] summary::after { content: '\2212'; }
@@ -124,21 +124,21 @@
       text-align: center; position: relative; overflow: hidden;
     }
     .svc-cta::after { content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(520px 260px at 82% 10%, rgba(37,99,235,0.34), transparent 60%); }
+      background: radial-gradient(520px 260px at 82% 10%, rgba(200,70,9,0.34), transparent 60%); }
     .svc-cta h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 400; color: #fff; margin-bottom: 12px; position: relative; }
     .svc-cta p { color: #cbd5e1; font-size: 0.98rem; line-height: 1.6; max-width: 520px; margin: 0 auto 24px; position: relative; }
     .svc-cta .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
     .btn-primary, .btn-ghost {
-      font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.82rem; font-weight: 600; text-decoration: none;
       padding: 12px 22px; border-radius: 8px; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px;
     }
     .btn-primary { background: var(--blue); color: #fff; }
     .btn-primary:hover { background: var(--blue-hover); }
     .btn-ghost { background: transparent; color: #e2e8f0; border: 1px solid #334155; }
-    .btn-ghost:hover { border-color: #60a5fa; color: #fff; }
+    .btn-ghost:hover { border-color: #FFD23F; color: #fff; }
     .svc-formwrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(10px, 2vw, 20px); max-height: min(760px, 80vh); overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .svc-formwrap iframe { display: block; width: 100%; border: 0; }
-    .svc-note { font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: var(--text-faint); margin-top: 16px; }
+    .svc-note { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; color: var(--text-faint); margin-top: 16px; }
 
     @media (max-width: 860px) {
       .svc-grid { grid-template-columns: 1fr; }
@@ -176,9 +176,9 @@
 <div class="page-hero">
   <div class="page-hero-inner">
     <svg class="svc-logo" width="230" height="43" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NYCuriosity Studio">
-      <g transform="translate(2,8)"><circle cx="17" cy="17" r="12.5" fill="none" stroke="#2563eb" stroke-width="3"/><line x1="26" y1="26" x2="35.5" y2="35.5" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/><rect x="11.6" y="18" width="2.7" height="5.5" rx="0.9" fill="#60a5fa"/><rect x="15.5" y="14.5" width="2.7" height="9" rx="0.9" fill="#2563eb"/><rect x="19.4" y="11.5" width="2.7" height="12" rx="0.9" fill="#FF6319"/></g>
-      <text font-family="'Roboto Mono',monospace" font-weight="700" font-size="22" letter-spacing="-0.5"><tspan x="52" y="32" fill="#2563eb">NYC</tspan><tspan fill="#111827">uriosity</tspan></text>
-      <text x="53" y="47" font-family="'Roboto Mono',monospace" font-weight="700" font-size="9" letter-spacing="4.5" fill="#FF6319">STUDIO</text>
+      <g transform="translate(2,8)"><circle cx="17" cy="17" r="12.5" fill="none" stroke="#C84609" stroke-width="3"/><line x1="26" y1="26" x2="35.5" y2="35.5" stroke="#C84609" stroke-width="3.6" stroke-linecap="round"/><rect x="11.6" y="18" width="2.7" height="5.5" rx="0.9" fill="#FFD23F"/><rect x="15.5" y="14.5" width="2.7" height="9" rx="0.9" fill="#C84609"/><rect x="19.4" y="11.5" width="2.7" height="12" rx="0.9" fill="#FF6319"/></g>
+      <text font-family="'JetBrains Mono', ui-monospace, monospace" font-weight="700" font-size="22" letter-spacing="-0.5"><tspan x="52" y="32" fill="#C84609">NYC</tspan><tspan fill="#1A1208">uriosity</tspan></text>
+      <text x="53" y="47" font-family="'JetBrains Mono', ui-monospace, monospace" font-weight="700" font-size="9" letter-spacing="4.5" fill="#FF6319">STUDIO</text>
     </svg>
     <h1>Custom research &amp; writing, grounded in data</h1>
   </div>

@@ -1,3 +1,4 @@
+@import url('brand.css');
 /* ============================================================
    TAL RODED — Shared Design System
    ============================================================ */
@@ -5,29 +6,35 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --blue:        #2563eb;
-  --blue-hover:  #1d4ed8;
-  --blue-light:  #eff6ff;
-  --blue-mid:    #bfdbfe;
-  --text:        #0f172a;
-  --text-mid:    #374151;
-  --text-muted:  #6b7280;
-  --text-faint:  #9ca3af;
-  --bg:          #f7f8fc;
-  --surface:     #ffffff;
-  --border:      #e5e7eb;
-  --dark:        #0f172a;
-  --shadow-sm:   0 1px 3px rgba(15,23,42,0.07);
-  --shadow-md:   0 4px 20px rgba(37,99,235,0.10);
-  --radius:      10px;
-  /* project accent colors */
-  --c-newsletter: #2563eb;
-  --c-data:       #0891b2;
-  --c-civic:      #16a34a;
-  --c-tool:       #7c3aed;
-  --c-edu:        #d97706;
-  --c-code:       #475569;
-  /* subway */
+  /* Brand tokens come from brand.css, imported above. Local names are kept so
+     the rest of this stylesheet is untouched; only the values move. Rules and
+     rationale: the `nycuriosity-brand` skill. */
+  --blue:        var(--b-tangerine-deep);   /* primary: links, buttons, active */
+  --blue-hover:  var(--b-brown);
+  --blue-light:  var(--b-cream);
+  --blue-mid:    #EDC3A5;
+  --text:        var(--b-ink);
+  --text-mid:    var(--b-ink-2);
+  --text-muted:  var(--b-ink-3);
+  --text-faint:  var(--b-ink-4);
+  --bg:          var(--b-cream);
+  --surface:     var(--b-surface);
+  --border:      var(--b-line);
+  --dark:        var(--b-surface-dark);
+  --shadow-sm:   var(--b-shadow);
+  --shadow-md:   var(--b-shadow-lg);
+  --radius:      var(--b-radius);
+
+  /* Content-category accents, mapped onto the brand palette. */
+  --c-newsletter: var(--b-tangerine);
+  --c-data:       var(--b-lightblue);
+  --c-civic:      #226287;
+  --c-tool:       var(--b-fuchsia);
+  --c-edu:        var(--b-marigold);
+  --c-code:       var(--b-ink-3);
+
+  /* MTA service-bullet colours. Real-world line colours, NOT brand values —
+     never map these onto the palette. */
   --sub-blue:    #0039A6;
   --sub-red:     #EE352E;
   --sub-green:   #00933C;
@@ -36,7 +43,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--b-sans);
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -63,7 +70,7 @@ header {
   gap: 16px;
 }
 .brand {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.9rem;
   font-weight: 700;
   color: rgba(255,255,255,0.9);
@@ -102,7 +109,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.72rem;
   font-weight: 600;
   color: rgba(255,255,255,0.55);
@@ -118,7 +125,7 @@ header {
   background: rgba(255,255,255,0.08);
 }
 .header-cta {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--dark);
@@ -142,7 +149,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--blue-mid);
@@ -161,7 +168,7 @@ header {
 
 /* ── SECTION CHROME ──────────────────────────────────────── */
 .section-label {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -224,7 +231,7 @@ header {
   flex: 1;
 }
 .project-cat {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -246,7 +253,7 @@ header {
   margin-bottom: 14px;
 }
 .project-link-label {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.7rem;
   font-weight: 600;
   display: flex;
@@ -284,7 +291,7 @@ header {
   margin-bottom: 12px;
 }
 .writing-tag {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -296,7 +303,7 @@ header {
   padding: 2px 7px;
 }
 .writing-date {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.68rem;
   color: var(--text-faint);
 }
@@ -320,7 +327,7 @@ header {
   margin-bottom: 14px;
 }
 .stat-big {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--blue);
@@ -333,7 +340,7 @@ header {
   line-height: 1.4;
 }
 .writing-card-cta {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -364,7 +371,7 @@ header {
 }
 .exp-item:last-child { border-right: none; }
 .exp-period {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.62rem;
   font-weight: 600;
   color: var(--text-faint);
@@ -407,7 +414,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.6rem;
   font-weight: 700;
   color: #fff;
@@ -429,7 +436,7 @@ footer {
   gap: 14px;
 }
 .footer-brand {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.8rem;
   font-weight: 700;
   color: rgba(255,255,255,0.7);
@@ -440,7 +447,7 @@ footer {
 .footer-copy {
   font-size: 0.72rem;
   color: rgba(255,255,255,0.25);
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
 }
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-links a {
@@ -462,7 +469,7 @@ footer {
   margin: 0 auto;
 }
 .page-hero p.page-hero-label {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -535,7 +542,7 @@ main {
 }
 .tl-role { font-size: 0.925rem; font-weight: 600; color: var(--text); line-height: 1.3; }
 .tl-period {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.68rem;
   font-weight: 500;
   color: var(--text-faint);
@@ -543,7 +550,7 @@ main {
   padding-top: 3px;
 }
 .tl-org {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--blue);
@@ -579,7 +586,7 @@ main {
   margin-bottom: 28px;
 }
 .filter-btn {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -610,7 +617,7 @@ main {
 .archive-item:last-child { border-bottom: none; }
 .archive-item:hover .archive-title { color: var(--blue); }
 .archive-item-date {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.67rem;
   color: var(--text-faint);
   white-space: nowrap;
@@ -626,7 +633,7 @@ main {
   transition: color 0.15s;
 }
 .archive-tag {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.6rem;
   font-weight: 700;
   color: var(--text-faint);
@@ -651,7 +658,7 @@ main {
   box-shadow: var(--shadow-sm);
 }
 .skills-group-title {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -661,7 +668,7 @@ main {
 }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .skill-tag {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.68rem;
   font-weight: 600;
   background: var(--blue-light);
@@ -726,7 +733,7 @@ main {
 /* Hub page — category groupings */
 .wiki-hub-category { margin-bottom: 36px; }
 .wiki-hub-category-label {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -757,7 +764,7 @@ main {
   transform: translateY(-2px);
 }
 .wiki-hub-num {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.57rem;
   font-weight: 700;
   color: var(--blue);
@@ -766,7 +773,7 @@ main {
   margin-bottom: 4px;
 }
 .wiki-hub-title {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--text);
@@ -787,7 +794,7 @@ main {
   margin-bottom: 36px;
 }
 .wiki-subnav a {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.62rem;
   font-weight: 600;
   color: var(--text-mid);
@@ -804,7 +811,7 @@ main {
 /* Subpage content sections */
 .wiki-section { margin-bottom: 40px; }
 .wiki-section-heading {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -854,7 +861,7 @@ main {
   line-height: 1.35;
 }
 .wiki-link-by {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--b-mono);
   font-size: 0.63rem;
   color: var(--text-faint);
   margin-top: 3px;
