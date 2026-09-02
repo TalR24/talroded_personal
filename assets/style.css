@@ -54,8 +54,8 @@ body {
 
 /* ── HEADER ─────────────────────────────────────────────── */
 header {
-  background: #111827;
-  border-bottom: 1px solid #1f2937;
+  background: var(--b-surface-dark);
+  border-bottom: 1px solid #2E1C0C;
   padding: 0 clamp(20px, 5vw, 48px);
   position: sticky;
   top: 0;
