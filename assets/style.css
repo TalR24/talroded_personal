@@ -70,16 +70,16 @@ header {
   gap: 16px;
 }
 .brand {
-  font-family: var(--b-mono);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.9);
+  /* The wordmark is drawn in the brand letterforms; L and E were built on the
+     font's own grid because they do not exist in the delivered artwork.
+     Master: nycur_brand/derived/TalRoded_wordmark_*.svg */
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: -0.02em;
   flex-shrink: 0;
   margin-right: 8px;
 }
-.brand span { color: var(--blue-mid); }
+.brand img { height: 20px; width: auto; display: block; }
 .header-nav {
   display: flex;
   align-items: center;
