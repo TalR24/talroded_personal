@@ -14,12 +14,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <meta property="og:image" content="https://talroded.nycuriosity.com/og_card.png">
+  <meta property="og:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://talroded.nycuriosity.com/og_card.png">
+  <meta name="twitter:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/style.css?v=7">
+  <link rel="stylesheet" href="../assets/style.css?v=8">
   <style>
     /* studio badge on the hero */
     .svc-badge {
@@ -30,7 +30,7 @@
       border-radius: 20px; padding: 5px 13px; margin-bottom: 4px;
     }
     .svc-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
-    .svc-logo { display: block; margin-bottom: 18px; height: auto; }
+    .svc-logo { display: block; margin-bottom: 18px; width: 300px; max-width: 100%; height: auto; }
     .page-hero .svc-tag { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.95rem; color: var(--text-muted); max-width: 620px; line-height: 1.6; margin-top: 6px; }
 
     .svc-intro { font-size: 1.02rem; color: var(--text-mid); line-height: 1.8; max-width: 720px; }
@@ -177,11 +177,7 @@
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <svg class="svc-logo" width="230" height="43" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NYCuriosity Studio">
-      <g transform="translate(2,8)"><circle cx="17" cy="17" r="12.5" fill="none" stroke="#C84609" stroke-width="3"/><line x1="26" y1="26" x2="35.5" y2="35.5" stroke="#C84609" stroke-width="3.6" stroke-linecap="round"/><rect x="11.6" y="18" width="2.7" height="5.5" rx="0.9" fill="#FFD23F"/><rect x="15.5" y="14.5" width="2.7" height="9" rx="0.9" fill="#C84609"/><rect x="19.4" y="11.5" width="2.7" height="12" rx="0.9" fill="#FF6319"/></g>
-      <text font-family="'JetBrains Mono', ui-monospace, monospace" font-weight="700" font-size="22" letter-spacing="-0.5"><tspan x="52" y="32" fill="#C84609">NYC</tspan><tspan fill="#1A1208">uriosity</tspan></text>
-      <text x="53" y="47" font-family="'JetBrains Mono', ui-monospace, monospace" font-weight="700" font-size="9" letter-spacing="4.5" fill="#FF6319">STUDIO</text>
-    </svg>
+    <img class="svc-logo" src="/assets/brand/studio_wordmark.svg" alt="NYCuriosity Studio" width="300" height="24">
     <h1>Custom research &amp; writing, grounded in data</h1>
   </div>
 </div>
