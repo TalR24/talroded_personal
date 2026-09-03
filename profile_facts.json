@@ -1,0 +1,301 @@
+{
+  "_about": "Single source of truth for every fact that appears in Tal Roded's public copy (personal site, Substack description and homepage links, data site, State Capacity site). Change a fact HERE first; scripts/copy_check.py compares every copy surface against it. Dates are the day the fact was last confirmed by Tal.",
+  "updated": "2026-09-03",
+  "identity": {
+    "name": "Tal Roded",
+    "location": "New York, NY",
+    "email_public": "tal@nycuriosity.com",
+    "sites": {
+      "personal": "https://talroded.nycuriosity.com/",
+      "substack": "https://www.nycuriosity.com/",
+      "data": "https://data.nycuriosity.com/",
+      "state_capacity": "https://statecapacityecosystem.com/",
+      "github": "https://github.com/TalR24",
+      "linkedin": "https://www.linkedin.com/in/tal-roded/"
+    }
+  },
+  "descriptor": {
+    "nycuriosity": "data-driven analysis of NYC transit, streets, the City budget, and how the city governs itself",
+    "substack_hero_text": "NYCuriosity explores New York through data, policy, and place: streets, transit, and parks, the City budget and Council legislation, community boards from the inside (I serve on Manhattan CB3), and the people building better tools for government.",
+    "substack_hero_text_max_chars": 250,
+    "confirmed": "2026-09-03"
+  },
+  "roles": [
+    {
+      "org": "LinkedIn",
+      "title": "Data Scientist",
+      "title_formal": "Senior Associate, Advanced Analytics",
+      "since": "2025-06",
+      "current": true,
+      "copy": "design KPI frameworks and experiments for product adoption, own the models and analysis that dozens of sales and marketing teams rely on, and wrote the AI governance standards the go-to-market organization adopted",
+      "confirmed": "2026-09-03"
+    },
+    {
+      "org": "Manhattan Community Board 3",
+      "title": "Appointed member",
+      "committees": [
+        "Parks"
+      ],
+      "since": "2025-05",
+      "current": true,
+      "confirmed": "2026-09-03",
+      "note": "Parks Committee ONLY. Not Transportation."
+    },
+    {
+      "org": "NYU Wagner",
+      "title": "MPA student (part-time)",
+      "expected": "2028-05",
+      "current": true,
+      "extra": "Co-chair, Wagner City Gov Network, 2026 to 27 school year",
+      "extra_on_resume": false,
+      "confirmed": "2026-09-03"
+    },
+    {
+      "org": "MIT FutureTech",
+      "title": "Affiliate Researcher",
+      "since": "2023-10",
+      "current": true,
+      "confirmed": "2026-09-03"
+    },
+    {
+      "org": "Menti",
+      "title": "Co-Founder and Executive Director",
+      "since": "2020-10",
+      "current": true,
+      "url": "https://menti.club",
+      "confirmed": "2026-09-03"
+    },
+    {
+      "org": "Block Party",
+      "title": "Contributor",
+      "since": "2026",
+      "current": true,
+      "url": "https://blockparty.studio",
+      "copy_rule": "say 'across NYC community boards'; do not state a board count (Tal, 2026-09-03)"
+    },
+    {
+      "org": "State Capacity Ecosystem",
+      "title": "Co-organizer",
+      "with": [
+        "Henry Grunzweig",
+        "Jeremie Ponak",
+        "Sourabh Chakraborty"
+      ],
+      "current": true,
+      "confirmed": "2026-09-03"
+    },
+    {
+      "org": "NYCuriosity",
+      "title": "Founder and Author",
+      "since": "2025-03",
+      "first_post": "2025-04",
+      "current": true
+    },
+    {
+      "org": "NYCuriosity Studio",
+      "title": "Principal",
+      "url": "https://talroded.nycuriosity.com/services/",
+      "current": true
+    },
+    {
+      "org": "Technologists for the Public Good",
+      "title": "Member",
+      "current": true
+    },
+    {
+      "org": "Starbucks",
+      "title": "Data Scientist",
+      "from": "2024-01",
+      "to": "2025-06",
+      "current": false
+    },
+    {
+      "org": "Accenture Research",
+      "title": "Senior Data Science Analyst",
+      "from": "2022-11",
+      "to": "2024-01",
+      "current": false
+    },
+    {
+      "org": "Federal Reserve Bank of Philadelphia",
+      "title": "Research Associate (from Senior Research Assistant)",
+      "from": "2019-08",
+      "to": "2022-11",
+      "current": false
+    }
+  ],
+  "bylines": [
+    "Streetsblog NYC",
+    "Vital City",
+    "Searchlight (Citizens Union)",
+    "Reboot Democracy"
+  ],
+  "press": [
+    "The City Reporter"
+  ],
+  "career_start_year": 2019,
+  "numbers": {
+    "_about": "Live sources are fetched by copy_check.py; 'value' is the last observed value. 'display' rules: exact | floor10plus (330+) | floor100plus (8,200+) | floor1000plus.",
+    "posts": {
+      "value": 69,
+      "source": "writing_page",
+      "display": "exact",
+      "note": "NYCuriosity rows in #archive on the writing page; the anonymous Substack API returns only ~23 posts so it is never used for counts"
+    },
+    "archive_rows": {
+      "value": 70,
+      "source": "writing_page",
+      "display": "exact"
+    },
+    "fiscal_records": {
+      "value": 359,
+      "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
+      "path": "metadata.total_records",
+      "display": "exact"
+    },
+    "obligations": {
+      "value": 8223,
+      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
+      "path": "obligation_count",
+      "display": "floor100plus"
+    },
+    "local_laws": {
+      "value": 2147,
+      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
+      "path": "laws.length",
+      "display": "exact"
+    },
+    "sce_orgs": {
+      "value": 329,
+      "source": "https://statecapacityecosystem.com/data/directory.csv",
+      "path": "csv_rows",
+      "display": "exact"
+    },
+    "community_boards": {
+      "value": 59,
+      "source": "constant",
+      "display": "exact"
+    }
+  },
+  "embedded_numbers": [
+    {
+      "file": "index.html",
+      "regex": "View all (\\d+) posts",
+      "fact": "archive_rows"
+    },
+    {
+      "file": "writing/index.html",
+      "regex": "All (\\d+) posts",
+      "fact": "archive_rows"
+    },
+    {
+      "file": "resume/index.html",
+      "regex": "(\\d+) articles of data-driven",
+      "fact": "posts"
+    },
+    {
+      "file": "resume/index.html",
+      "regex": "\\((\\d+) fiscal impact statements",
+      "fact": "fiscal_records"
+    },
+    {
+      "file": "resume/index.html",
+      "regex": "and ([\\d,]+\\+) agency obligations",
+      "fact": "obligations"
+    },
+    {
+      "file": "index.html",
+      "regex": "directory of (\\d+\\+?) organizations",
+      "fact": "sce_orgs"
+    },
+    {
+      "file": "services/index.html",
+      "regex": "(\\d+\\+?) organizations working on government",
+      "fact": "sce_orgs"
+    }
+  ],
+  "banned_strings": [
+    {
+      "text": "VisualizeCuriosity",
+      "why": "retired 2018 to 2024 site; only the archive section on /writing/ may mention it",
+      "allow_files": [
+        "writing/index.html"
+      ]
+    },
+    {
+      "text": "visualizecuriosity.com",
+      "why": "same",
+      "allow_files": [
+        "writing/index.html"
+      ]
+    },
+    {
+      "text": "housing, and how the city governs itself",
+      "why": "old descriptor, replaced 2026-09-03"
+    },
+    {
+      "text": "60+ articles",
+      "why": "stale count"
+    },
+    {
+      "text": "NYC Government Bodies Explorer",
+      "why": "tool retired from the featured list"
+    },
+    {
+      "text": "Transportation Committee",
+      "why": "Tal is on Parks only"
+    },
+    {
+      "text": "build data science systems at platform scale",
+      "why": "old LinkedIn line"
+    },
+    {
+      "text": " — ",
+      "why": "em dash in prose (titles and meta tags are exempt)",
+      "prose_only": true
+    }
+  ],
+  "surfaces": {
+    "_about": "Every place public copy about Tal lives. 'ci' = reachable from GitHub Actions; Substack blocks Actions IPs so those run locally at the sweep.",
+    "personal_site": {
+      "files": [
+        "index.html",
+        "about/index.html",
+        "resume/index.html",
+        "services/index.html",
+        "writing/index.html",
+        "publications/index.html"
+      ],
+      "ci": true
+    },
+    "substack_hero": {
+      "url": "https://www.nycuriosity.com/subscribe",
+      "check": "hero_text present",
+      "ci": false
+    },
+    "substack_links": {
+      "api": "/api/v1/homepage_links",
+      "expect_titles": [
+        "LinkedIn",
+        "NYCuriosity Data",
+        "Tal Roded"
+      ],
+      "ci": false
+    },
+    "substack_about": {
+      "url": "https://www.nycuriosity.com/about",
+      "ci": false,
+      "note": "edited in Substack settings, no API found"
+    },
+    "sce_about": {
+      "url": "https://statecapacityecosystem.com/about/",
+      "ci": true
+    },
+    "data_site_home": {
+      "url": "https://data.nycuriosity.com/",
+      "ci": true,
+      "note": "the data site has no About page; its homepage is the bio-bearing surface"
+    }
+  },
+  "numbers_observed": "2026-09-03"
+}

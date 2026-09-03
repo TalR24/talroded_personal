@@ -1,0 +1,64 @@
+# Weekly copy-currency check (layer 2 of the Sep 2026 copy system).
+# Refreshes the numbers embedded in the site's copy from their live sources
+# (data.nycuriosity.com, statecapacityecosystem.com), commits those
+# mechanical fixes, and opens or updates a GitHub issue listing anything
+# that needs a human (banned strings, stale descriptors). Substack blocks
+# GitHub Actions IPs, so the post sync and the Substack surfaces are checked
+# at the session sweep instead (python3 scripts/copy_check.py, no --ci).
+name: Copy check
+
+on:
+  schedule:
+    - cron: "17 13 * * 1"   # Mondays 13:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  copy-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run copy check
+        run: python3 scripts/copy_check.py --ci
+
+      - name: Commit number fixes and report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html about/index.html resume/index.html services/index.html writing/index.html profile_facts.json copy_reports/
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "copy check: refresh embedded numbers [skip ci]"
+            git pull --rebase origin main
+            git push
+          fi
+
+      - name: Open an issue if something needs a human
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "^- nothing flagged" copy_reports/latest.md; then
+            echo "Nothing flagged."
+            exit 0
+          fi
+          BODY=$(sed -n '/^## Needs a human/,/^## Log/p' copy_reports/latest.md | sed '$d')
+          EXISTING=$(gh issue list --label copy-check --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$(date -u +%Y-%m-%d) run:"$'\n\n'"$BODY"
+          else
+            gh label create copy-check --color E7DDCE --description "Weekly copy currency check" 2>/dev/null || true
+            gh issue create --title "Copy check: items needing a human ($(date -u +%Y-%m-%d))" --label copy-check --body "$BODY"$'\n\n'"Full report: copy_reports/latest.md"
+          fi
