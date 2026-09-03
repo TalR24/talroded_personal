@@ -1,4 +1,4 @@
-# Copy check — 2026-09-03 (local)
+# Copy check — 2026-09-03 (CI)
 
 ## Live numbers
 
@@ -20,4 +20,6 @@
 
 ## Log
 
-- sync_posts.py: no new posts
+- Substack post sync skipped in CI (Substack blocks GitHub Actions IPs). Run `python3 scripts/copy_check.py` locally at the sweep.
+- substack_hero: skipped in CI (Substack)
+- substack_about: skipped in CI (Substack)
