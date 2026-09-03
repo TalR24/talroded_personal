@@ -195,7 +195,7 @@ def scan_remote(facts: dict, ci: bool, log: list[str]) -> list[str]:
                 continue
             body = strip_head_and_tags(r.text)
             for b in facts["banned_strings"]:
-                if b.get("prose_only"):
+                if b.get("prose_only") or b.get("personal_only"):
                     continue
                 if b["text"] in body:
                     flags.append(f"{name} ({spec['url']}): contains {b['text']!r}")

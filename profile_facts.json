@@ -239,7 +239,8 @@
     },
     {
       "text": "NYC Government Bodies Explorer",
-      "why": "tool retired from the featured list"
+      "why": "retired from the personal-site featured tools list; the tool itself still exists on the data site",
+      "personal_only": true
     },
     {
       "text": "Transportation Committee",
