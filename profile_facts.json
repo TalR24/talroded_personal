@@ -304,10 +304,10 @@
       "note": "the data site has no About page; its homepage is the bio-bearing surface"
     },
     "substack_profile_bio": {
-      "api": "/api/v1/user/profile/self -> bio",
+      "api": "GET /api/v1/user/profile/self -> bio; PUT /api/v1/user/profile {bio}",
       "ci": false,
-      "current": "Author of the NYCuriosity Substack. Exploring NYC policy developments through insights into NYC open data and my own background in economic research and data science. Member of Manhattan Community Board 3.",
-      "note": "the People card at the foot of the About page; not reviewed with Tal yet (Sep 3 2026)"
+      "current": "Writes NYCuriosity, data-driven analysis of NYC transit, streets, the City budget, and how the city governs itself. Data scientist, member of Manhattan Community Board 3, and co-organizer of the State Capacity Ecosystem.",
+      "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
   "numbers_observed": "2026-09-03"
