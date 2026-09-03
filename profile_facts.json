@@ -286,7 +286,13 @@
     "substack_about": {
       "url": "https://www.nycuriosity.com/about",
       "ci": false,
-      "note": "edited in Substack settings, no API found"
+      "note": "edited in Substack settings, no API found; updated by Tal Sep 3 2026",
+      "copy_rules": [
+        "No employer or education history here (that lives on the personal site and LinkedIn).",
+        "Do not add the Wagner co-chair role here.",
+        "State Capacity co-organizers are NOT named here; Tal wrote 'with other passionate civic technologists'.",
+        "Ends with a feedback link and the Studio paragraph."
+      ]
     },
     "sce_about": {
       "url": "https://statecapacityecosystem.com/about/",
@@ -296,6 +302,12 @@
       "url": "https://data.nycuriosity.com/",
       "ci": true,
       "note": "the data site has no About page; its homepage is the bio-bearing surface"
+    },
+    "substack_profile_bio": {
+      "api": "/api/v1/user/profile/self -> bio",
+      "ci": false,
+      "current": "Author of the NYCuriosity Substack. Exploring NYC policy developments through insights into NYC open data and my own background in economic research and data science. Member of Manhattan Community Board 3.",
+      "note": "the People card at the foot of the About page; not reviewed with Tal yet (Sep 3 2026)"
     }
   },
   "numbers_observed": "2026-09-03"
