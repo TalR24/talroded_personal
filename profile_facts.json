@@ -137,13 +137,13 @@
   "numbers": {
     "_about": "Live sources are fetched by copy_check.py; 'value' is the last observed value. 'display' rules: exact | floor10plus (330+) | floor100plus (8,200+) | floor1000plus.",
     "posts": {
-      "value": 69,
+      "value": 70,
       "source": "writing_page",
       "display": "exact",
       "note": "NYCuriosity rows in #archive on the writing page; the anonymous Substack API returns only ~23 posts so it is never used for counts"
     },
     "archive_rows": {
-      "value": 70,
+      "value": 71,
       "source": "writing_page",
       "display": "exact"
     },
@@ -310,5 +310,5 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-09-07"
+  "numbers_observed": "2026-09-08"
 }
