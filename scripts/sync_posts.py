@@ -3,6 +3,12 @@ sync_posts.py
 Fetches recent NYCuriosity posts via the Substack JSON API and inserts any
 posts not already listed into writing/index.html (newest first).
 
+WARNING: this uses the PUBLIC archive endpoint, which returns only a subset of
+the publication's posts and silently drops older ones (43 of 70 on Sep 10
+2026). It is safe ONLY for inserting new posts at the top of the list. Never
+use it to regenerate, audit, or count the archive; that needs the logged-in
+enumeration described in the reference-substack-post-api memory.
+
 Run locally:  python scripts/sync_posts.py
 Run via CI:   see .github/workflows/sync_posts.yml
 """
@@ -31,14 +37,15 @@ HEADERS = {
 # ── Categories, mirrored from the publication's own Substack tags ────────────
 # The Substack API returns each post's real tags in `postTags`, so we map those
 # instead of guessing from the title. Keyword RULES are only a fallback for a
-# post that somehow has no tags yet. Canonical Substack tags (Aug 2026):
-#   Infrastructure & Streets · Policy & Economics · Civic Tech ·
-#   Manhattan CB3 / CB3 Reports / CB Guide · Parks
+# post that somehow has no tags yet. Canonical Substack tags (exactly five
+# since Sep 10 2026, matching the homepage tabs; "Parks", "Manhattan CB3" and
+# "CB Guide" were deleted):
+#   State Capacity · Infrastructure & Streets · Policy & Economics ·
+#   Civic Tech · CB3 Reports
 CAT_FROM_TAGS = [
-    ("cb3",       "Community Board",             {"Manhattan CB3", "CB3 Reports", "CB Guide"}),
+    ("cb3",       "Community Board",             {"CB3 Reports"}),
     ("infra",     "Infrastructure &amp; Streets", {"Infrastructure & Streets"}),
-    ("parks",     "Parks",                        {"Parks"}),
-    ("civictech", "Civic Tech",                   {"Civic Tech"}),
+    ("civictech", "Civic Tech",                   {"Civic Tech", "State Capacity"}),
     ("policy",    "Policy &amp; Economics",       {"Policy & Economics"}),
 ]
 
