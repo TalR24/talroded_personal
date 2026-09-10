@@ -324,14 +324,16 @@
       "venue": "NYC OMB Institute",
       "city": "New York, NY",
       "date": "2026-07",
-      "deck": "https://data.nycuriosity.com/cb-tools/block_party_july2026/"
+      "deck": "https://data.nycuriosity.com/cb-tools/block_party_july2026/",
+      "with": "Sarah Sachs"
     },
     {
       "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",
       "venue": "NYC School of Data 2026",
       "city": "New York, NY",
       "date": "2026-03",
-      "deck": "https://data.nycuriosity.com/cb-tools/school-of-data-2026/"
+      "deck": "https://data.nycuriosity.com/cb-tools/school-of-data-2026/",
+      "with": "Sarah Sachs"
     }
   ]
 }
