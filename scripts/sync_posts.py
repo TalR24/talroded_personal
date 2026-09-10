@@ -42,11 +42,13 @@ HEADERS = {
 # "CB Guide" were deleted):
 #   State Capacity · Infrastructure & Streets · Policy & Economics ·
 #   Civic Tech · CB3 Reports
+# Order = Substack tab order; the first hit becomes the visible label.
 CAT_FROM_TAGS = [
-    ("cb3",       "Community Board",             {"CB3 Reports"}),
+    ("statecap",  "State Capacity",               {"State Capacity"}),
     ("infra",     "Infrastructure &amp; Streets", {"Infrastructure & Streets"}),
-    ("civictech", "Civic Tech",                   {"Civic Tech", "State Capacity"}),
     ("policy",    "Policy &amp; Economics",       {"Policy & Economics"}),
+    ("civictech", "Civic Tech",                   {"Civic Tech"}),
+    ("cb3",       "Community Board",             {"CB3 Reports"}),
 ]
 
 # Fallback only (post with no tags): first match wins.
@@ -59,7 +61,8 @@ RULES = [
                         "subway", "ibx", "interborough", "canal", "avenue", "scaffold",
                         "sidewalk", "open street", "parking", "traffic", "pedestrian",
                         "low traffic", "greenway", "infrastructure", "resiliency"]),
-    ("civictech", "Civic Tech", ["ai ", " ai", "civic tech", "state capacity", "knowledge base",
+    ("statecap", "State Capacity", ["state capacity", "agency spotlight", "deputy mayor"]),
+    ("civictech", "Civic Tech", ["ai ", " ai", "civic tech", "knowledge base",
                         "government is", "toolkit", "dashboard", "tracker"]),
     ("policy", "Policy &amp; Economics", ["budget", " tax", "fiscal", "ibo ", "charter",
                         "civil service", "comptroller", "fund", "revenue", "job growth",
@@ -83,7 +86,8 @@ def categorize(title: str, post_tags=None) -> tuple[str, str]:
     for cat_id, cat_label, keywords in RULES:
         if any(kw in t for kw in keywords):
             return cat_id, cat_label
-    return "essay", "Essay"
+    # No Essay filter exists on the writing page any more (retired Sep 10 2026).
+    return "policy", "Policy &amp; Economics"
 
 
 # ── Date formatting ──────────────────────────────────────────────────────────
