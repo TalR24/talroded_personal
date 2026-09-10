@@ -1,6 +1,6 @@
 {
   "_about": "Single source of truth for every fact that appears in Tal Roded's public copy (personal site, Substack description and homepage links, data site, State Capacity site). Change a fact HERE first; scripts/copy_check.py compares every copy surface against it. Dates are the day the fact was last confirmed by Tal.",
-  "updated": "2026-09-03",
+  "updated": "2026-09-10",
   "identity": {
     "name": "Tal Roded",
     "location": "New York, NY",
@@ -310,5 +310,28 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-09-08"
+  "numbers_observed": "2026-09-08",
+  "talks": [
+    {
+      "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",
+      "venue": "CivStart State of GovTech 2026 (main stage)",
+      "city": "Washington, DC",
+      "date": "2026-09-10",
+      "deck": "https://data.nycuriosity.com/cb-tools/sogt-2026/Building_an_AI_Powered_Knowledge_Base_SOGT26.pdf"
+    },
+    {
+      "title": "From Public Records to Public Knowledge: Improving Access to Community Board Information",
+      "venue": "NYC OMB Institute",
+      "city": "New York, NY",
+      "date": "2026-07",
+      "deck": "https://data.nycuriosity.com/cb-tools/block_party_july2026/"
+    },
+    {
+      "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",
+      "venue": "NYC School of Data 2026",
+      "city": "New York, NY",
+      "date": "2026-03",
+      "deck": "https://data.nycuriosity.com/cb-tools/school-of-data-2026/"
+    }
+  ]
 }
