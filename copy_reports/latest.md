@@ -1,17 +1,19 @@
-# Copy check — 2026-09-14 (CI)
+# Copy check — 2026-09-16 (local)
 
 ## Live numbers
 
-- archive_rows: 71
+- archive_rows: 72
 - fiscal_records: 359
 - local_laws: 2147
 - obligations: 8223
-- posts: 70
+- posts: 71
 - sce_orgs: 329
 
 ## Numbers rewritten in copy
 
-- none
+- index.html
+- resume/index.html
+- writing/index.html
 
 ## Needs a human
 
@@ -19,6 +21,7 @@
 
 ## Log
 
-- Substack post sync skipped in CI (Substack blocks GitHub Actions IPs). Run `python3 scripts/copy_check.py` locally at the sweep.
-- substack_hero: skipped in CI (Substack)
-- substack_about: skipped in CI (Substack)
+- sync_posts.py added 1 new post(s) to writing/index.html
+- index.html: `71` -> `72` (archive_rows)
+- writing/index.html: `71` -> `72` (archive_rows)
+- resume/index.html: `70` -> `71` (posts)
