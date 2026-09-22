@@ -55,6 +55,11 @@
     .svc-card:hover { border-color: var(--blue-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
     .svc-card.feature { border-color: var(--blue-mid); border-top: 3px solid var(--blue); }
     .svc-card.wide { grid-column: 1 / -1; }
+    .svc-card.has-photo { flex-direction: row; gap: 26px; align-items: center; }
+    .svc-card.has-photo .svc-body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+    .svc-photo { flex: 0 0 280px; margin: 0; }
+    .svc-photo img { display: block; width: 100%; height: auto; border-radius: 10px; }
+    .svc-photo figcaption { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; color: var(--text-faint); margin-top: 6px; }
     .svc-ico {
       width: 40px; height: 40px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
       background: var(--blue-light); color: var(--blue); margin-bottom: 14px;
@@ -144,6 +149,8 @@
 
     @media (max-width: 860px) {
       .svc-grid { grid-template-columns: 1fr; }
+      .svc-card.has-photo { flex-direction: column; align-items: stretch; }
+      .svc-photo { flex-basis: auto; }
       .svc-steps { grid-template-columns: repeat(2, 1fr); }
       .svc-proof { grid-template-columns: 1fr; }
     }
@@ -240,12 +247,18 @@
           <div class="svc-meta"><span class="svc-turn">Timeline: ~1–2 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
         </div>
 
-        <div class="svc-card wide">
-          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Custom Writing &amp; Ongoing Advisory</h3>
-          <p>Data-backed writing of any length, a talk or deck, or ongoing analytics support on retainer. If it sits at the intersection of data, policy, and clear communication, let's scope it.</p>
-          <p class="svc-ex"><b>Example</b>Building Block Party's searchable archive of 20+ years of NYC community board resolutions, with a School of Data talk on the work.</p>
-          <div class="svc-meta"><span class="svc-turn">Custom scope</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        <div class="svc-card wide has-photo">
+          <div class="svc-body">
+            <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Custom Writing &amp; Ongoing Advisory</h3>
+            <p>Data-backed writing of any length, a talk or deck, or ongoing analytics support on retainer. If it sits at the intersection of data, policy, and clear communication, let's scope it.</p>
+            <p class="svc-ex"><b>Example</b>Building Block Party's searchable archive of 20+ years of NYC community board resolutions, then presenting it on the main stage at CivStart's State of GovTech 2026 in Washington, DC.</p>
+            <div class="svc-meta"><span class="svc-turn">Custom scope</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+          </div>
+          <figure class="svc-photo">
+            <img src="/tal_govtech_2026_conference_pic.webp" alt="Tal Roded speaking at a podium marked State of GovTech 2026" width="1920" height="1280" loading="lazy">
+            <figcaption>State of GovTech 2026, Washington, DC.</figcaption>
+          </figure>
         </div>
 
       </div>
