@@ -1,6 +1,6 @@
 {
   "_about": "Single source of truth for every fact that appears in Tal Roded's public copy (personal site, Substack description and homepage links, data site, State Capacity site). Change a fact HERE first; scripts/copy_check.py compares every copy surface against it. Dates are the day the fact was last confirmed by Tal.",
-  "updated": "2026-09-10",
+  "updated": "2026-09-24",
   "identity": {
     "name": "Tal Roded",
     "location": "New York, NY",
@@ -71,7 +71,7 @@
       "since": "2026",
       "current": true,
       "url": "https://blockparty.studio",
-      "copy_rule": "say 'across NYC community boards'; do not state a board count (Tal, 2026-09-03)"
+      "note": "Board-count rule retired by Tal on 2026-09-24: counts may be stated (27 boards, 11 Manhattan + 16 Brooklyn, as of Sep 24 2026)."
     },
     {
       "org": "State Capacity Ecosystem",
@@ -95,7 +95,10 @@
       "org": "NYCuriosity Studio",
       "title": "Principal",
       "url": "https://talroded.nycuriosity.com/services/",
-      "current": true
+      "current": true,
+      "since": "2026-07",
+      "tagline": "Custom research & writing, grounded in data",
+      "confirmed": "2026-09-24"
     },
     {
       "org": "Technologists for the Public Good",
@@ -150,16 +153,10 @@
       "display": "exact"
     },
     "fiscal_records": {
-      "value": 359,
+      "value": 370,
       "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
       "path": "metadata.total_records",
       "display": "exact"
-    },
-    "obligations": {
-      "value": 8223,
-      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
-      "path": "obligation_count",
-      "display": "floor100plus"
     },
     "local_laws": {
       "value": 2147,
@@ -177,6 +174,19 @@
       "value": 59,
       "source": "constant",
       "display": "exact"
+    },
+    "duties": {
+      "value": 7429,
+      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
+      "path": "obligation_count",
+      "display": "floor100plus",
+      "note": "obligations.json counts duties only since the Sep 2026 powers split"
+    },
+    "powers": {
+      "value": 664,
+      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/powers.json",
+      "path": "power_count",
+      "display": "floor10plus"
     }
   },
   "embedded_numbers": [
@@ -202,8 +212,8 @@
     },
     {
       "file": "resume/index.html",
-      "regex": "and ([\\d,]+\\+) agency obligations",
-      "fact": "obligations"
+      "regex": "([\\d,]+\\+) agency duties",
+      "fact": "duties"
     },
     {
       "file": "index.html",
@@ -214,6 +224,11 @@
       "file": "services/index.html",
       "regex": "(\\d+\\+?) organizations working on government",
       "fact": "sce_orgs"
+    },
+    {
+      "file": "resume/index.html",
+      "regex": "([\\d,]+\\+) agency powers",
+      "fact": "powers"
     }
   ],
   "banned_strings": [

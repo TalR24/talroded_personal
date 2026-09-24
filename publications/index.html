@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/og_card.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/style.css?v=8">
+  <link rel="stylesheet" href="../assets/style.css?v=9">
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7b12558fa0be4d9eb5256c14aa79df1d"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
@@ -27,7 +27,10 @@
 <header>
   <div class="header-inner">
     <a href="/" class="brand" aria-label="Tal Roded, home"><img src="/assets/brand/talroded_wordmark.svg" alt="Tal Roded" width="112" height="20"></a>
-    <nav class="header-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="header-nav" aria-label="Menu" onclick="(function(b){var n=document.getElementById('header-nav');var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',String(open));})(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="header-nav" id="header-nav">
       <a href="/writing/">Writing</a>
       <a href="/publications/" class="active">Publications &amp; Press</a>
       <a href="/wiki/">Wiki</a>
@@ -47,6 +50,19 @@
     </div>
   </div>
 </header>
+<script>
+(function(){
+  var nav = document.getElementById('header-nav');
+  var btn = document.querySelector('.nav-toggle');
+  if (!nav || !btn) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 <div class="page-hero">
   <div class="page-hero-inner">

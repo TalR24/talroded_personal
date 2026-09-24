@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#170C03">
   <title>Services — NYCuriosity Studio — Tal Roded</title>
-  <meta name="description" content="NYCuriosity Studio — independent, rigorous data analysis, dashboards, research reports, and writing for orgs that need the numbers to hold up. Hire Tal Roded.">
+  <meta name="description" content="NYCuriosity Studio: custom data analysis, dashboards, research reports, policy memos, knowledge bases and talks by Tal Roded, the analyst behind NYCuriosity.">
   <link rel="canonical" href="https://talroded.nycuriosity.com/services/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NYCuriosity Studio — Data-driven research & writing">
-  <meta property="og:description" content="Custom research and writing, grounded in data: analysis, dashboards, reports, and writing for organizations that need reliable numbers.">
+  <meta property="og:title" content="NYCuriosity Studio — Custom research & writing, grounded in data">
+  <meta property="og:description" content="Custom data analysis, dashboards, reports, memos, knowledge bases and talks from the analyst behind NYCuriosity and its NYC Council legislation trackers.">
   <meta property="og:url" content="https://talroded.nycuriosity.com/services/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/style.css?v=8">
+  <link rel="stylesheet" href="../assets/style.css?v=9">
   <style>
     /* studio badge on the hero */
     .svc-badge {
@@ -143,7 +143,16 @@
     .btn-primary:hover { background: var(--blue-hover); }
     .btn-ghost { background: transparent; color: #EBE9E7; border: 1px solid #4B443D; }
     .btn-ghost:hover { border-color: #FFD23F; color: #fff; }
-    .svc-formwrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(10px, 2vw, 20px); max-height: min(760px, 80vh); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    /* the Tally iframe grows to full height (dynamicHeight); no inner scroll box */
+    .svc-formwrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(10px, 2vw, 20px); }
+    .svc-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .btn-outline { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.82rem; font-weight: 600; text-decoration: none; padding: 11px 21px; border-radius: 8px; border: 1px solid var(--blue-mid); color: var(--blue); background: var(--surface); transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-outline:hover { border-color: var(--blue); background: var(--blue-light); }
+    .svc-cited { display: flex; flex-wrap: wrap; gap: 10px; }
+    .svc-cited a { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.8rem; font-weight: 600; color: var(--text-mid); text-decoration: none; border: 1px solid var(--border); border-radius: 6px; padding: 8px 13px; background: var(--surface); }
+    .svc-cited a:hover { border-color: var(--blue-mid); color: var(--blue); }
+    .svc-cited a span { color: var(--text-faint); font-weight: 400; }
+    .svc-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
     .svc-formwrap iframe { display: block; width: 100%; border: 0; }
     .svc-note { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; color: var(--text-faint); margin-top: 16px; }
 
@@ -153,6 +162,7 @@
       .svc-photo { flex-basis: auto; }
       .svc-steps { grid-template-columns: repeat(2, 1fr); }
       .svc-proof { grid-template-columns: 1fr; }
+      .svc-cases { grid-template-columns: 1fr; }
     }
   </style>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7b12558fa0be4d9eb5256c14aa79df1d"}'></script><!-- End Cloudflare Web Analytics -->
@@ -162,7 +172,10 @@
 <header>
   <div class="header-inner">
     <a href="/" class="brand" aria-label="Tal Roded, home"><img src="/assets/brand/talroded_wordmark.svg" alt="Tal Roded" width="112" height="20"></a>
-    <nav class="header-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="header-nav" aria-label="Menu" onclick="(function(b){var n=document.getElementById('header-nav');var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',String(open));})(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="header-nav" id="header-nav">
       <a href="/writing/">Writing</a>
       <a href="/publications/">Publications &amp; Press</a>
       <a href="/wiki/">Wiki</a>
@@ -182,11 +195,28 @@
     </div>
   </div>
 </header>
+<script>
+(function(){
+  var nav = document.getElementById('header-nav');
+  var btn = document.querySelector('.nav-toggle');
+  if (!nav || !btn) return;
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 <div class="page-hero">
   <div class="page-hero-inner">
     <img class="svc-logo" src="/assets/brand/studio_wordmark.svg" alt="NYCuriosity Studio" width="300" height="24">
     <h1>Custom research &amp; writing, grounded in data</h1>
+    <div class="svc-hero-btns">
+      <a class="btn-primary" href="#start">Start a project →</a>
+      <a class="btn-outline" href="#work">See the work</a>
+    </div>
   </div>
 </div>
 
@@ -198,10 +228,16 @@
       <p class="svc-intro">
         I'm <a href="https://www.linkedin.com/in/tal-roded/" target="_blank" rel="noopener"><strong>Tal Roded</strong></a>, a data scientist and economic researcher, and the writer behind <a href="https://www.nycuriosity.com" target="_blank" rel="noopener">NYCuriosity</a>. Through <strong>NYCuriosity Studio</strong>, I take on a small number of custom projects for organizations that need reliable analysis and writing: turning messy data and hard questions into <strong>analysis, dashboards, reports, and writing</strong> that a board, a funder, a newsroom, or the public can actually act on.
       </p>
+      <div class="svc-creds" style="margin-top:18px">
+        <span class="svc-cred">Data Scientist <span>at LinkedIn</span></span>
+        <span class="svc-cred">Previously <span>Federal Reserve Bank of Philadelphia · Accenture Research · Starbucks</span></span>
+        <span class="svc-cred">Affiliate Researcher <span>MIT FutureTech</span></span>
+        <span class="svc-cred">Appointed member <span>Manhattan Community Board 3</span></span>
+      </div>
       <div class="svc-audience">
         <span class="svc-aud">Nonprofits &amp; advocacy</span>
         <span class="svc-aud">Think tanks &amp; foundations</span>
-        <span class="svc-aud">Business &amp; real estate</span>
+        <span class="svc-aud">Businesses</span>
         <span class="svc-aud">Newsrooms &amp; writers</span>
         <span class="svc-aud">Government &amp; civic</span>
       </div>
@@ -210,7 +246,7 @@
     <!-- OFFERINGS -->
     <section class="section">
       <p class="section-label">What I do</p>
-      <h2 class="section-title">Ways to <em>work together</em></h2>
+      <h2 class="section-title">Seven ways to hire the work behind <em>NYCuriosity</em></h2>
       <div class="svc-grid">
 
         <div class="svc-card feature">
@@ -218,41 +254,56 @@
           <div class="svc-flag">Signature Offering</div>
           <h3>Interactive Dashboards &amp; Tools</h3>
           <p>Custom, interactive dashboards and data explorers, like the ones on <a href="https://data.nycuriosity.com" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-mid)">data.nycuriosity.com</a>. Built to make your data legible to a board, a funder, or the public, with a clean pipeline and documentation behind it.</p>
-          <p class="svc-ex"><b>Example</b>The NYC Council Fiscal Impacts Tracker, a searchable database of every Council fiscal impact statement since 2014.</p>
-          <div class="svc-meta"><span class="svc-turn">Timeline: ~3–5 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+          <p class="svc-ex"><b>From my published work</b>The <a href="/services/case-studies/legislation-trackers/" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-mid)">NYC Council Legislation Trackers</a>: what each of the 2,147 local laws enacted since 2014 costs, requires of city agencies, and allows them to do.</p>
+          <div class="svc-meta"><span class="svc-turn">Timeline: 3 to 5 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
         </div>
 
         <div class="svc-card feature">
           <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 2 4-6"/></svg></div>
-          <div class="svc-flag">Popular</div>
           <h3>Data Analysis &amp; Visualization</h3>
           <p>Rigorous analysis with publication-ready charts. Causal inference, forecasting, econometrics, and program evaluation, translated into visuals a non-specialist audience understands and trusts.</p>
-          <p class="svc-ex"><b>Example</b>Charting NYC's subway construction costs against peer cities, PPP-adjusted, to show the Second Avenue Subway cost roughly 8x Copenhagen's.</p>
-          <div class="svc-meta"><span class="svc-turn">Timeline: ~2–3 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+          <p class="svc-ex"><b>From my published work</b>Charting NYC's subway construction costs against peer cities, PPP-adjusted, to show the Second Avenue Subway cost roughly 8x Copenhagen's.</p>
+          <div class="svc-meta"><span class="svc-turn">Timeline: 2 to 3 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
         </div>
 
         <div class="svc-card">
           <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></div>
           <h3>Research Reports &amp; White Papers</h3>
           <p>Full research: original analysis, sourced and designed for a specific audience, from a focused study to a flagship report.</p>
-          <p class="svc-ex"><b>Example</b>A sourced analysis of how nearly all of NYC's post-pandemic job growth landed in a single lower-paying sector, published in Vital City.</p>
-          <div class="svc-meta"><span class="svc-turn">Timeline: ~4–8 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+          <p class="svc-ex"><b>From my published work</b>A sourced analysis of how nearly all of NYC's post-pandemic job growth landed in a single lower-paying sector, published in Vital City.</p>
+          <div class="svc-meta"><span class="svc-turn">Timeline: 4 to 8 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
         </div>
 
         <div class="svc-card">
           <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
           <h3>Policy Memos &amp; Briefs</h3>
-          <p>One focused question, answered with data. A tight 2–5 page brief plus a chart or two. Fast, and often the start of something bigger.</p>
-          <p class="svc-ex"><b>Example</b>A brief showing Clinton Street carries 4 to 6 times its neighbors' traffic, with a Low Traffic Neighborhood redesign to fix it.</p>
-          <div class="svc-meta"><span class="svc-turn">Timeline: ~1–2 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+          <p>One focused question, answered with data: a 2 to 5 page brief with a chart or two, delivered in under two weeks.</p>
+          <p class="svc-ex"><b>From my published work</b>A brief showing Clinton Street carries 4 to 6 times its neighbors' traffic, with a Low Traffic Neighborhood redesign to fix it.</p>
+          <div class="svc-meta"><span class="svc-turn">Timeline: 1 to 2 weeks</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></div>
+          <h3>Searchable Knowledge Bases</h3>
+          <p>Your records, from resolutions and minutes to testimony and reports, turned into a searchable archive with AI-assisted topics, so members, staff and the public can find what was decided and why. Built for community boards, civic groups and agencies.</p>
+          <p class="svc-ex"><b>From my published work</b>The <a href="/services/case-studies/community-board-knowledge-base/" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-mid)">Block Party resolution engine</a>: 39,266 resolutions from 27 Manhattan and Brooklyn community boards, searchable at blockparty.studio.</p>
+          <div class="svc-meta"><span class="svc-turn">Custom scope</span><a class="svc-req" href="#start">Request a proposal →</a></div>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Custom Writing &amp; Ongoing Advisory</h3>
+          <p>Data-backed writing of any length, or ongoing analytics support on retainer. If it sits where data, policy and clear communication meet, let's scope it.</p>
+          <p class="svc-ex"><b>From my published work</b>Bylines in the Manhattan Institute, Vital City, Streetsblog NYC, Searchlight and Reboot Democracy.</p>
+          <div class="svc-meta"><span class="svc-turn">Custom scope</span><a class="svc-req" href="#start">Request a proposal →</a></div>
         </div>
 
         <div class="svc-card wide has-photo">
           <div class="svc-body">
-            <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3>Custom Writing &amp; Ongoing Advisory</h3>
-            <p>Data-backed writing of any length, a talk or deck, or ongoing analytics support on retainer. If it sits at the intersection of data, policy, and clear communication, let's scope it.</p>
-            <p class="svc-ex"><b>Example</b>Building Block Party's searchable archive of 20+ years of NYC community board resolutions, then presenting it on the main stage at CivStart's State of GovTech 2026 in Washington, DC.</p>
+            <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></div>
+            <h3>Talks &amp; Workshops</h3>
+            <p>Talks, workshops and briefings on civic data, AI for public records, and how New York City governs itself, for conferences, agencies, classrooms and boards. Each comes with the deck and the data behind it.</p>
+            <p class="svc-ex"><b>From my published work</b>"Building an AI-Powered Knowledge Base for NYC Community Boards" on the main stage at CivStart's State of GovTech 2026 in Washington, DC, after earlier versions at NYC School of Data and the NYC OMB Institute.</p>
             <div class="svc-meta"><span class="svc-turn">Custom scope</span><a class="svc-req" href="#start">Request a proposal →</a></div>
           </div>
           <figure class="svc-photo">
@@ -268,8 +319,9 @@
     <section class="section">
       <p class="section-label">How I work</p>
       <div class="svc-independence">
-        <h3>Independence first</h3>
-        <p>I'm a policy journalist and an appointed member of <strong>Manhattan Community Board 3</strong>, so independent analysis is integral to my work, including commissioned pieces. I take on analytical work, not advocacy or lobbying. I decline engagements that conflict with my Community Board seat or with NYCuriosity's editorial coverage, and I'm transparent with you about methods and sources.</p>
+        <h3>I sell analysis, never conclusions</h3>
+        <p>I'm an NYC policy writer and an appointed member of <strong>Manhattan Community Board 3</strong>, so independence governs every project, commissioned or not. You pay for the analysis; the findings are whatever the data shows. The work is nonpartisan, and I don't take advocacy or lobbying assignments.</p>
+        <p>I decline engagements that conflict with my Community Board seat or with NYCuriosity's editorial coverage, I disclose funded work wherever it is relevant, and I share my methods and sources with you.</p>
       </div>
     </section>
 
@@ -279,7 +331,7 @@
       <h2 class="section-title">From inquiry to <em>delivery</em></h2>
       <div class="svc-steps">
         <div class="svc-step"><div class="num">1</div><h4>Tell me about it</h4><p>Send your goal, rough scope, timeline, and budget range.</p></div>
-        <div class="svc-step"><div class="num">2</div><h4>Fit call</h4><p>A short call to confirm scope and that it's a mutual fit.</p></div>
+        <div class="svc-step"><div class="num">2</div><h4>1:1 call</h4><p>A 30-minute call to confirm scope and that it's a mutual fit.</p></div>
         <div class="svc-step"><div class="num">3</div><h4>Proposal</h4><p>A written proposal: deliverable, timeline, price, and terms.</p></div>
         <div class="svc-step"><div class="num">4</div><h4>Book it</h4><p>A 50% deposit and a short agreement to get us started.</p></div>
         <div class="svc-step"><div class="num">5</div><h4>Build &amp; deliver</h4><p>I do the work with a check-in, then deliver the final product.</p></div>
@@ -287,15 +339,35 @@
     </section>
 
     <!-- PROOF -->
-    <section class="section">
+    <section class="section" id="work">
       <p class="section-label">Proof of work</p>
-      <h2 class="section-title">See the <em>real thing</em></h2>
-      <p class="svc-intro" style="margin-bottom:22px">Everything I publish shows its methods and source data. The clearest sense of what a commission looks like is the published work itself:</p>
+      <h2 class="section-title">Every tool here is public, <em>with its methods</em></h2>
+      <p class="svc-intro" style="margin-bottom:22px">Everything I publish shows its methods and source data. Three case studies walk through how the biggest builds work:</p>
+      <div class="svc-proof svc-cases">
+        <a href="/services/case-studies/legislation-trackers/">
+          <span class="lab">Case study</span>
+          <span class="ti">NYC Council Legislation Trackers</span>
+          <span class="de">2,147 local laws turned into three trackers of what the Council's laws cost, require and allow.</span>
+          <span class="go">Read the case study →</span>
+        </a>
+        <a href="/services/case-studies/community-board-knowledge-base/">
+          <span class="lab">Case study</span>
+          <span class="ti">A knowledge base for community boards</span>
+          <span class="de">39,266 resolutions from 27 boards, pulled from meeting minutes and made searchable.</span>
+          <span class="go">Read the case study →</span>
+        </a>
+        <a href="/services/case-studies/state-capacity-ecosystem/">
+          <span class="lab">Case study</span>
+          <span class="ti">State Capacity Ecosystem</span>
+          <span class="de">A public directory of 329 organizations working on government effectiveness.</span>
+          <span class="go">Read the case study →</span>
+        </a>
+      </div>
       <div class="svc-proof">
         <a href="https://data.nycuriosity.com/civic_reference/nyc_council_legislation_trackers/" target="_blank" rel="noopener">
           <span class="lab">Interactive tracker</span>
           <span class="ti">NYC Council Legislation Trackers</span>
-          <span class="de">What every Council law costs and what it makes agencies do, built from every fiscal impact statement and enacted law since 2014.</span>
+          <span class="de">What every Council law costs, requires and allows, with a profile for every agency and council member, built from every local law enacted since 2014.</span>
           <span class="go">Explore the trackers →</span>
         </a>
         <a href="https://data.nycuriosity.com/cb-tools/member-tracker/" target="_blank" rel="noopener">
@@ -325,9 +397,24 @@
         <a href="/publications/">
           <span class="lab">Research</span>
           <span class="ti">Publications</span>
-          <span class="de">Peer-reviewed and institutional research: Federal Reserve, MIT FutureTech, WEF.</span>
+          <span class="de">Research for the Federal Reserve Bank of Philadelphia, MIT FutureTech and the World Economic Forum.</span>
           <span class="go">See research →</span>
         </a>
+      </div>
+    </section>
+
+    <!-- CITED BY -->
+    <section class="section">
+      <p class="section-label">Cited by and published in</p>
+      <h2 class="section-title">Newsrooms and policy groups <em>cite and publish the work</em></h2>
+      <div class="svc-cited">
+        <a href="/publications/">The City Reporter <span>cited twice, 2026</span></a>
+        <a href="/publications/">Vital City <span>byline and citation</span></a>
+        <a href="/publications/">Manhattan Institute <span>byline</span></a>
+        <a href="/publications/">Streetsblog NYC <span>byline</span></a>
+        <a href="/publications/">Searchlight (Citizens Union) <span>byline</span></a>
+        <a href="/publications/">Reboot Democracy <span>byline</span></a>
+        <a href="/publications/">CivStart State of GovTech 2026 <span>main-stage talk</span></a>
       </div>
     </section>
 
@@ -335,7 +422,7 @@
     <section class="section" id="start">
       <p class="section-label">Start a project</p>
       <h2 class="section-title">Tell me <em>what you need</em></h2>
-      <p class="svc-intro" style="margin-bottom:22px">Share your goal, rough scope, budget range, and timeline. I'll review it for fit, including any conflicts of interest, and get back to you within a few days. If it's a match, we'll set up a short intro call.</p>
+      <p class="svc-intro" style="margin-bottom:22px">Share your goal, rough scope, budget range, and timeline. I'll review it for fit, including any conflicts of interest, and get back to you within a few days. If it's a match, we'll set up a 30-minute 1:1 call.</p>
       <div class="svc-formwrap">
         <iframe data-tally-src="https://tally.so/embed/ZjgKve?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0" title="NYCuriosity Studio project inquiry"></iframe>
       </div>
@@ -345,11 +432,15 @@
     <!-- FAQ -->
     <section class="section">
       <p class="section-label">Questions</p>
-      <h2 class="section-title">Good to <em>know</em></h2>
+      <h2 class="section-title">Answers before <em>you write</em></h2>
       <div class="svc-faq">
         <details>
           <summary>How long does a project take?</summary>
-          <p>A memo is often about 1–2 weeks; data analysis and dashboards typically 2–5 weeks; full reports 4–8 weeks, depending on scope and data readiness. Rush timelines can sometimes be accommodated for an added fee.</p>
+          <p>A memo takes 1 to 2 weeks, data analysis and dashboards 2 to 5 weeks, and full reports 4 to 8 weeks, depending on scope and how ready the data is. Rush timelines carry an added fee.</p>
+        </details>
+        <details>
+          <summary>How is a project priced?</summary>
+          <p>Every project gets a written proposal with a fixed price after our 1:1 call, based on the deliverable, the data work and the timeline. A 50% deposit starts the work and the balance is due on delivery.</p>
         </details>
         <details>
           <summary>Can you keep it confidential or sign an NDA?</summary>
