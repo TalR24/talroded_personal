@@ -136,24 +136,25 @@
   ],
   "press": [
     "The City Reporter",
-    "Vital City"
+    "Vital City",
+    "EV Grieve"
   ],
   "career_start_year": 2019,
   "numbers": {
     "_about": "Live sources are fetched by copy_check.py; 'value' is the last observed value. 'display' rules: exact | floor10plus (330+) | floor100plus (8,200+) | floor1000plus.",
     "posts": {
-      "value": 71,
+      "value": 72,
       "source": "writing_page",
       "display": "exact",
       "note": "NYCuriosity rows in #archive on the writing page; the anonymous Substack API returns only ~23 posts so it is never used for counts"
     },
     "archive_rows": {
-      "value": 72,
+      "value": 73,
       "source": "writing_page",
       "display": "exact"
     },
     "fiscal_records": {
-      "value": 370,
+      "value": 358,
       "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
       "path": "metadata.total_records",
       "display": "exact"
@@ -165,7 +166,7 @@
       "display": "exact"
     },
     "sce_orgs": {
-      "value": 329,
+      "value": 334,
       "source": "https://statecapacityecosystem.com/data/directory.csv",
       "path": "csv_rows",
       "display": "exact"
@@ -176,17 +177,17 @@
       "display": "exact"
     },
     "duties": {
-      "value": 7429,
+      "value": 8001,
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
       "path": "obligation_count",
       "display": "floor100plus",
       "note": "obligations.json counts duties only since the Sep 2026 powers split"
     },
     "powers": {
-      "value": 664,
+      "value": 1329,
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/powers.json",
       "path": "power_count",
-      "display": "floor10plus"
+      "display": "floor100plus"
     }
   },
   "embedded_numbers": [
@@ -327,7 +328,7 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-09-21",
+  "numbers_observed": "2026-09-27",
   "talks": [
     {
       "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",

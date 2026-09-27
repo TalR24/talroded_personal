@@ -49,7 +49,7 @@ def fmt(value: int, rule: str) -> str:
     if rule == "exact":
         return f"{value:,}" if value >= 10000 else str(value)
     if rule == "floor10plus":
-        return f"{value // 10 * 10}+"
+        return f"{value // 10 * 10:,}+"
     if rule == "floor100plus":
         return f"{value // 100 * 100:,}+"
     if rule == "floor1000plus":
