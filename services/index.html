@@ -77,6 +77,13 @@
     .svc-turn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; color: var(--text-faint); }
     .svc-req { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
     .svc-req:hover { text-decoration: underline; }
+    /* the whole card is clickable (Tal, Sep 27 2026): the card's proposal link
+       stretches over it; links inside the text sit above it and keep their own targets */
+    .svc-card { position: relative; }
+    .svc-req::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+    .svc-card p a { position: relative; z-index: 1; }
+    .svc-card:hover .svc-req { text-decoration: underline; }
+    .svc-card:has(.svc-req:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
 
     /* independence callout */
     .svc-independence {
