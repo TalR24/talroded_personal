@@ -593,6 +593,15 @@ main {
 .pub-meta a { color: var(--blue); text-decoration: none; }
 .pub-meta a:hover { text-decoration: underline; }
 
+/* ── WHOLE-CARD LINKS (Tal, Sep 27 2026) ────────────────────
+   A card holding exactly one link marks it .stretch-link; the link's ::after
+   covers the card (which must be position: relative). Cards with several links,
+   or none, stay as they are. Same pattern as .svc-card on /services/. */
+.stretch-link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.pub-item:has(.stretch-link) { position: relative; cursor: pointer; }
+.pub-item:hover .stretch-link { text-decoration: underline; }
+.pub-item:has(.stretch-link:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
+
 /* ── ARCHIVE LIST (writing page) ─────────────────────────── */
 .archive-filters {
   display: flex;
