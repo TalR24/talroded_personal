@@ -154,13 +154,13 @@
       "display": "exact"
     },
     "fiscal_records": {
-      "value": 358,
+      "value": 367,
       "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
       "path": "metadata.total_records",
       "display": "exact"
     },
     "local_laws": {
-      "value": 2147,
+      "value": 2158,
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
       "path": "laws.length",
       "display": "exact"
@@ -177,14 +177,14 @@
       "display": "exact"
     },
     "duties": {
-      "value": 8001,
+      "value": 8279,
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
       "path": "obligation_count",
       "display": "floor100plus",
       "note": "obligations.json counts duties only since the Sep 2026 powers split"
     },
     "powers": {
-      "value": 1329,
+      "value": 1706,
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/powers.json",
       "path": "power_count",
       "display": "floor100plus"
@@ -328,7 +328,7 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-09-27",
+  "numbers_observed": "2026-09-28",
   "talks": [
     {
       "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",
