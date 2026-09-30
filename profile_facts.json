@@ -331,6 +331,14 @@
   "numbers_observed": "2026-09-28",
   "talks": [
     {
+      "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",
+      "venue": "Responsive Cities Network Sprint, Harvard Kennedy School (Data-Smart City Solutions at the Bloomberg Center for Cities + Knight Foundation)",
+      "city": "Cambridge, MA",
+      "date": "2026-09-30",
+      "deck": "https://data.nycuriosity.com/cb-tools/harvard-rcn-2026/Turning_Public_Records_into_Local_Knowledge_HarvardRCN26.pdf",
+      "with": "Amy X. Chen"
+    },
+    {
       "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",
       "venue": "CivStart State of GovTech 2026 (main stage)",
       "city": "Washington, DC",
