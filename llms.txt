@@ -1,0 +1,44 @@
+# Tal Roded
+
+> Data scientist, researcher, and NYC policy writer. NYCuriosity Substack. Block Party. Manhattan CB3.
+
+## Pages
+
+- [About](https://talroded.nycuriosity.com/about/): About Tal Roded — data scientist, researcher, and NYC policy writer.
+- [Publications & Press](https://talroded.nycuriosity.com/publications/): Publications, press coverage, and outside writing by Tal Roded — NYC policy, macroeconomics, AI, housing, labor.
+- [Resume](https://talroded.nycuriosity.com/resume/): Resume of Tal Roded — data scientist, economic researcher, and NYC policy writer.
+- [Writing](https://talroded.nycuriosity.com/writing/): All writing by Tal Roded — NYCuriosity and earlier data journalism.
+
+## Services
+
+- [Services](https://talroded.nycuriosity.com/services/): NYCuriosity Studio: custom data analysis, dashboards, research reports, policy memos, knowledge bases and talks by Tal Roded, the analyst behind NYCuriosity.
+
+## Wiki
+
+- [Wiki](https://talroded.nycuriosity.com/wiki/): A curated resource wiki covering data science, economics, public policy, grad school, and career advice.
+
+## Related
+
+- [NYCuriosity on Substack](https://www.nycuriosity.com/): Tal's newsletter
+- [NYCuriosity data](https://data.nycuriosity.com/): charts and civic data tools
+
+## Optional
+
+- [A knowledge base for NYC community boards — Case study](https://talroded.nycuriosity.com/services/case-studies/community-board-knowledge-base/): How Tal Roded built the resolution engine behind Block Party: 39,266 NYC community board resolutions from 27 boards, pulled from meeting minutes and made searchable.
+- [NYC Council Legislation Trackers — Case study](https://talroded.nycuriosity.com/services/case-studies/legislation-trackers/): How Tal Roded turned 2,147 NYC local laws into three public trackers of what each law costs, requires of city agencies, and allows them to do.
+- [State Capacity Ecosystem — Case study](https://talroded.nycuriosity.com/services/case-studies/state-capacity-ecosystem/): How Tal Roded built statecapacityecosystem.com: a searchable public directory of 329 organizations working to make government work better.
+- [AI Civic Tech Tools — Wiki](https://talroded.nycuriosity.com/wiki/ai-civic-tech-tools/): 8 guides, Claude Skills and demo apps for using AI in civic tech, from Claude Code fluency to NYC Open Data tools and City Council hearing summaries.
+- [Career Advice — Wiki](https://talroded.nycuriosity.com/wiki/career-advice/): 26 links on negotiating job offers, working effectively, and comparing academia, industry, policy and government careers in economics and data science.
+- [Civic Tech — Wiki](https://talroded.nycuriosity.com/wiki/civic-tech/): 62 resources for getting into civic tech: overviews, government job portals, NY-area digital service teams, federal hiring guides and job boards.
+- [Data Science Advice — Wiki](https://talroded.nycuriosity.com/wiki/data-science-advice/): 16 resources on data science practice: coding best practices, research code handbooks, machine learning primers, data engineering and interview prep.
+- [Data Science Courses & Textbooks — Wiki](https://talroded.nycuriosity.com/wiki/data-science-courses/): 90 free courses and textbooks for data science, Python, R, SQL, Stata, LaTeX, data visualization, Git and GitHub, collected for economists and analysts.
+- [Economics Courses & Textbooks — Wiki](https://talroded.nycuriosity.com/wiki/econ-courses/): 38 open-source graduate courses and textbooks in econometrics, causal inference, macroeconomics, labor, development and public economics.
+- [Econ Readings — Wiki](https://talroded.nycuriosity.com/wiki/econ-readings/): 35 economics blogs, news aggregators, working paper feeds and podcasts, from Marginal Revolution and Noahpinion to Journal of Economic Perspectives papers.
+- [General Life Advice — Wiki](https://talroded.nycuriosity.com/wiki/general-life-advice/): 8 essays on finding work you love, choosing what to optimize for, writing a purpose statement, and renovating a job instead of leaving it.
+- [Applying to Grad School — Wiki](https://talroded.nycuriosity.com/wiki/grad-school/): 25 resources for economics PhD applicants: program rankings, advice from economists and grad students, application timelines and NSF fellowship tips.
+- [GRE Advice — Wiki](https://talroded.nycuriosity.com/wiki/gre-advice/): 5 free GRE study resources: a quantitative comparison module, Magoosh formula guide and eBook, the official ETS math review, and a practice-test roundup.
+- [NYC Civic Resources — Wiki](https://talroded.nycuriosity.com/wiki/nyc-civic-resources/): 7 guides to NYC civics: a ranked map of local news outlets, civic membership groups to join, how to host a candidate fundraiser, and Council trackers.
+- [Public Data — Wiki](https://talroded.nycuriosity.com/wiki/public-data/): 48 public data sources: dataset search tools, aggregators like Data Is Plural and Kaggle, U.S. government portals, and datasets across dozens of fields.
+- [Public Policy Advice — Wiki](https://talroded.nycuriosity.com/wiki/public-policy/): 34 resources for policy careers: fellowship databases, policy master's program guides, federal hiring, civic tech, think tanks and working for Congress.
+- [RA Advice — Wiki](https://talroded.nycuriosity.com/wiki/ra-advice/): 15 resources for economics pre-docs and research assistants: RA job posting lists, application guides, DIME and GSLab manuals, and advice for current RAs.
+- [Grad School & Research Advice — Wiki](https://talroded.nycuriosity.com/wiki/research-advice/): 38 resources on grad school and research in economics: writing, presenting, publishing and funding papers, econometrics guides and job market prep.
