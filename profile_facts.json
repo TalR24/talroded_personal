@@ -154,7 +154,7 @@
       "display": "exact"
     },
     "fiscal_records": {
-      "value": 367,
+      "value": 374,
       "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
       "path": "metadata.total_records",
       "display": "exact"
@@ -328,7 +328,7 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-09-30",
+  "numbers_observed": "2026-10-05",
   "talks": [
     {
       "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",
