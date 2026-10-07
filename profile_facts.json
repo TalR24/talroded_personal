@@ -143,18 +143,18 @@
   "numbers": {
     "_about": "Live sources are fetched by copy_check.py; 'value' is the last observed value. 'display' rules: exact | floor10plus (330+) | floor100plus (8,200+) | floor1000plus.",
     "posts": {
-      "value": 73,
+      "value": 74,
       "source": "writing_page",
       "display": "exact",
       "note": "NYCuriosity rows in #archive on the writing page; the anonymous Substack API returns only ~23 posts so it is never used for counts"
     },
     "archive_rows": {
-      "value": 74,
+      "value": 75,
       "source": "writing_page",
       "display": "exact"
     },
     "fiscal_records": {
-      "value": 374,
+      "value": 474,
       "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
       "path": "metadata.total_records",
       "display": "exact"
@@ -223,8 +223,23 @@
     },
     {
       "file": "services/index.html",
-      "regex": "(\\d+\\+?) organizations working on government",
+      "regex": "A public directory of ([\\d,]+) organizations working on government effectiveness\\.",
       "fact": "sce_orgs"
+    },
+    {
+      "file": "services/index.html",
+      "regex": "([\\d,]+) organizations working on government effectiveness, mapped with natural-language search",
+      "fact": "sce_orgs"
+    },
+    {
+      "file": "services/index.html",
+      "regex": "([\\d,]+) local laws enacted since 2014",
+      "fact": "local_laws"
+    },
+    {
+      "file": "services/index.html",
+      "regex": "([\\d,]+) local laws turned into three trackers",
+      "fact": "local_laws"
     },
     {
       "file": "resume/index.html",
@@ -328,7 +343,7 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-10-05",
+  "numbers_observed": "2026-10-07",
   "talks": [
     {
       "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",

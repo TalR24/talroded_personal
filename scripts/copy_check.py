@@ -47,7 +47,7 @@ UA = {"User-Agent": "Mozilla/5.0 (compatible; copy-check/1.0; +https://talroded.
 
 def fmt(value: int, rule: str) -> str:
     if rule == "exact":
-        return f"{value:,}" if value >= 10000 else str(value)
+        return f"{value:,}"  # thousands separator from 1,000 up, as the copy writes "2,158 local laws"
     if rule == "floor10plus":
         return f"{value // 10 * 10:,}+"
     if rule == "floor100plus":
@@ -137,13 +137,18 @@ def apply_numbers(facts: dict, live: dict[str, int], write: bool, log: list[str]
         want = fmt(live[key], spec.get("display", "exact"))
         path = ROOT / item["file"]
         html = path.read_text(encoding="utf-8")
-        m = re.search(item["regex"], html)
-        if not m:
+        matches = list(re.finditer(item["regex"], html))
+        if not matches:
             log.append(f"- pattern not found in {item['file']}: `{item['regex']}`")
             continue
-        if m.group(1) != want:
-            new = html[:m.start(1)] + want + html[m.end(1):]
-            log.append(f"- {item['file']}: `{m.group(1)}` -> `{want}` ({key})")
+        # Every occurrence is rewritten, not only the first: a regex that matches twice on a page
+        # (services/index.html names the SCE org count in two cards) used to leave the second stale.
+        new = html
+        for m in reversed(matches):
+            if m.group(1) != want:
+                new = new[:m.start(1)] + want + new[m.end(1):]
+                log.append(f"- {item['file']}: `{m.group(1)}` -> `{want}` ({key})")
+        if new != html:
             if write:
                 path.write_text(new, encoding="utf-8")
             changed.add(item["file"])
