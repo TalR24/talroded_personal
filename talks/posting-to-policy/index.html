@@ -91,6 +91,20 @@
     .readers .r b { color: var(--b-ink); margin-right: .8cqw; }
     .readers .r span { color: var(--b-ink-3); font-size: 1.4cqw; }
 
+    .posts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8cqw; margin-top: 2.2cqw; }
+    .posts .pc { background: var(--b-surface); border: 1px solid var(--b-line); border-radius: var(--b-radius); overflow: hidden; box-shadow: var(--b-shadow); display: flex; flex-direction: column; }
+    .posts .pc img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid var(--b-line); }
+    .posts .pc .b { padding: 1.1cqw 1.3cqw 1.3cqw; }
+    .posts .pc h3 { font-size: 1.5cqw; line-height: 1.25; color: var(--b-ink); margin: 0 0 .5cqw; }
+    .posts .pc .m { font-family: var(--b-mono); font-size: 1.05cqw; color: var(--b-tangerine-deep); margin: 0 0 .6cqw; }
+    .posts .pc p { font-size: 1.25cqw; line-height: 1.38; color: var(--b-ink-2); margin: 0; }
+    .proj { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4cqw 1.8cqw; margin-top: 2cqw; }
+    .proj .card { padding: 1.3cqw 1.6cqw 1.4cqw; }
+    .proj .card .tag { margin-bottom: .6cqw; }
+    .proj .card h3 { font-size: 1.75cqw; margin: .2cqw 0 .45cqw; }
+    .proj .card .from { font-family: var(--b-mono); font-size: 1cqw; color: var(--b-ink-3); margin: 0 0 .45cqw; }
+    .proj .card p { font-size: 1.3cqw; line-height: 1.38; }
+
     /* pipeline */
     .pipe { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; margin-top: 3cqw; align-items: stretch; }
     .pipe .step { position: relative; background: var(--b-surface); border: 1px solid var(--b-line); border-radius: var(--b-radius); padding: 1.6cqw 1.7cqw 1.7cqw; box-shadow: var(--b-shadow); }
@@ -296,45 +310,36 @@
   <div class="notes"><p>The point for the class: one of these was an application. The posts did the rest of the applying. Name Sarah Sachs and Dean Trottenberg out loud if it feels right in the room; the slide keeps roles.</p></div>
 </section>
 
-<!-- 7b ONE POST, ONE WEEK -->
-<section class="slide" data-s="7b">
+<!-- 8 POSTS A -->
+<section class="slide" data-s="8">
   <div class="pad">
-    <p class="kicker">May 7 to 8, 2026 · one post</p>
-    <h2>One post reached the Wagner dean, the DOT Commissioner and his executive staff inside 24 hours.</h2>
-    <div class="wins">
-      <div class="strip">
-        <img src="assets/wins1.png" alt="Email from Polly Trottenberg: this is a brilliant piece">
-        <img src="assets/wins2.png" alt="Email: the Commissioner sent around an article today to executive staff">
-        <img src="assets/wins3.png" alt="Email: it doesn't matter if only 5 people are reading your stuff; what matters is who the 5 people are">
-      </div>
-      <div class="side">
-        <img src="assets/wins4.png" alt="Mike Flynn, a subscriber, shared this with you">
-        <p class="quote">"It doesn't matter if only 5 people are reading your stuff. What matters is who the 5 people are."<small>Tiffany-Ann Taylor, the morning after NYC DOT's Commissioner circulated the post</small></p>
-      </div>
+    <p class="kicker">The posts that traveled · streets, transit and the economy</p>
+    <h2>The most-read posts answered one question each, with the data attached.</h2>
+    <div class="posts">
+      <div class="pc"><img src="assets/post_ibx.jpg" alt=""><div class="b"><h3>The Interborough Express Might Be NYC's Best Transit Investment in Decades</h3><p class="m">Feb 2026 · 3,404 views · 9 shares</p><p>The most-read post. Updated with a video in September 2026.</p></div></div>
+      <div class="pc"><img src="assets/post_parking.jpg" alt=""><div class="b"><h3>Manhattan Should Charge for Parking</h3><p class="m">Aug 2025 · 1,838 views · 20 sign-ups</p><p>The post that opened the conversation with Polly Trottenberg, who loved the idea and doubted any commissioner would survive it.</p></div></div>
+      <div class="pc"><img src="assets/post_jobs.jpg" alt=""><div class="b"><h3>NYC's Job Growth Has a Quality Problem</h3><p class="m">Mar 2026 · 1,732 views · 21 sign-ups · 15 shares</p><p>Ran in Vital City in June 2026.</p></div></div>
+      <div class="pc"><img src="assets/post_ltn.jpg" alt=""><div class="b"><h3>A Blueprint for Safer, Quieter Streets in NYC</h3><p class="m">Nov 2025 · 1,529 views · 20 sign-ups</p><p>Became the Streetsblog op-ed on a Clinton Street low-traffic neighborhood, July 2026.</p></div></div>
     </div>
   </div>
-  <div class="foot"><span>"NYC Keeps Passing Laws It Can't Afford," May 2026</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
-  <div class="notes"><p>Tell it as a sequence: posted on a Thursday; by 10 pm Polly wrote; by 10:15 Tiffany-Ann wrote that the Commissioner had sent it to executive staff; the next morning she wrote again; four days later Polly introduced me to DOT's First Deputy Commissioner. The post was a dataset nobody had assembled: every fiscal impact statement since 2014.</p></div>
+  <div class="foot"><span>Views from Substack's dashboard, Oct 8 2026 · 74 posts, 51,679 views in total</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="notes"><p>Each of these is a question a reader could have asked at a community board meeting, answered with public data and every chart open. Point out that the reach numbers are modest. What they did was reach the right people.</p></div>
 </section>
 
-<!-- 7c WHO READS IT -->
-<section class="slide" data-s="7c">
+<!-- 9 POSTS B -->
+<section class="slide" data-s="9">
   <div class="pad">
-    <p class="kicker">Who reads it</p>
-    <h2>Nearly 1,000 subscribers, and the people who run the city are among them.</h2>
-    <div class="readers">
-      <div class="r"><b>Mark Levine</b><span>NYC Comptroller</span></div>
-      <div class="r"><b>Mike Flynn</b><span>NYC DOT Commissioner</span></div>
-      <div class="r"><b>Leila Bozorg</b><span>NYC Deputy Mayor</span></div>
-      <div class="r"><b>Polly Trottenberg</b><span>Dean, NYU Wagner; former NYC DOT Commissioner</span></div>
-      <div class="r"><b>Tom Wright</b><span>President and CEO, Regional Plan Association</span></div>
-      <div class="r"><b>Daniel Steinberg</b><span>Director, NYS Office of Performance Management and Innovation</span></div>
-      <div class="r"><b>Ben Max</b><span>Host, Max Politics podcast</span></div>
-      <div class="r"><b>CB3's chair and district manager</b><span>and board members across the city</span></div>
+    <p class="kicker">The posts that traveled · how government works</p>
+    <h2>Posts about how the city actually runs found readers inside it.</h2>
+    <div class="posts">
+      <div class="pc"><img src="assets/post_mandates.jpg" alt=""><div class="b"><h3>NYC Agencies Answer to Over 5,000 Standing Council Mandates</h3><p class="m">Aug 2026 · 1,785 views · 13 shares</p><p>Launched the Obligations Tracker. Covered by The City Reporter and Vital City; became a Searchlight column.</p></div></div>
+      <div class="pc"><img src="assets/post_civil.jpg" alt=""><div class="b"><h3>NYC's Civil Service System Is Broken. Here's What Mayor-Elect Mamdani Can Do.</h3><p class="m">Dec 2025 · 1,207 views · 8 shares</p><p>Written in the transition, before the new administration took office.</p></div></div>
+      <div class="pc"><img src="assets/post_cbguide.jpg" alt=""><div class="b"><h3>Demystifying NYC Community Boards, Part I</h3><p class="m">Dec 2025 · 1,107 views · 18 sign-ups</p><p>Grew into a five-part guide. Abundance New York asked to use it for new board members.</p></div></div>
+      <div class="pc"><img src="assets/post_parks.jpg" alt=""><div class="b"><h3>December Parks Committee Report for Manhattan CB3</h3><p class="m">Dec 2025 · 1,155 views · 15 sign-ups</p><p>A committee report from inside the board, in the top ten. People want to know what their board did.</p></div></div>
     </div>
   </div>
-  <div class="foot"><span>nycuriosity.com subscribers, October 2026</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
-  <div class="notes"><p>A small readership is fine when it is the readership that can act on what you found. Make the point for the government workers in the room: the people above them read specific, sourced work by outsiders, and forward it. [TAL: I changed "Berzog" to "Bozorg" for the Deputy Mayor; confirm the spelling before you present.]</p></div>
+  <div class="foot"><span>Views from Substack's dashboard, Oct 8 2026</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="notes"><p>The CB3 report is the surprise: a plain monthly report of what a committee did out-performs most analysis pieces, because nobody else publishes it. That is the gap the board guides and Block Party fill.</p></div>
 </section>
 
 <!-- 7 INSIDE -->
@@ -364,30 +369,20 @@
   <div class="notes"><p>Tie to Daniel's thesis explicitly. The board seat is unpaid and the work is unglamorous, and it is the single best source of questions I have. Stories, pick two: the hour-long debate on whether a park bench faces the playground or the street; the vote on a zoning map change to recognize that a stretch of the Allen Street median is already a park (not to create one), so Parks could renovate the building in it; being called out for writing the CB reports as the board went to a vote on firing an assistant district manager. Then the monthly reports, the AI review of a full meeting, the scorecard from 2,409 recordings.</p></div>
 </section>
 
-<!-- 8 TIMELINE -->
-<section class="slide" data-s="8">
+<!-- 11 PROJECTS -->
+<section class="slide" data-s="11">
   <div class="pad">
-    <p class="kicker">Eighteen months, in order</p>
-    <h2>Each stage made the next one possible.</h2>
-    <div class="tl">
-      <div class="axis"></div>
-      <!-- positions: months since Mar 2025, over a 19-month span -->
-      <div class="pt" style="left:2%;--c:var(--b-topic-budget)"></div><div class="lb up" style="left:2%"><b>Mar 2025</b>NYCuriosity launches</div>
-      <div class="pt" style="left:12%;--c:var(--b-topic-cb)"></div><div class="lb dn" style="left:12%"><b>May 2025</b>Appointed to Manhattan CB3</div>
-      <div class="pt" style="left:21%;--c:var(--b-topic-budget)"></div><div class="lb up" style="left:21%"><b>Jun 2025</b>Trash bin post, first press coverage</div>
-      <div class="pt" style="left:33%;--c:var(--b-topic-cb)"></div><div class="lb dn" style="left:33%"><b>Sep 2025</b>NYU Wagner MPA begins</div>
-      <div class="pt" style="left:50%;--c:var(--b-topic-govtech)"></div><div class="lb up" style="left:50%"><b>Jan 2026</b>Block Party's founder reaches out</div>
-      <div class="pt" style="left:59%;--c:var(--b-topic-transit)"></div><div class="lb dn" style="left:59%"><b>Mar 2026</b>NYC School of Data talk</div>
-      <div class="pt" style="left:68%;--c:var(--b-topic-budget)"></div><div class="lb up" style="left:68%"><b>May 2026</b>Unfunded mandates post → NYC DOT</div>
-      <div class="pt" style="left:76%;--c:var(--b-topic-transit)"></div><div class="lb dn" style="left:76%"><b>Jun 2026</b>Vital City byline · first SCE hackathon</div>
-      <div class="pt" style="left:84%;--c:var(--b-topic-govtech)"></div><div class="lb up" style="left:84%"><b>Aug 2026</b>Obligations Tracker launches</div>
-      <div class="pt" style="left:92%;--c:var(--b-topic-transit)"></div><div class="lb dn" style="left:92%"><b>Sep 2026</b>State of GovTech main stage · Harvard</div>
-      <div class="pt" style="left:98.5%;--c:var(--b-topic-cb)"></div><div class="lb up" style="left:98.5%"><b>Oct 2026</b>This class</div>
+    <p class="kicker">What the writing turned into</p>
+    <h2>Four projects grew out of the posts, and each has its own team and momentum now.</h2>
+    <div class="proj">
+      <div class="card"><span class="tag" style="background:var(--b-topic-cb);color:#fff">Block Party</span><h3>Community board records, searchable</h3><p class="from">From: Block Party's founder reading the Substack, Jan 2026</p><p>I built the resolution engine behind it: 27 boards, 40,000+ resolutions back to 2002, about 12,000 transcripts, refreshed weekly, three more boroughs underway.</p></div>
+      <div class="card"><span class="tag" style="background:var(--b-topic-budget);color:#fff">NYC Council Legislation Trackers</span><h3>What every law costs, requires and allows</h3><p class="from">From: the fiscal impact and unfunded mandates posts</p><p>2,158 local laws since 2014; 8,200+ agency duties, 1,700+ powers, 474 fiscal statements; alerts and an assistant that cites the law. A New York State version started this month.</p></div>
+      <div class="card"><span class="tag" style="background:var(--b-topic-govtech);color:var(--b-ink)">State Capacity Ecosystem</span><h3>A field, a directory and hackathons</h3><p class="from">From: conversations with people who wanted government to work better</p><p>With three people I met through the work: a directory of 334 organizations, a Slack community, and two hackathons in 2026 that built working prototypes in a day.</p></div>
+      <div class="card"><span class="tag" style="background:var(--b-topic-transit);color:#fff">CB tools</span><h3>Tools for the boards themselves</h3><p class="from">From: "Fourteen Ways to Make NYC Community Boards Work Better," Jul 2026</p><p>A member and term-limit tracker for all 59 boards, a Robert's Rules helper, an AI review of a full meeting, and a scorecard of meeting lengths from 2,409 recordings.</p></div>
     </div>
-    <div class="legend"><span><i style="background:var(--b-topic-budget)"></i>Post</span><span><i style="background:var(--b-topic-govtech)"></i>Build</span><span><i style="background:var(--b-topic-transit)"></i>Pulled in</span><span><i style="background:var(--b-topic-cb)"></i>Inside</span></div>
   </div>
-  <div class="foot"><span>Mar 2025 to Oct 2026</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
-  <div class="notes"><p>Walk it fast, left to right. The gap between the first post and the first inbound was nine months. The gap between the first inbound and the Harvard talk was eight. The compounding is in the archive.</p></div>
+  <div class="foot"><span>blockparty.studio · data.nycuriosity.com · statecapacityecosystem.com</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="notes"><p>The point of this slide: none of these were planned. Each came out of a conversation the writing started, with a person who then became a collaborator. The lesson that follows is "talk to people."</p></div>
 </section>
 
 <!-- 9 LESSONS -->
@@ -398,7 +393,7 @@
     <div class="cols two" style="grid-template-columns:1fr 1fr;gap:2cqw">
       <ul class="plain" style="margin-top:1cqw">
         <li><b>Pick a question with a knowable answer, then answer it completely.</b> The data is public. The work is what's missing.</li>
-        <li><b>Show the work.</b> Open charts and datasets are why agency staff trust an outsider.</li>
+        <li><b>Talk to people.</b> Write to the agency staffer, the Council aide, the advocacy partner, the engaged neighbor, and ask for a conversation. Every project on the previous slide started as one.</li>
         <li><b>Go specific.</b> One law, one station, one board. Broad takes have no audience; specific findings get forwarded.</li>
         <li><b>Build the thing you wish existed.</b> With today's AI tools a one-person shop can ship a real tool in weeks.</li>
       </ul>
