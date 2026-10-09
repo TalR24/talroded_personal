@@ -142,6 +142,49 @@
     .slide.dark .lede { color: var(--b-on-dark-quiet); }
     .slide.dark .foot { color: var(--b-on-dark-quiet); }
 
+    .logos { display: flex; align-items: center; gap: 1.6cqw; margin-bottom: 3cqw; }
+    .logos .talbot { height: 6.2cqw; width: 6.2cqw; }
+    .logos .wordmark { height: 4.6cqw; width: auto; }
+    .logos.small { margin: 0; gap: 1cqw; }
+    .logos.small .talbot { height: 3.2cqw; width: 3.2cqw; }
+    .logos.small .wordmark { height: 2.4cqw; }
+
+    /* ── PHONE LAYOUT: stack every slide, fixed type sizes ──────── */
+    @media (max-width: 760px) {
+      .topbar { position: sticky; top: 0; height: 40px; }
+      .topbar .ctrl, .topbar .counter, .topbar .bar-title { display: none; }
+      .stage { position: static; display: block; padding: 10px 12px 40px; }
+      .slide { display: block !important; width: 100%; aspect-ratio: auto; height: auto; max-height: none; border-radius: 10px; margin: 0 0 14px; container-type: normal; }
+      .pad { position: static; padding: 22px 18px 18px; display: block; }
+      .kicker { font-size: 11px; margin-bottom: 8px; letter-spacing: .08em; }
+      h1 { font-size: 28px; } h2 { font-size: 21px; max-width: none; }
+      .lede { font-size: 15px; margin-top: 12px; max-width: none; }
+      .logos { gap: 10px; margin-bottom: 18px; } .logos .talbot { height: 36px; width: 36px; } .logos .wordmark { height: 26px; }
+      .logos.small .talbot { height: 22px; width: 22px; } .logos.small .wordmark { height: 16px; }
+      .foot { position: static; display: flex; justify-content: space-between; align-items: center; margin: 14px 18px 16px; font-size: 11px; }
+      .foot img { height: 18px; }
+      .cols, .cols.two, .cols.three, .cols.four, .pipe, .posts, .proc, .proj, .readers { display: grid; grid-template-columns: 1fr !important; gap: 12px !important; margin-top: 14px !important; }
+      .card { padding: 14px 14px 15px; }
+      .card .tag, .proj .card .tag { font-size: 10px; padding: 3px 8px; margin-bottom: 8px; }
+      .card h3, .proj .card h3 { font-size: 16px; margin: 0 0 6px; }
+      .card p, .card li, .proj .card p, .cols.tight .card p { font-size: 14px; line-height: 1.45; }
+      .cols.tight .card h3 { font-size: 16px; }
+      .card ul { padding-left: 16px; } .card li + li { margin-top: 5px; }
+      .proj .card .from { font-size: 11px; margin-bottom: 5px; }
+      .big { font-size: 30px; } .big small { font-size: 12px; margin-top: 4px; }
+      .stats { gap: 12px 16px; margin-top: 10px; }
+      ul.plain { font-size: 15px !important; padding-left: 18px; margin-top: 12px !important; max-width: none; }
+      ul.plain li + li { margin-top: 9px; } .date { font-size: 11px; margin-right: 6px; display: block; }
+      .pipe .step { padding: 14px 14px 15px; } .pipe .step::before { height: 5px; } .pipe .step::after { display: none; }
+      .pipe .step .n { font-size: 10px; } .pipe .step h3 { font-size: 17px; margin: 4px 0 6px; } .pipe .step p { font-size: 14px; } .pipe .step .eg { font-size: 12px; margin-top: 8px; }
+      .posts .pc img { aspect-ratio: 16/9; } .posts .pc .b { padding: 10px 12px 12px; }
+      .posts .pc h3 { font-size: 15px; } .posts .pc .m { font-size: 11px; margin-bottom: 5px; } .posts .pc p { font-size: 13px; }
+      .proc img, .proc figure.video img { height: auto; aspect-ratio: 16/9; object-position: top; }
+      .proc figure.video { grid-row: auto; } .proc figure.video img { aspect-ratio: 9/16; max-height: 360px; width: auto; max-width: 100%; margin: 0 auto; }
+      .proc figcaption { font-size: 12px; margin-top: 5px; }
+      .notes-panel, .progress-track, .navhint { display: none !important; }
+      body.notes-on .stage { inset: auto; }
+    }
     /* ── NOTES PANEL / PROGRESS ──────────────────────────── */
     .notes-panel { position: fixed; left: 0; right: 0; bottom: 0; max-height: 26vh; overflow-y: auto; background: #241608; color: var(--b-on-dark-quiet);
       border-top: 2px solid var(--b-on-dark); padding: 14px 20px 18px; font-size: 14px; line-height: 1.6; display: none; z-index: 25; }
@@ -175,7 +218,7 @@
 <!-- 1 TITLE -->
 <section class="slide dark" data-s="1">
   <div class="pad" style="justify-content:center">
-    <img src="https://data.nycuriosity.com/assets/brand/LogoFull_W.svg" alt="NYCuriosity" style="height:5.2cqw;width:auto;align-self:flex-start;margin-bottom:3.2cqw">
+    <div class="logos"><img src="https://data.nycuriosity.com/assets/brand/Talbot.svg" alt="" class="talbot"><img src="https://data.nycuriosity.com/assets/brand/LogoFull_W.svg" alt="NYCuriosity" class="wordmark"></div>
     <p class="kicker">Maximum New York · Foundations of New York City</p>
     <h1>From posting to policy with NYCuriosity</h1>
     <p class="lede">Eighteen months of writing about how New York governs itself, in public, and what it opened up.</p>
@@ -431,7 +474,7 @@
       <li>Email: <b style="color:#fff">tal@nycuriosity.com</b></li>
     </ul>
   </div>
-  <div class="foot"><img src="https://data.nycuriosity.com/assets/brand/LogoFull_W.svg" alt="NYCuriosity"><span>Tal Roded · October 2026</span></div>
+  <div class="foot"><span class="logos small"><img src="https://data.nycuriosity.com/assets/brand/Talbot.svg" alt="" class="talbot"><img src="https://data.nycuriosity.com/assets/brand/LogoFull_W.svg" alt="NYCuriosity" class="wordmark"></span><span>Tal Roded · October 2026</span></div>
   <div class="notes"><p>Leave this up during questions.</p></div>
 </section>
 
