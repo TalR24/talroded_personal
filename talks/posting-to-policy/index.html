@@ -91,19 +91,27 @@
     .readers .r b { color: var(--b-ink); margin-right: .8cqw; }
     .readers .r span { color: var(--b-ink-3); font-size: 1.4cqw; }
 
-    .posts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8cqw; margin-top: 2.2cqw; }
+    .posts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8cqw; margin-top: 2.1cqw; align-items: start; }
     .posts .pc { background: var(--b-surface); border: 1px solid var(--b-line); border-radius: var(--b-radius); overflow: hidden; box-shadow: var(--b-shadow); display: flex; flex-direction: column; }
-    .posts .pc img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid var(--b-line); }
+    .posts .pc img { width: 100%; aspect-ratio: 16/9.3; object-fit: cover; display: block; border-bottom: 1px solid var(--b-line); }
     .posts .pc .b { padding: 1.1cqw 1.3cqw 1.3cqw; }
-    .posts .pc h3 { font-size: 1.5cqw; line-height: 1.25; color: var(--b-ink); margin: 0 0 .5cqw; }
+    .posts .pc h3 { font-size: 1.6cqw; line-height: 1.25; color: var(--b-ink); margin: 0 0 .5cqw; }
     .posts .pc .m { font-family: var(--b-mono); font-size: 1.05cqw; color: var(--b-tangerine-deep); margin: 0 0 .6cqw; }
-    .posts .pc p { font-size: 1.25cqw; line-height: 1.38; color: var(--b-ink-2); margin: 0; }
+    .posts .pc p { font-size: 1.35cqw; line-height: 1.4; color: var(--b-ink-2); margin: 0; }
     .proj { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4cqw 1.8cqw; margin-top: 2cqw; }
     .proj .card { padding: 1.3cqw 1.6cqw 1.4cqw; }
     .proj .card .tag { margin-bottom: .6cqw; }
     .proj .card h3 { font-size: 1.75cqw; margin: .2cqw 0 .45cqw; }
     .proj .card .from { font-family: var(--b-mono); font-size: 1cqw; color: var(--b-ink-3); margin: 0 0 .45cqw; }
     .proj .card p { font-size: 1.3cqw; line-height: 1.38; }
+
+    .proc { display: grid; grid-template-columns: 1fr 1fr .58fr; grid-template-rows: auto auto; gap: 1cqw 1.6cqw; margin-top: 1.8cqw; align-items: start; }
+    .proc figure { margin: 0; min-width: 0; }
+    .proc img { width: 100%; height: 12.4cqw; object-fit: cover; object-position: top; display: block; border: 1px solid var(--b-line); border-radius: var(--b-radius-sm); box-shadow: var(--b-shadow); background: #fff; }
+    .proc figure.video { grid-row: 1 / 3; }
+    .proc figure.video img { height: 27.9cqw; object-position: center; }
+    .proc figcaption { font-size: 1.15cqw; color: var(--b-ink-2); margin-top: .55cqw; line-height: 1.3; }
+    .proc figcaption b { font-family: var(--b-mono); color: var(--b-tangerine-deep); font-weight: 400; margin-right: .4cqw; }
 
     /* pipeline */
     .pipe { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; margin-top: 3cqw; align-items: stretch; }
@@ -167,12 +175,12 @@
 <!-- 1 TITLE -->
 <section class="slide dark" data-s="1">
   <div class="pad" style="justify-content:center">
+    <img src="https://data.nycuriosity.com/assets/brand/LogoFull_W.svg" alt="NYCuriosity" style="height:5.2cqw;width:auto;align-self:flex-start;margin-bottom:3.2cqw">
     <p class="kicker">Maximum New York · Foundations of New York City</p>
-    <h1>From posting to policy</h1>
+    <h1>From posting to policy with NYCuriosity</h1>
     <p class="lede">Eighteen months of writing about how New York governs itself, in public, and what it opened up.</p>
-    <p class="lede" style="margin-top:3cqw;font-size:1.7cqw">Tal Roded · NYCuriosity · Manhattan Community Board 3</p>
+    <p class="lede" style="margin-top:3cqw;font-size:1.7cqw">Tal Roded · October 2026</p>
   </div>
-  <div class="foot"><img src="https://data.nycuriosity.com/assets/brand/LogoFull_W.svg" alt="NYCuriosity"><span>October 2026</span></div>
   <div class="notes"><p>Thank Daniel. One sentence on who I am: data scientist by day, I write NYCuriosity, I sit on Manhattan CB3. Today is the story of how the writing led to everything else, and what you can take from it.</p></div>
 </section>
 
@@ -200,7 +208,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span>nycuriosity.com</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>Be honest about the starting point: no policy degree then, no network, a Substack nobody read. The only asset was the ability to pull public data and explain it. Room of about 65, including people who work in government: say the pipeline works from inside an agency too.</p></div>
 </section>
 
@@ -211,12 +219,12 @@
     <h2>It runs in one direction: post, build, get pulled in, then do the work from the inside.</h2>
     <div class="pipe">
       <div class="step" style="--c:var(--b-topic-budget)"><div class="n">01</div><h3>Post</h3><p>Answer one public question with public data. Show every chart and the dataset behind it.</p><div class="eg">Trash bins · parking · what every Council law costs</div></div>
-      <div class="step" style="--c:var(--b-topic-govtech)"><div class="n">02</div><h3>Build</h3><p>The dataset behind the post is worth more than the post. Publish it as a tool anyone can use.</p><div class="eg">Legislation Trackers · Block Party · CB member tracker</div></div>
+      <div class="step" style="--c:var(--b-topic-govtech)"><div class="n">02</div><h3>Build</h3><p>The data behind a post is as valuable as the post. Turn it into open tools and analysis, and they feed the next piece of writing.</p><div class="eg">Legislation Trackers · Block Party · CB member tracker</div></div>
       <div class="step" style="--c:var(--b-topic-transit)"><div class="n">03</div><h3>Get pulled in</h3><p>Readers inside government, the press and civic groups reach out. Talks, bylines, collaborations.</p><div class="eg">Vital City · Harvard · State of GovTech · NYC DOT</div></div>
       <div class="step" style="--c:var(--b-topic-cb)"><div class="n">04</div><h3>Work from inside</h3><p>A board seat, hackathons with agencies, policy fellowships. The inside work feeds the next post.</p><div class="eg">Manhattan CB3 · State Capacity Ecosystem</div></div>
     </div>
   </div>
-  <div class="foot"><span>The posting-to-policy pipeline</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>This is the whole talk on one slide. The next four slides walk each stage with what actually happened and when. The arrow at the end loops back: everything I learn inside becomes the next post.</p></div>
 </section>
 
@@ -225,12 +233,12 @@
   <div class="pad">
     <p class="kicker">01 · Post</p>
     <h2>Posting works when the question has a knowable answer and the work is shown.</h2>
-    <div class="cols two">
-      <ul class="plain">
+    <div class="cols two" style="margin-top:2cqw">
+      <ul class="plain" style="font-size:1.6cqw;margin-top:1.2cqw">
         <li><span class="date">Jun 2025</span><b>The trash bin program.</b> A year of 311 data on whether the bins changed anything on the block.</li>
-        <li><span class="date">May 2026</span><b>"NYC Keeps Passing Laws It Can't Afford."</b> Every fiscal impact statement the Council has filed since 2014, in one dataset. The post former NYC DOT Commissioner Polly Trottenberg forwarded to the agency's leadership.</li>
+        <li><span class="date">May 2026</span><b>"NYC Keeps Passing Laws It Can't Afford."</b> Every fiscal impact statement since 2014 in one dataset. Former NYC DOT Commissioner Polly Trottenberg forwarded it to the agency's leadership.</li>
         <li><span class="date">Jul 2026</span><b>"Fourteen Ways to Make NYC Community Boards Work Better."</b> Written from inside a board, with the Civic Engagement Commission's data.</li>
-        <li><span class="date">Sep 2026</span><b>The charter commission post.</b> What the ballot questions change, agency by agency.</li>
+        <li><span class="date">Sep 2026</span><b>"The G Train Has Lost 15 of 34 Weekends This Year."</b> Every closure counted from turnstile data, because nobody publishes the count.</li>
       </ul>
       <div class="card">
         <span class="tag" style="background:var(--b-topic-budget);color:#fff">What travels</span>
@@ -242,7 +250,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span>nycuriosity.com · 74 posts</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>Pick two of the four to tell as stories; the unfunded mandates post is the one that proves the pipeline, because a former DOT commissioner read it and forwarded it to the agency's leadership within four days. Method, if asked: AI pulls and parses the data, I check its work, it never writes my conclusions.</p></div>
 </section>
 
@@ -250,7 +258,7 @@
 <section class="slide" data-s="5">
   <div class="pad">
     <p class="kicker">02 · Build</p>
-    <h2>The dataset behind a post is worth more than the post, so I publish it as a tool.</h2>
+    <h2>The data behind a post is as valuable as the post, and the tools built on it make the next post possible.</h2>
     <div class="cols two" style="grid-template-columns:1fr 1fr">
       <div class="card">
         <span class="tag" style="background:var(--b-topic-govtech);color:var(--b-ink)">NYC Council Legislation Trackers</span>
@@ -274,23 +282,25 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span>data.nycuriosity.com · blockparty.studio</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
-  <div class="notes"><p>Say it out loud: AI collapsed the build time. One person can now ship what used to take a team a year. The hard parts are the ones government still has: procurement, security review, maintenance. If there is time, pull up one tracker page live. The tool is the business card: agency staff share a tool with colleagues in a way they never share an op-ed.</p></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="notes"><p>The writing and the data are one project: a post surfaces a dataset, the dataset becomes a tracker or an explorer, and the tracker produces the findings the next post is built on. Say it out loud: AI collapsed the build time. One person can now ship what used to take a team a year. The hard parts are the ones government still has: procurement, security review, maintenance. If there is time, pull up one tracker page live. The tool is the business card: agency staff share a tool with colleagues in a way they never share an op-ed.</p></div>
 </section>
 
-<!-- 5b SCREENSHOTS -->
-<section class="slide" data-s="5b">
+<!-- 6 PROCESS -->
+<section class="slide" data-s="6">
   <div class="pad">
-    <p class="kicker">What the work looks like</p>
-    <h2>One Substack, two open tools, all public.</h2>
-    <div class="shots">
-      <figure class="main"><img src="assets/trackers.png" alt="NYC Council Legislation Trackers hub"><figcaption>data.nycuriosity.com: the Legislation Trackers</figcaption></figure>
-      <figure><img src="assets/substack.png" alt="NYCuriosity on Substack"><figcaption>nycuriosity.com: 74 posts, ~1,000 subscribers</figcaption></figure>
-      <figure><img src="assets/blockparty.png" alt="Block Party"><figcaption>blockparty.studio: community board records</figcaption></figure>
+    <p class="kicker">What the work looks like · one post, five surfaces</p>
+    <h2>Every post runs the same pipeline: the data becomes a table, the table a chart, and the chart the article, the thread and the video.</h2>
+    <div class="proc">
+      <figure><img src="assets/proc_table.jpg" alt="Obligations table on data.nycuriosity.com"><figcaption><b>01</b> The data, filterable, on data.nycuriosity.com</figcaption></figure>
+      <figure><img src="assets/proc_chart.jpg" alt="Chart page for the G train weekend closures"><figcaption><b>02</b> Each chart gets its own page, PNG and embed</figcaption></figure>
+      <figure class="video"><img src="assets/proc_video.jpg" alt="Cover of the G train video"><figcaption><b>05</b> A vertical video for Reels, Shorts and X</figcaption></figure>
+      <figure><img src="assets/proc_article.jpg" alt="The chart inside the Substack article"><figcaption><b>03</b> The chart inside the Substack article</figcaption></figure>
+      <figure><img src="assets/proc_thread.jpg" alt="Chart image used in the X thread"><figcaption><b>04</b> The same chart carries the X thread</figcaption></figure>
     </div>
   </div>
-  <div class="foot"><span>Screenshots, October 2026</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
-  <div class="notes"><p>No live demo. Point at each: the Substack is where the questions get asked; the trackers and Block Party are where the answers live so other people can use them.</p></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="notes"><p>This is the G train post from September 2026 on every surface. The order matters: the table and charts exist before the writing starts, and they outlive the post as tools other people use. The thread and the video are cut from the same charts, so one week of data work feeds four channels.</p></div>
 </section>
 
 <!-- 6 PULLED IN -->
@@ -306,7 +316,7 @@
       <li><span class="date">Sep 2026</span>The one I applied for: the main stage at CivStart's State of GovTech in Washington. Everything else on this slide came to me.</li>
     </ul>
   </div>
-  <div class="foot"><span>One application, a dozen invitations</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>The point for the class: one of these was an application. The posts did the rest of the applying. Name Sarah Sachs and Polly Trottenberg out loud if it feels right in the room; the slide keeps roles.</p></div>
 </section>
 
@@ -322,7 +332,7 @@
       <div class="pc"><img src="assets/post_ltn.jpg" alt=""><div class="b"><h3>A Blueprint for Safer, Quieter Streets in NYC</h3><p class="m">Nov 2025</p><p>Became the Streetsblog op-ed on a Clinton Street low-traffic neighborhood, July 2026.</p></div></div>
     </div>
   </div>
-  <div class="foot"><span>nycuriosity.com · 74 posts since April 2025</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>Each of these is a question a reader could have asked at a community board meeting, answered with public data and every chart open. The audience is modest in size. What these posts did was reach the right people.</p></div>
 </section>
 
@@ -335,11 +345,11 @@
       <div class="pc"><img src="assets/post_mandates.jpg" alt=""><div class="b"><h3>NYC Agencies Answer to Over 5,000 Standing Council Mandates</h3><p class="m">Aug 2026</p><p>Launched the Obligations Tracker. Covered by The City Reporter and Vital City; became a Searchlight column.</p></div></div>
       <div class="pc"><img src="assets/post_civil.jpg" alt=""><div class="b"><h3>NYC's Civil Service System Is Broken. Here's What Mayor-Elect Mamdani Can Do.</h3><p class="m">Dec 2025</p><p>Written in the transition, before the new administration took office.</p></div></div>
       <div class="pc"><img src="assets/post_cbguide.jpg" alt=""><div class="b"><h3>Demystifying NYC Community Boards, Part I</h3><p class="m">Dec 2025</p><p>Grew into a five-part guide. Abundance New York asked to use it for new board members.</p></div></div>
-      <div class="pc"><img src="assets/post_parks.jpg" alt=""><div class="b"><h3>December Parks Committee Report for Manhattan CB3</h3><p class="m">Dec 2025</p><p>A committee report from inside the board, in the top ten. People want to know what their board did.</p></div></div>
+      <div class="pc"><img src="assets/post_coge.jpg" alt=""><div class="b"><h3>COGE Is Just the Opening Act</h3><p class="m">Sep 2026</p><p>What the Charter commission's ballot questions change, agency by agency, with eight charts and a video for Election Day.</p></div></div>
     </div>
   </div>
-  <div class="foot"><span>nycuriosity.com</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
-  <div class="notes"><p>The CB3 report is the surprise: a plain monthly report of what a committee did out-performs most analysis pieces, because nobody else publishes it. That is the gap the board guides and Block Party fill.</p></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="notes"><p>COGE and the mandates post are the same move: take a government document everyone cites and nobody reads, turn it into a dataset, and show agency by agency what it changes. The board guides fill the same gap for community boards.</p></div>
 </section>
 
 <!-- 7 INSIDE -->
@@ -365,7 +375,7 @@
       </div>
     </div>
   </div>
-  <div class="foot"><span>Manhattan CB3 · statecapacityecosystem.com</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>Tie to Daniel's thesis explicitly. The board seat is unpaid and the work is unglamorous, and it is the single best source of questions I have. Stories, pick two: the hour-long debate on whether a park bench faces the playground or the street; the vote on a zoning map change to recognize that a stretch of the Allen Street median is already a park (not to create one), so Parks could renovate the building in it; being called out for writing the CB reports as the board went to a vote on firing an assistant district manager. Then the monthly reports, the AI review of a full meeting, the scorecard from 2,409 recordings.</p></div>
 </section>
 
@@ -381,7 +391,7 @@
       <div class="card"><span class="tag" style="background:var(--b-topic-transit);color:#fff">CB tools</span><h3>Tools for the boards themselves</h3><p class="from">From: "Fourteen Ways to Make NYC Community Boards Work Better," Jul 2026</p><p>A member and term-limit tracker for all 59 boards, a Robert's Rules helper, an AI review of a full meeting, and a scorecard of meeting lengths from 2,409 recordings.</p></div>
     </div>
   </div>
-  <div class="foot"><span>blockparty.studio · data.nycuriosity.com · statecapacityecosystem.com</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>The point of this slide: none of these were planned. Each came out of a conversation the writing started, with a person who then became a collaborator. The lesson that follows is "talk to people."</p></div>
 </section>
 
@@ -404,7 +414,7 @@
       </ul>
     </div>
   </div>
-  <div class="foot"><span>Lessons</span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
+  <div class="foot"><span></span><img src="https://data.nycuriosity.com/assets/brand/Logomark_C.svg" alt=""></div>
   <div class="notes"><p>This is the closing slide before thanks: end on the ask that they pick one of these and do it before the next class. Say which two of these you'd have skipped and regretted. [TAL: still your call which lessons stay; this is the draft list.]</p></div>
 </section>
 
