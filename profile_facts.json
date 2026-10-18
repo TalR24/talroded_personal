@@ -383,17 +383,10 @@
     "counts": {
       "press_citation": 5,
       "byline": 5,
-      "talk": 5,
+      "talk": 4,
       "endorsement": 1
     },
     "highlights": [
-      {
-        "date": "2026-10",
-        "type": "talk",
-        "title": "From posting to policy",
-        "outlet": "Maximum New York, Foundations of New York City class",
-        "url": "https://talroded.nycuriosity.com/talks/posting-to-policy/"
-      },
       {
         "date": "2026-09-30",
         "type": "talk",
@@ -416,14 +409,7 @@
         "url": "https://data.nycuriosity.com/cb-tools/sogt-2026/Building_an_AI_Powered_Knowledge_Base_SOGT26.pdf"
       },
       {
-        "date": "2026-08-26",
-        "type": "endorsement",
-        "title": "Expert Advice for Mamdani's Commission on Government Efficiency",
-        "outlet": "Vital City",
-        "url": "https://www.vitalcitynyc.org/expert-advice-for-mamdanis-commission-on-government-efficiency/"
-      },
-      {
-        "date": "2026-08-26",
+        "date": "2026-08-19",
         "type": "press_citation",
         "title": "13 Fixes for New York City Government That Go Beyond the Charter",
         "outlet": "Vital City",
@@ -442,6 +428,20 @@
         "title": "Mamdani Wants To Speed up NYC Government. He Could Tackle Cumbersome Agency Reports.",
         "outlet": "The City Reporter",
         "url": "https://www.thecityreporter.nyc/2026/08/18/mamdani-agency-reporting-requirements-city-council-laws/"
+      },
+      {
+        "date": "2026-08",
+        "type": "byline",
+        "title": "Unfunded and Unfinished: How Council Mandates Slow the City Down",
+        "outlet": "Searchlight (Citizens Union)",
+        "url": "https://searchlight.citizensunion.org/unfunded-and-unfinished-how-council-mandates-slow-the-city-down/"
+      },
+      {
+        "date": "2026-07-06",
+        "type": "endorsement",
+        "title": "Expert Advice for Mamdani's Commission on Government Efficiency",
+        "outlet": "Vital City",
+        "url": "https://www.vitalcitynyc.org/expert-advice-for-mamdanis-commission-on-government-efficiency/"
       }
     ]
   }

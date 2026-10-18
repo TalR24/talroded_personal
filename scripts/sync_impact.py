@@ -106,6 +106,10 @@ def load_ledger(path: Path) -> list[dict]:
         for k in ("title", "outlet", "summary", "source"):
             if e.get(k) not in (None, "") and not isinstance(e[k], str):
                 errors.append(f"{where}: {k} must be a string")
+        # Oct 18 2026 audit: an unconfirmed fact cannot be public (it reached the profile highlights)
+        if e.get("public") is True and re.search(r"(?i)to be confirmed|\bTBC\b|\bTBD\b|unconfirmed",
+                                                   " ".join(str(e.get(k) or "") for k in ("summary", "title", "date"))):
+            errors.append(f"{where}: public entry says it is unconfirmed; set public: false until Tal confirms")
     if errors:
         print(f"LEDGER INVALID: {len(errors)} problem(s) in {path}", file=sys.stderr)
         for m in errors:
