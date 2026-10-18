@@ -69,6 +69,9 @@ def load_ledger(path: Path) -> list[dict]:
     if not isinstance(data, dict) or not isinstance(data.get("entries"), list):
         sys.exit(f"LEDGER INVALID: {path} needs a top-level 'entries' list")
     seen: set[str] = set()
+    # Mentions Tal never wants in public copy (feedback_press_mentions_exclusions, Sep 15 2026); kept in the
+    # ledger as `excluded_from_public` (URL substrings) so no sync can publish them (Oct 18 2026 audit)
+    excluded = [x for x in (data.get("excluded_from_public") or []) if isinstance(x, str) and x]
     for i, e in enumerate(data["entries"]):
         where = f"entry #{i + 1}"
         if not isinstance(e, dict):
@@ -106,6 +109,8 @@ def load_ledger(path: Path) -> list[dict]:
         for k in ("title", "outlet", "summary", "source"):
             if e.get(k) not in (None, "") and not isinstance(e[k], str):
                 errors.append(f"{where}: {k} must be a string")
+        if e.get("public") is True and any(x in str(e.get("url") or "") or x in str(e.get("title") or "") for x in excluded):
+            errors.append(f"{where}: on the excluded_from_public list; set public: false")
         # Oct 18 2026 audit: an unconfirmed fact cannot be public (it reached the profile highlights)
         if e.get("public") is True and re.search(r"(?i)to be confirmed|\bTBC\b|\bTBD\b|unconfirmed",
                                                    " ".join(str(e.get(k) or "") for k in ("summary", "title", "date"))):

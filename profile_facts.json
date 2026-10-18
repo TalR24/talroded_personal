@@ -383,8 +383,7 @@
     "counts": {
       "press_citation": 5,
       "byline": 5,
-      "talk": 4,
-      "endorsement": 1
+      "talk": 4
     },
     "highlights": [
       {
@@ -437,11 +436,11 @@
         "url": "https://searchlight.citizensunion.org/unfunded-and-unfinished-how-council-mandates-slow-the-city-down/"
       },
       {
-        "date": "2026-07-06",
-        "type": "endorsement",
-        "title": "Expert Advice for Mamdani's Commission on Government Efficiency",
-        "outlet": "Vital City",
-        "url": "https://www.vitalcitynyc.org/expert-advice-for-mamdanis-commission-on-government-efficiency/"
+        "date": "2026-07-01",
+        "type": "byline",
+        "title": "Clinton Street Has a Traffic Problem. So Let's Make It a \"Low Traffic Neighborhood\"",
+        "outlet": "Streetsblog NYC",
+        "url": "https://nyc.streetsblog.org/2026/07/01/opinion-clinton-street-has-a-traffic-problem-a-low-traffic-neighborhood-redesign-would-fix-it"
       }
     ]
   }
