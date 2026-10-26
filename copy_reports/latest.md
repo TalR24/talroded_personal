@@ -1,4 +1,4 @@
-# Copy check — 2026-10-19 (CI)
+# Copy check — 2026-10-26 (CI)
 
 ## Live numbers
 
