@@ -1,4 +1,4 @@
-# Copy check — 2026-11-05 (local)
+# Copy check — 2026-11-06 (local)
 
 ## Live numbers
 
@@ -12,9 +12,7 @@
 
 ## Numbers rewritten in copy
 
-- index.html
-- resume/index.html
-- writing/index.html
+- none
 
 ## Needs a human
 
@@ -23,6 +21,3 @@
 ## Log
 
 - sync_posts.py: no new posts
-- index.html: `77` -> `78` (archive_rows)
-- writing/index.html: `77` -> `78` (archive_rows)
-- resume/index.html: `76` -> `77` (posts)
