@@ -13,18 +13,18 @@
   <meta property="og:url" content="https://talroded.nycuriosity.com/services/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta property="og:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/style.css?v=10">
+  <link rel="stylesheet" href="../assets/style.css?v=11">
   <style>
     /* studio badge on the hero */
     .svc-badge {
       display: inline-flex; align-items: center; gap: 7px;
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; font-weight: 600;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.09em; color: var(--blue);
       background: var(--blue-light); border: 1px solid var(--blue-mid);
       border-radius: 20px; padding: 5px 13px; margin-bottom: 4px;
@@ -41,7 +41,7 @@
     /* audience chips */
     .svc-audience { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .svc-aud {
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.74rem; font-weight: 500; color: var(--text-mid);
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 500; color: var(--text-mid);
       border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; background: var(--surface);
     }
 
@@ -59,23 +59,23 @@
     .svc-card.has-photo .svc-body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
     .svc-photo { flex: 0 0 280px; margin: 0; }
     .svc-photo img { display: block; width: 100%; height: auto; border-radius: 10px; }
-    .svc-photo figcaption { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; color: var(--text-faint); margin-top: 6px; }
+    .svc-photo figcaption { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: var(--text-faint); margin-top: 6px; }
     .svc-ico {
       width: 40px; height: 40px; border-radius: 9px; display: flex; align-items: center; justify-content: center;
       background: var(--blue-light); color: var(--blue); margin-bottom: 14px;
     }
     .svc-card.feature .svc-ico { background: var(--blue); color: #fff; }
     .svc-flag {
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.1em; color: var(--blue); margin-bottom: 8px;
     }
     .svc-card h3 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 1.06rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
     .svc-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
     .svc-ex { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; margin-top: 10px; }
-    .svc-ex b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); display: block; margin-bottom: 2px; }
+    .svc-ex b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); display: block; margin-bottom: 2px; }
     .svc-meta { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .svc-turn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; color: var(--text-faint); }
-    .svc-req { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
+    .svc-turn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: var(--text-faint); }
+    .svc-req { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
     .svc-req:hover { text-decoration: underline; }
     /* the whole card is clickable (Tal, Sep 27 2026): the card's proposal link
        stretches over it; links inside the text sit above it and keep their own targets */
@@ -90,7 +90,7 @@
       background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--blue);
       border-radius: var(--radius); padding: 26px 28px; box-shadow: var(--shadow-sm);
     }
-    .svc-independence h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+    .svc-independence h3 { font-family: var(--b-display); font-size: 1.5rem; font-weight: 400; color: var(--text); margin-bottom: 12px; }
     .svc-independence p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; max-width: 760px; }
     .svc-independence p + p { margin-top: 12px; }
     .svc-independence strong { color: var(--text); font-weight: 600; }
@@ -99,7 +99,7 @@
     .svc-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: step; }
     .svc-step { position: relative; }
     .svc-step .num {
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 700; color: #fff;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700; color: #fff;
       background: var(--blue); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
     }
     .svc-step h4 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.86rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
@@ -113,10 +113,10 @@
       transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
     }
     .svc-proof a:hover { border-color: var(--blue-mid); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .svc-proof .lab { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
+    .svc-proof .lab { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
     .svc-proof .ti { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.95rem; font-weight: 700; color: var(--text); }
     .svc-proof .de { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
-    .svc-proof .go { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; color: var(--blue); margin-top: auto; }
+    .svc-proof .go { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: var(--blue); margin-top: auto; }
 
     /* credentials strip */
     .svc-creds { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; }
@@ -139,7 +139,7 @@
     }
     .svc-cta::after { content: ''; position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(520px 260px at 82% 10%, rgba(200,70,9,0.34), transparent 60%); }
-    .svc-cta h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 400; color: #fff; margin-bottom: 12px; position: relative; }
+    .svc-cta h2 { font-family: var(--b-display); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 400; color: #fff; margin-bottom: 12px; position: relative; }
     .svc-cta p { color: #DAD6D2; font-size: 0.98rem; line-height: 1.6; max-width: 520px; margin: 0 auto 24px; position: relative; }
     .svc-cta .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
     .btn-primary, .btn-ghost {
@@ -151,6 +151,7 @@
     .btn-ghost { background: transparent; color: #EBE9E7; border: 1px solid #4B443D; }
     .btn-ghost:hover { border-color: #FFD23F; color: #fff; }
     /* the Tally iframe grows to full height (dynamicHeight); no inner scroll box */
+    .svc-formwrap iframe { display: block; min-height: 400px; border: 0; }
     .svc-formwrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: clamp(10px, 2vw, 20px); }
     .svc-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
     .btn-outline { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.82rem; font-weight: 600; text-decoration: none; padding: 11px 21px; border-radius: 8px; border: 1px solid var(--blue-mid); color: var(--blue); background: var(--surface); transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
@@ -161,7 +162,7 @@
     .svc-cited a span { color: var(--text-faint); font-weight: 400; }
     .svc-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
     .svc-formwrap iframe { display: block; width: 100%; border: 0; }
-    .svc-note { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.7rem; color: var(--text-faint); margin-top: 16px; }
+    .svc-note { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; color: var(--text-faint); margin-top: 16px; }
 
     @media (max-width: 860px) {
       .svc-grid { grid-template-columns: 1fr; }
@@ -432,8 +433,10 @@
       <h2 class="section-title">Tell me <em>what you need</em></h2>
       <p class="svc-intro" style="margin-bottom:22px">Share your goal, rough scope, budget range, and timeline. I'll review it for fit, including any conflicts of interest, and get back to you within a few days. If it's a match, we'll set up a 30-minute 1:1 call.</p>
       <div class="svc-formwrap">
-        <iframe data-tally-src="https://tally.so/embed/ZjgKve?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1600" frameborder="0" marginheight="0" marginwidth="0" title="NYCuriosity Studio project inquiry"></iframe>
+        <iframe data-tally-src="https://tally.so/embed/ZjgKve?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="NYCuriosity Studio project inquiry"></iframe>
       </div>
+      <p class="svc-note" id="tally-fallback" hidden style="margin-top:14px"><a href="https://tally.so/r/ZjgKve" target="_blank" rel="noopener" style="color:var(--blue)">Open the form in a new tab</a></p>
+      <noscript><p class="svc-note" style="margin-top:14px"><a href="https://tally.so/r/ZjgKve" target="_blank" rel="noopener" style="color:var(--blue)">Open the form in a new tab</a></p></noscript>
       <p class="svc-note" style="margin-top:14px;color:var(--text-faint)">Prefer email? <a href="mailto:tal@nycuriosity.com" style="color:var(--blue);text-decoration:none;">tal@nycuriosity.com</a></p>
     </section>
 
@@ -478,6 +481,7 @@
       <a href="/about/">About</a>
       <a href="/services/">Services</a>
       <a href="https://data.nycuriosity.com" target="_blank" rel="noopener">Data</a>
+      <a href="https://www.nycuriosity.com/subscribe" target="_blank" rel="noopener">Subscribe</a>
       <a href="https://www.nycuriosity.com" target="_blank" rel="noopener" aria-label="NYCuriosity on Substack" title="Substack" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
       <a href="https://www.linkedin.com/in/tal-roded" target="_blank" rel="noopener" aria-label="Tal Roded on LinkedIn" title="LinkedIn" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
       <a href="https://x.com/TalR24" target="_blank" rel="noopener" aria-label="NYCuriosity on X" title="X" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
@@ -497,6 +501,7 @@
 <!-- Tally embed loader (populates iframe src + dynamic height) -->
 <script>
 (function(){var d=document,w="https://tally.so/widgets/embed.js",load=function(){if("undefined"!=typeof Tally){Tally.loadEmbeds();return;}d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});};if("undefined"!=typeof Tally){load();}else if(null===d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=load;s.onerror=load;d.body.appendChild(s);}})();
+(function(){var f=document.querySelector("iframe[data-tally-src]"),b=document.getElementById("tally-fallback"),ok=false;if(!f||!b)return;f.addEventListener("load",function(){ok=true;});setTimeout(function(){if(!ok)b.hidden=false;},8000);})();
 </script>
 
 </body>

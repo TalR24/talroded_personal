@@ -13,13 +13,13 @@
   <meta property="og:url" content="https://talroded.nycuriosity.com/services/thanks/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta property="og:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="../../assets/style.css?v=10">
+  <link rel="stylesheet" href="../../assets/style.css?v=11">
   <style>
     .thanks-wrap { max-width: 660px; margin: 0 auto; text-align: center; }
     .thanks-check {
@@ -28,7 +28,7 @@
       display: flex; align-items: center; justify-content: center; color: var(--blue);
     }
     .thanks-wrap h1 {
-      font-family: 'DM Serif Display', Georgia, serif; font-weight: 400;
+      font-family: var(--b-display); font-weight: 400;
       font-size: clamp(2rem, 5vw, 2.9rem); color: var(--text); line-height: 1.1; margin-bottom: 14px;
     }
     .thanks-lead { font-size: 1.02rem; color: var(--text-muted); line-height: 1.7; max-width: 520px; margin: 0 auto 30px; }
@@ -38,7 +38,7 @@
       border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 22px 26px; margin-bottom: 30px;
     }
     .thanks-steps .lab {
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.09em; color: var(--blue); margin-bottom: 14px;
     }
     .thanks-steps ol { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 12px; }
@@ -46,7 +46,7 @@
     .thanks-steps li::before {
       content: counter(s); position: absolute; left: 0; top: -1px;
       width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff;
-      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; font-weight: 700;
+      font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
     }
     .thanks-steps li strong { color: var(--text); font-weight: 600; }
@@ -158,6 +158,7 @@
       <a href="/about/">About</a>
       <a href="/services/">Services</a>
       <a href="https://data.nycuriosity.com" target="_blank" rel="noopener">Data</a>
+      <a href="https://www.nycuriosity.com/subscribe" target="_blank" rel="noopener">Subscribe</a>
       <a href="https://www.nycuriosity.com" target="_blank" rel="noopener" aria-label="NYCuriosity on Substack" title="Substack" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
       <a href="https://www.linkedin.com/in/tal-roded" target="_blank" rel="noopener" aria-label="Tal Roded on LinkedIn" title="LinkedIn" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
       <a href="https://x.com/TalR24" target="_blank" rel="noopener" aria-label="NYCuriosity on X" title="X" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>

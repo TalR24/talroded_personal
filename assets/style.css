@@ -16,7 +16,7 @@
   --text:        var(--b-ink);
   --text-mid:    var(--b-ink-2);
   --text-muted:  var(--b-ink-3);
-  --text-faint:  var(--b-ink-4);
+  --text-faint:  var(--b-ink-3);   /* ink-4 is decorative only; faint TEXT uses ink-3 */
   --bg:          var(--b-cream);
   --surface:     var(--b-surface);
   --border:      var(--b-line);
@@ -32,6 +32,14 @@
   --c-tool:       var(--b-fuchsia);
   --c-edu:        var(--b-marigold);
   --c-code:       var(--b-ink-3);
+  /* Text twins of the fills above (brand topic -ink tokens). The fills stay for
+     bars and borders; any text set in a category colour uses these. */
+  --c-newsletter-ink: var(--b-topic-budget-ink);
+  --c-data-ink:       var(--b-topic-transit-ink);
+  --c-civic-ink:      var(--c-civic);
+  --c-tool-ink:       var(--b-topic-cb-ink);
+  --c-edu-ink:        var(--b-topic-govtech-ink);
+  --c-code-ink:       var(--b-ink-3);
 
   /* MTA service-bullet colours. Real-world line colours, NOT brand values —
      never map these onto the palette. */
@@ -125,7 +133,7 @@ header {
   align-items: center;
   gap: 5px;
   font-family: var(--b-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: rgba(255,255,255,0.55);
   text-decoration: none;
@@ -141,7 +149,7 @@ header {
 }
 .header-cta {
   font-family: var(--b-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--dark);
   background: #fff;
@@ -165,7 +173,7 @@ header {
   align-items: center;
   gap: 6px;
   font-family: var(--b-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--blue-mid);
   text-decoration: none;
@@ -184,11 +192,11 @@ header {
 /* ── SECTION CHROME ──────────────────────────────────────── */
 .section-label {
   font-family: var(--b-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--sub-orange);
+  color: var(--b-tangerine-deep);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -201,7 +209,7 @@ header {
   background: var(--border);
 }
 .section-title {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--b-display);
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   color: var(--text);
@@ -247,7 +255,7 @@ header {
 }
 .project-cat {
   font-family: var(--b-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -269,7 +277,7 @@ header {
 }
 .project-link-label {
   font-family: var(--b-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -307,7 +315,7 @@ header {
 }
 .writing-tag {
   font-family: var(--b-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -319,11 +327,11 @@ header {
 }
 .writing-date {
   font-family: var(--b-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   color: var(--text-faint);
 }
 .writing-card-title {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--b-display);
   font-size: 1.15rem;
   font-weight: 400;
   color: var(--text);
@@ -356,7 +364,7 @@ header {
 }
 .writing-card-cta {
   font-family: var(--b-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   display: flex;
@@ -387,7 +395,7 @@ header {
 .exp-item:last-child { border-right: none; }
 .exp-period {
   font-family: var(--b-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-faint);
   margin-bottom: 4px;
@@ -430,7 +438,7 @@ header {
   align-items: center;
   justify-content: center;
   font-family: var(--b-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #fff;
 }
@@ -460,7 +468,7 @@ footer {
 }
 .footer-brand span { color: var(--blue-mid); }
 .footer-copy {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: rgba(255,255,255,0.25);
   font-family: var(--b-mono);
 }
@@ -485,15 +493,15 @@ footer {
 }
 .page-hero p.page-hero-label {
   font-family: var(--b-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--sub-orange);
+  color: var(--b-tangerine-deep);
   margin-bottom: 10px;
 }
 .page-hero h1 {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--b-display);
   font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 400;
   color: var(--text);
@@ -558,7 +566,7 @@ main {
 .tl-role { font-size: 0.925rem; font-weight: 600; color: var(--text); line-height: 1.3; }
 .tl-period {
   font-family: var(--b-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--text-faint);
   white-space: nowrap;
@@ -566,7 +574,7 @@ main {
 }
 .tl-org {
   font-family: var(--b-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--blue);
   margin-bottom: 6px;
@@ -611,7 +619,7 @@ main {
 }
 .filter-btn {
   font-family: var(--b-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   background: var(--surface);
@@ -642,7 +650,7 @@ main {
 .archive-item:hover .archive-title { color: var(--blue); }
 .archive-item-date {
   font-family: var(--b-mono);
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   color: var(--text-faint);
   white-space: nowrap;
   flex-shrink: 0;
@@ -659,7 +667,7 @@ main {
 }
 .archive-tag {
   font-family: var(--b-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-faint);
   background: var(--bg);
@@ -684,7 +692,7 @@ main {
 }
 .skills-group-title {
   font-family: var(--b-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -694,7 +702,7 @@ main {
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .skill-tag {
   font-family: var(--b-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   background: var(--blue-light);
   color: var(--blue);
@@ -759,7 +767,7 @@ main {
 .wiki-hub-category { margin-bottom: 36px; }
 .wiki-hub-category-label {
   font-family: var(--b-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -790,7 +798,7 @@ main {
 }
 .wiki-hub-num {
   font-family: var(--b-mono);
-  font-size: 0.57rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--blue);
   letter-spacing: 0.08em;
@@ -820,7 +828,7 @@ main {
 }
 .wiki-subnav a {
   font-family: var(--b-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-mid);
   text-decoration: none;
@@ -837,7 +845,7 @@ main {
 .wiki-section { margin-bottom: 40px; }
 .wiki-section-heading {
   font-family: var(--b-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -887,7 +895,7 @@ main {
 }
 .wiki-link-by {
   font-family: var(--b-mono);
-  font-size: 0.63rem;
+  font-size: 0.75rem;
   color: var(--text-faint);
   margin-top: 3px;
   margin-bottom: 5px;
@@ -933,4 +941,31 @@ main {
   .exp-strip { flex-direction: column; }
   .exp-item  { border-right: none; border-bottom: 1px solid var(--border); }
   .exp-item:last-child { border-bottom: none; }
+}
+
+/* ── SUBSCRIBE LINK + TAP TARGETS ───────────────────────── */
+a.filter-btn { display: inline-flex; align-items: center; text-decoration: none; }
+.filter-btn.subscribe-btn { color: var(--blue); border-color: var(--blue); background: var(--blue-light); }
+@media (max-width: 600px) {
+  .nav-toggle { width: 44px; height: 44px; }
+  .header-nav a { min-height: 44px; display: flex; align-items: center; }
+  .footer-links { gap: 4px 8px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; }
+  .footer-support { min-height: 44px; }
+  .filter-btn { min-height: 44px; }
+  .archive-item { padding: 14px 0; min-height: 44px; }
+  .wiki-subnav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .wiki-link-title, .wiki-link-plain { display: block; padding: 8px 0; }
+  .hero-link { min-height: 44px; }
+  .connect-link { min-height: 44px; }
+  .header-cta { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 600px) {
+  .brand, .footer-brand { min-height: 44px; display: flex; align-items: center; }
+  .wiki-link-title { min-height: 44px; display: flex; align-items: center; }
+  .svc-req { display: inline-flex; align-items: center; min-height: 44px; }
+  .stand-link { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 600px) {
+  .resume-contact a, .svc-cited a { display: inline-flex; align-items: center; min-height: 44px; }
 }
