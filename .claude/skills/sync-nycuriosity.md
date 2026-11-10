@@ -5,7 +5,7 @@ description: Use this skill when the user says they published a new post on Subs
 
 # Sync NYCuriosity Posts
 
-When Tal has published a new post, update the writing archive on talroded.nycuriosity.com from a local checkout (`/Users/troded/nycur/personal_website`). Substack blocks GitHub Actions IPs, so this runs locally; `.github/workflows/sync_posts.yml` is manual dispatch only.
+When Tal has published a new post, update the writing archive on talroded.nycuriosity.com from a local checkout (`/Users/troded/nycur/personal_website`). Substack blocks GitHub Actions IPs, so this runs locally; the old `sync_posts.yml` workflow was removed Nov 10 2026.
 
 ## Steps
 

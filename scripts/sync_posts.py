@@ -9,13 +9,20 @@ the publication's posts and silently drops older ones (43 of 70 on Sep 10
 use it to regenerate, audit, or count the archive; that needs the logged-in
 enumeration described in the reference-substack-post-api memory.
 
-Run locally:  python scripts/sync_posts.py
-Run via CI:   see .github/workflows/sync_posts.yml
+The RSS feed is read as a second source (Nov 10 2026): on Nov 5 2026 the public
+archive omitted a live cross-post that the feed carried, and the sync reported
+"no new posts". A post found in either source is inserted.
+
+Run locally only:  python scripts/sync_posts.py
+(Substack blocks GitHub Actions IPs, so the old sync_posts.yml workflow was
+removed Nov 10 2026; copy_check.py runs this script at the session sweep.)
 """
 
 import sys
 import html as html_lib
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 try:
@@ -24,6 +31,7 @@ except ImportError:
     sys.exit("requests is not installed. Run: pip install requests")
 
 API_URL      = "https://nycuriosity.substack.com/api/v1/archive?sort=new&limit=25"
+FEED_URL     = "https://www.nycuriosity.com/feed"
 WRITING_HTML = Path(__file__).parent.parent / "writing" / "index.html"
 ARCHIVE_MARKER = '<div class="archive-list" id="archive">'
 
@@ -115,6 +123,27 @@ def build_entry(link: str, title: str, date_str: str, post_tags=None) -> str:
     )
 
 
+# ── RSS feed (second source) ─────────────────────────────────────────────────
+def feed_posts() -> list[dict]:
+    """Posts from the RSS feed, shaped like the archive API's items. Never fatal."""
+    try:
+        resp = requests.get(FEED_URL, timeout=15, headers={**HEADERS, "Accept": "application/rss+xml"})
+        resp.raise_for_status()
+        items = ET.fromstring(resp.content).iter("item")
+    except Exception as e:
+        print(f"Warning: could not read the RSS feed ({e}); archive API only.")
+        return []
+    out = []
+    for it in items:
+        link = (it.findtext("link") or "").split("?")[0].strip()
+        try:
+            date = parsedate_to_datetime(it.findtext("pubDate") or "").astimezone(timezone.utc).isoformat()
+        except Exception:
+            date = ""
+        out.append({"canonical_url": link, "title": (it.findtext("title") or "").strip(), "post_date": date})
+    return out
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 def main() -> None:
     # Fetch posts via Substack JSON API
@@ -129,7 +158,21 @@ def main() -> None:
         sys.exit(0)
 
     posts = resp.json()
+    # Since about Nov 2026 the endpoint returns {"posts": [...], "nextCursor": ...}
+    # instead of a bare list (paging is by cursor, no longer by offset). The old
+    # list handling crashed on it and copy_check logged "no new posts".
+    if isinstance(posts, dict):
+        posts = posts.get("posts") or []
+    if not isinstance(posts, list):
+        sys.exit(f"Unexpected archive API response shape: {type(posts).__name__}")
+    posts = [p for p in posts if isinstance(p, dict)]
     print(f"Found {len(posts)} posts in API response.")
+    api_links = {(p.get("canonical_url") or "").strip() for p in posts}
+    extra = [p for p in feed_posts() if p["canonical_url"] and p["canonical_url"] not in api_links]
+    if extra:
+        print(f"RSS feed carries {len(extra)} post(s) the archive API omitted.")
+    # Newest first across both sources, so inserted rows keep the page's order.
+    posts = sorted(posts + extra, key=lambda p: p.get("post_date") or "", reverse=True)
 
     # Read current HTML
     html = WRITING_HTML.read_text(encoding="utf-8")

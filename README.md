@@ -19,7 +19,7 @@ Last refreshed: Oct 3 2026
 | `scripts/` | `sync_posts.py`, `copy_check.py` |
 | `profile_facts.json` | Source of truth for every public fact about Tal (see Copy currency) |
 | `copy_reports/` | Weekly copy check outputs; `latest.md` is the newest |
-| `.github/workflows/` | `copy_check.yml`, `sync_posts.yml` |
+| `.github/workflows/` | `copy_check.yml` |
 | `.claude/skills/` | `sync-nycuriosity.md`, the post sync workflow for Claude Code |
 | root files | `CNAME`, `robots.txt`, `sitemap.xml`, `llms.txt`, `og_card.png` (1200×630 link preview), favicons, logo and photo images |
 
@@ -59,7 +59,6 @@ Flags: `--ci`, `--strict` (exit 1 on prose flags), `--no-write` (report only).
 | Workflow | Schedule | What it does |
 |---|---|---|
 | `copy_check.yml` | Mondays 13:17 UTC (`17 13 * * 1`), plus manual dispatch | Runs `copy_check.py --ci`, commits number fixes and reports, opens or comments on a `copy-check` issue when `latest.md` has items needing a human |
-| `sync_posts.yml` | Manual dispatch only | Runs `sync_posts.py` and commits `writing/index.html`. Substack blocks CI IPs, so the sync runs locally |
 
 The monthly "Copy currency review" Claude routine (4th of each month) emails proposed copy edits for this and other sites. It is an input to `profile_facts.json` changes, not a workflow in this repo.
 

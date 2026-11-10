@@ -106,6 +106,11 @@ def sync_posts(ci: bool, log: list[str]) -> None:
         return
     try:
         out = subprocess.run([sys.executable, str(ROOT / "scripts" / "sync_posts.py")], capture_output=True, text=True, timeout=300)
+        if out.returncode != 0:
+            # A crash used to be logged as "no new posts" (the Nov 2026 API shape change hid for days).
+            last = (out.stderr or out.stdout).strip().splitlines()[-1:] or ["no output"]
+            log.append(f"- POST SYNC FAILED (exit {out.returncode}): {last[0][:200]}. New posts were NOT synced; fix scripts/sync_posts.py.")
+            return
         added = len(re.findall(r"\+ New post:", out.stdout))
         log.append(f"- sync_posts.py added {added} new post(s) to writing/index.html" if added else "- sync_posts.py: no new posts")
     except Exception as e:  # noqa: BLE001
