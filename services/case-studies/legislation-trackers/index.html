@@ -24,14 +24,17 @@
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/services/og_card_studio.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/style.css?v=11">
+  <link rel="stylesheet" href="/assets/style.css?v=12">
   <style>
     .cs-kicker { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--blue); margin-bottom: 10px; }
     .cs-sub { font-size: 1.04rem; color: var(--text-mid); line-height: 1.7; max-width: 720px; margin-top: 12px; }
     .cs-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 8px; }
-    .cs-stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow-sm); }
+    .cs-stat { padding: 2px 0 2px 14px; border-left: 2px solid var(--b-tangerine); }
     .cs-stat b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 1.35rem; color: var(--text); }
     .cs-stat span { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+    .cs-stat:first-child { grid-column: 1 / -1; border-left: 0; padding: 0 0 8px; }
+    .cs-stat:first-child b { font-family: var(--b-display); font-weight: 400; font-size: clamp(2.8rem, 8vw, 4.4rem); line-height: 1.05; }
+    .cs-stat:first-child span { font-size: 0.95rem; color: var(--text-mid); }
     .cs-body { max-width: 760px; }
     .cs-body p, .cs-body li { font-size: 0.98rem; color: var(--text-mid); line-height: 1.8; }
     .cs-body p + p { margin-top: 12px; }
@@ -153,7 +156,7 @@
 
 <footer>
   <div class="footer-inner">
-    <a href="/" class="footer-brand"><span>tal</span>·roded</a>
+    <a href="/" class="footer-brand" aria-label="Tal Roded, home"><img src="/assets/brand/talroded_wordmark.svg" alt="Tal Roded" width="112" height="20"></a>
     <nav class="footer-links" style="flex-wrap:wrap">
       <a href="/writing/">Writing</a>
       <a href="/publications/">Publications &amp; Press</a>

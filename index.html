@@ -19,23 +19,14 @@
   <meta name="twitter:image" content="https://talroded.nycuriosity.com/og_card.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/style.css?v=11">
+  <link rel="stylesheet" href="assets/style.css?v=12">
   <style>
     /* ── HERO ─────────────────────────────────────────────── */
     .hero {
       background: var(--surface);
-      background-image: radial-gradient(circle, #DAD6D2 1px, transparent 1px);
-      background-size: 22px 22px;
       border-bottom: 1px solid var(--border);
       position: relative;
       overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 65% 100% at 38% 50%, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.75) 55%, transparent 100%);
-      pointer-events: none;
     }
     .hero-inner {
       position: relative;
@@ -283,12 +274,11 @@
 <section class="home-section">
   <div class="home-section-inner">
     <a href="services/" style="display:block;text-decoration:none;color:inherit;background:var(--dark);border-radius:14px;padding:clamp(26px,4vw,40px);position:relative;overflow:hidden;">
-      <span style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 280px at 86% 12%, rgba(200,70,9,0.34), transparent 60%);"></span>
       <div style="position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
         <div style="max-width:620px;">
-          <p style="font-family:'JetBrains Mono', ui-monospace, monospace;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:#FFD23F;margin-bottom:12px;">NYCuriosity Studio · Hire me</p>
+          <p style="font-family:'JetBrains Mono', ui-monospace, monospace;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:var(--b-on-dark);margin-bottom:12px;">NYCuriosity Studio · Hire me</p>
           <h2 style="font-family:var(--b-display);font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:400;color:#fff;line-height:1.12;margin-bottom:12px;">Custom research &amp; writing, grounded in data</h2>
-          <p style="font-size:0.98rem;color:#DAD6D2;line-height:1.65;">Dashboards, reports, memos, searchable knowledge bases and talks, from the analyst behind NYCuriosity and its Council legislation trackers.</p>
+          <p style="font-size:0.98rem;color:var(--b-line);line-height:1.65;">Dashboards, reports, memos, searchable knowledge bases and talks, from the analyst behind NYCuriosity and its Council legislation trackers.</p>
         </div>
         <span style="font-family:'JetBrains Mono', ui-monospace, monospace;font-size:0.82rem;font-weight:600;color:#fff;background:var(--blue);padding:12px 22px;border-radius:8px;white-space:nowrap;">Work with me →</span>
       </div>
@@ -304,7 +294,6 @@
     <div class="project-grid">
 
       <a href="https://www.nycuriosity.com" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-newsletter)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-newsletter-ink)">Newsletter</p>
           <p class="project-name">NYCuriosity</p>
@@ -314,7 +303,6 @@
       </a>
 
       <a href="https://data.nycuriosity.com" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-data)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-data-ink)">Data Portal</p>
           <p class="project-name">NYCuriosity Data</p>
@@ -324,7 +312,6 @@
       </a>
 
       <a href="https://data.nycuriosity.com/civic_reference/nyc_council_legislation_trackers/" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-newsletter)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-newsletter-ink)">Civic Reference</p>
           <p class="project-name">NYC Council Legislation Trackers</p>
@@ -334,7 +321,6 @@
       </a>
 
       <a href="https://data.nycuriosity.com/cb-tools/member-tracker/" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-civic)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-civic-ink)">Civic Reference</p>
           <p class="project-name">CB Member Tracker</p>
@@ -344,7 +330,6 @@
       </a>
 
       <a href="https://blockparty.studio" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-tool)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-tool-ink)">Civic Tech</p>
           <p class="project-name">Block Party</p>
@@ -354,7 +339,6 @@
       </a>
 
       <a href="https://data.nycuriosity.com/civic_reference/cb_member_guide/" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-civic)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-civic-ink)">Civic</p>
           <p class="project-name">Manhattan Community Board 3</p>
@@ -364,7 +348,6 @@
       </a>
 
       <a href="https://statecapacityecosystem.com/" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-edu)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-edu-ink)">Civic Reference</p>
           <p class="project-name">State Capacity Ecosystem</p>
@@ -374,7 +357,6 @@
       </a>
 
       <a href="https://github.com/TalR24" target="_blank" rel="noopener" class="project-card">
-        <div class="project-card-top" style="background:var(--c-code)"></div>
         <div class="project-card-body">
           <p class="project-cat" style="color:var(--c-code-ink)">Code</p>
           <p class="project-name">GitHub / TalR24</p>
@@ -563,7 +545,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="/" class="footer-brand"><span>tal</span>·roded</a>
+    <a href="/" class="footer-brand" aria-label="Tal Roded, home"><img src="/assets/brand/talroded_wordmark.svg" alt="Tal Roded" width="112" height="20"></a>
     <nav class="footer-links" style="flex-wrap:wrap">
       <a href="writing/">Writing</a>
       <a href="publications/">Publications &amp; Press</a>
