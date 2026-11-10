@@ -188,6 +188,13 @@
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/powers.json",
       "path": "power_count",
       "display": "floor100plus"
+    },
+    "bp_resolutions": {
+      "value": 39568,
+      "source": "https://data.nycuriosity.com/cb-tools/block-party/data/stats.json",
+      "path": "resolutions",
+      "display": "exact",
+      "note": "Block Party resolutions on the live (active) boards; stats.json is written by data_website/cb-tools/block-party/update_stats.py from the engine's weekly export or a live database count. Added Nov 10 2026 after three different figures had drifted across the sites."
     }
   },
   "embedded_numbers": [
@@ -245,6 +252,31 @@
       "file": "resume/index.html",
       "regex": "([\\d,]+\\+) agency powers",
       "fact": "powers"
+    },
+    {
+      "file": "services/index.html",
+      "regex": "([\\d,]+) resolutions from 27",
+      "fact": "bp_resolutions"
+    },
+    {
+      "file": "resume/index.html",
+      "regex": "knowledge base: ([\\d,]+) resolutions",
+      "fact": "bp_resolutions"
+    },
+    {
+      "file": "services/case-studies/community-board-knowledge-base/index.html",
+      "regex": "Block Party: ([\\d,]+) NYC community board resolutions",
+      "fact": "bp_resolutions"
+    },
+    {
+      "file": "services/case-studies/community-board-knowledge-base/index.html",
+      "regex": "<h1>([\\d,]+) community board resolutions",
+      "fact": "bp_resolutions"
+    },
+    {
+      "file": "services/case-studies/community-board-knowledge-base/index.html",
+      "regex": "<b>([\\d,]+)</b><span>resolutions extracted",
+      "fact": "bp_resolutions"
     }
   ],
   "banned_strings": [
@@ -343,7 +375,7 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-11-09",
+  "numbers_observed": "2026-11-10",
   "talks": [
     {
       "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",

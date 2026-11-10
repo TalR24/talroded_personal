@@ -1,8 +1,9 @@
-# Copy check — 2026-11-09 (CI)
+# Copy check — 2026-11-10 (local)
 
 ## Live numbers
 
 - archive_rows: 78
+- bp_resolutions: 39568
 - duties: 8290
 - fiscal_records: 481
 - local_laws: 2171
@@ -12,7 +13,9 @@
 
 ## Numbers rewritten in copy
 
-- none
+- resume/index.html
+- services/case-studies/community-board-knowledge-base/index.html
+- services/index.html
 
 ## Needs a human
 
@@ -20,6 +23,11 @@
 
 ## Log
 
-- Substack post sync skipped in CI (Substack blocks GitHub Actions IPs). Run `python3 scripts/copy_check.py` locally at the sweep.
-- substack_hero: skipped in CI (Substack)
-- substack_about: skipped in CI (Substack)
+- sync_posts.py: no new posts
+- services/index.html: `39,266` -> `39,568` (bp_resolutions)
+- services/index.html: `39,266` -> `39,568` (bp_resolutions)
+- resume/index.html: `39,266` -> `39,568` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
