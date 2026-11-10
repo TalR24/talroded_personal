@@ -3,7 +3,7 @@
 ## Live numbers
 
 - archive_rows: 78
-- bp_resolutions: 39568
+- bp_resolutions: 39649
 - duties: 8290
 - fiscal_records: 481
 - local_laws: 2171
@@ -24,10 +24,10 @@
 ## Log
 
 - sync_posts.py: no new posts
-- services/index.html: `39,266` -> `39,568` (bp_resolutions)
-- services/index.html: `39,266` -> `39,568` (bp_resolutions)
-- resume/index.html: `39,266` -> `39,568` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,266` -> `39,568` (bp_resolutions)
+- services/index.html: `39,568` -> `39,649` (bp_resolutions)
+- services/index.html: `39,568` -> `39,649` (bp_resolutions)
+- resume/index.html: `39,568` -> `39,649` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
+- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)

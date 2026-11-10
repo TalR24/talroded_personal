@@ -190,7 +190,7 @@
       "display": "floor100plus"
     },
     "bp_resolutions": {
-      "value": 39568,
+      "value": 39649,
       "source": "https://data.nycuriosity.com/cb-tools/block-party/data/stats.json",
       "path": "resolutions",
       "display": "exact",
