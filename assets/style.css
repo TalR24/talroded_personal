@@ -462,7 +462,7 @@ footer {
 .footer-brand img { height: 20px; width: auto; display: block; }
 .footer-copy {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.25);
+  color: var(--b-line-strong);  /* 10:1 on the dark footer; was white at 25% (2.18:1) */
   font-family: var(--b-mono);
 }
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
