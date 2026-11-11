@@ -13,9 +13,7 @@
 
 ## Numbers rewritten in copy
 
-- resume/index.html
-- services/case-studies/community-board-knowledge-base/index.html
-- services/index.html
+- none
 
 ## Needs a human
 
@@ -24,10 +22,3 @@
 ## Log
 
 - sync_posts.py: no new posts
-- services/index.html: `39,568` -> `39,649` (bp_resolutions)
-- services/index.html: `39,568` -> `39,649` (bp_resolutions)
-- resume/index.html: `39,568` -> `39,649` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
-- services/case-studies/community-board-knowledge-base/index.html: `39,568` -> `39,649` (bp_resolutions)
