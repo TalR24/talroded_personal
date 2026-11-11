@@ -166,6 +166,17 @@
 
     @media (max-width: 860px) {
       .svc-grid { grid-template-columns: 1fr; }
+    }
+    /* Phones (Nov 10 2026): the seven service cards and the three case studies scroll sideways in one row
+       each instead of stacking, which cut the page from about 10,800px to a fraction of that. Text unchanged. */
+    @media (max-width: 640px) {
+      .svc-grid, .svc-cases, .svc-proof { display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 86%;
+        overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 12px; padding-bottom: 10px; scrollbar-width: thin; }
+      .svc-grid > *, .svc-cases > *, .svc-proof > * { scroll-snap-align: start; }
+      .svc-swipe-hint { display: block; font-family: var(--b-sans); font-size: 0.8rem; color: var(--text-muted); margin: 0 0 10px; }
+    }
+    @media (min-width: 641px) { .svc-swipe-hint { display: none; } }
+    @media (max-width: 860px) {
       .svc-card.has-photo { flex-direction: column; align-items: stretch; }
       .svc-photo { flex-basis: auto; }
       .svc-steps { grid-template-columns: repeat(2, 1fr); }
@@ -255,7 +266,8 @@
     <section class="section">
       <p class="section-label">What I do</p>
       <h2 class="section-title">Seven ways to hire the work behind <em>NYCuriosity</em></h2>
-      <div class="svc-grid">
+      <p class="svc-swipe-hint" aria-hidden="true">Swipe for all seven →</p>
+    <div class="svc-grid">
 
         <div class="svc-card feature">
           <div class="svc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
@@ -351,6 +363,7 @@
       <p class="section-label">Proof of work</p>
       <h2 class="section-title">Every tool here is public, <em>with its methods</em></h2>
       <p class="svc-intro" style="margin-bottom:22px">Everything I publish shows its methods and source data. Three case studies walk through how the biggest builds work:</p>
+      <p class="svc-swipe-hint" aria-hidden="true">Swipe for all three →</p>
       <div class="svc-proof svc-cases">
         <a href="/services/case-studies/legislation-trackers/">
           <span class="lab">Case study</span>
