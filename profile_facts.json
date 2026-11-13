@@ -71,7 +71,7 @@
       "since": "2026",
       "current": true,
       "url": "https://blockparty.studio",
-      "note": "Board-count rule retired by Tal on 2026-09-24: counts may be stated (27 boards, 11 Manhattan + 16 Brooklyn, as of Sep 24 2026)."
+      "note": "Board-count rule retired by Tal on 2026-09-24: counts may be stated. 52 boards in all five boroughs since the Queens, Bronx and Staten Island boards went live on 2026-11-13 (11 Manhattan, 16 Brooklyn, 12 Queens, 10 Bronx, 3 Staten Island)."
     },
     {
       "org": "State Capacity Ecosystem",
@@ -177,7 +177,7 @@
       "display": "exact"
     },
     "duties": {
-      "value": 8290,
+      "value": 8285,
       "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
       "path": "obligation_count",
       "display": "floor100plus",
@@ -255,7 +255,7 @@
     },
     {
       "file": "services/index.html",
-      "regex": "([\\d,]+) resolutions from 27",
+      "regex": "([\\d,]+) resolutions from 52",
       "fact": "bp_resolutions"
     },
     {
@@ -375,7 +375,7 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-11-10",
+  "numbers_observed": "2026-11-13",
   "talks": [
     {
       "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",

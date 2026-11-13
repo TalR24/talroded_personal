@@ -24,7 +24,7 @@
 
 ## Optional
 
-- [A knowledge base for NYC community boards — Case study](https://talroded.nycuriosity.com/services/case-studies/community-board-knowledge-base/): How Tal Roded built the resolution engine behind Block Party: 39,266 NYC community board resolutions from 27 boards, pulled from meeting minutes and made searchable.
+- [A knowledge base for NYC community boards — Case study](https://talroded.nycuriosity.com/services/case-studies/community-board-knowledge-base/): How Tal Roded built the resolution engine behind Block Party: 45,923 NYC community board resolutions from 52 boards, pulled from meeting minutes and made searchable.
 - [NYC Council Legislation Trackers — Case study](https://talroded.nycuriosity.com/services/case-studies/legislation-trackers/): How Tal Roded turned 2,147 NYC local laws into three public trackers of what each law costs, requires of city agencies, and allows them to do.
 - [State Capacity Ecosystem — Case study](https://talroded.nycuriosity.com/services/case-studies/state-capacity-ecosystem/): How Tal Roded built statecapacityecosystem.com: a searchable public directory of 329 organizations working to make government work better.
 - [AI Civic Tech Tools — Wiki](https://talroded.nycuriosity.com/wiki/ai-civic-tech-tools/): 8 guides, Claude Skills and demo apps for using AI in civic tech, from Claude Code fluency to NYC Open Data tools and City Council hearing summaries.
