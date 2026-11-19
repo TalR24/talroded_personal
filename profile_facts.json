@@ -155,13 +155,13 @@
     },
     "fiscal_records": {
       "value": 481,
-      "source": "https://data.nycuriosity.com/civic_reference/nyc_council_fiscal_impacts_tracker/data/fiscal_impacts.json",
+      "source": "https://data.nycuriosity.com/tools/legislation/fiscal/data/fiscal_impacts.json",
       "path": "metadata.total_records",
       "display": "exact"
     },
     "local_laws": {
       "value": 2171,
-      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
+      "source": "https://data.nycuriosity.com/tools/legislation/implementation/data/obligations.json",
       "path": "laws.length",
       "display": "exact"
     },
@@ -178,20 +178,20 @@
     },
     "duties": {
       "value": 8285,
-      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/obligations.json",
+      "source": "https://data.nycuriosity.com/tools/legislation/implementation/data/obligations.json",
       "path": "obligation_count",
       "display": "floor100plus",
       "note": "obligations.json counts duties only since the Sep 2026 powers split"
     },
     "powers": {
       "value": 1735,
-      "source": "https://data.nycuriosity.com/civic_reference/legislation_implementation_tracker/data/powers.json",
+      "source": "https://data.nycuriosity.com/tools/legislation/implementation/data/powers.json",
       "path": "power_count",
       "display": "floor100plus"
     },
     "bp_resolutions": {
       "value": 45923,
-      "source": "https://data.nycuriosity.com/cb-tools/block-party/data/stats.json",
+      "source": "https://data.nycuriosity.com/tools/community-boards/block-party/data/stats.json",
       "path": "resolutions",
       "display": "exact",
       "note": "Block Party resolutions on the live (active) boards; stats.json is written by data_website/cb-tools/block-party/update_stats.py from the engine's weekly export or a live database count. Added Nov 10 2026 after three different figures had drifted across the sites."
@@ -382,7 +382,7 @@
       "venue": "Responsive Cities Network Sprint, Harvard Kennedy School (Data-Smart City Solutions at the Bloomberg Center for Cities + Knight Foundation)",
       "city": "Cambridge, MA",
       "date": "2026-09-30",
-      "deck": "https://data.nycuriosity.com/cb-tools/harvard-rcn-2026/Turning_Public_Records_into_Local_Knowledge_HarvardRCN26.pdf",
+      "deck": "https://data.nycuriosity.com/tools/community-boards/harvard-rcn-2026/Turning_Public_Records_into_Local_Knowledge_HarvardRCN26.pdf",
       "with": "Amy X. Chen"
     },
     {
@@ -390,14 +390,14 @@
       "venue": "CivStart State of GovTech 2026 (main stage)",
       "city": "Washington, DC",
       "date": "2026-09-10",
-      "deck": "https://data.nycuriosity.com/cb-tools/sogt-2026/Building_an_AI_Powered_Knowledge_Base_SOGT26.pdf"
+      "deck": "https://data.nycuriosity.com/tools/community-boards/sogt-2026/Building_an_AI_Powered_Knowledge_Base_SOGT26.pdf"
     },
     {
       "title": "From Public Records to Public Knowledge: Improving Access to Community Board Information",
       "venue": "NYC OMB Institute",
       "city": "New York, NY",
       "date": "2026-07",
-      "deck": "https://data.nycuriosity.com/cb-tools/block_party_july2026/",
+      "deck": "https://data.nycuriosity.com/tools/community-boards/block_party_july2026/",
       "with": "Sarah Sachs"
     },
     {
@@ -405,7 +405,7 @@
       "venue": "NYC School of Data 2026",
       "city": "New York, NY",
       "date": "2026-03",
-      "deck": "https://data.nycuriosity.com/cb-tools/school-of-data-2026/",
+      "deck": "https://data.nycuriosity.com/tools/community-boards/school-of-data-2026/",
       "with": "Sarah Sachs"
     }
   ],
@@ -437,7 +437,7 @@
         "type": "talk",
         "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",
         "outlet": "Responsive Cities Network Sprint, Harvard Kennedy School",
-        "url": "https://data.nycuriosity.com/cb-tools/harvard-rcn-2026/Turning_Public_Records_into_Local_Knowledge_HarvardRCN26.pdf"
+        "url": "https://data.nycuriosity.com/tools/community-boards/harvard-rcn-2026/Turning_Public_Records_into_Local_Knowledge_HarvardRCN26.pdf"
       },
       {
         "date": "2026-09-23",
@@ -451,7 +451,7 @@
         "type": "talk",
         "title": "Building an AI-Powered Knowledge Base for NYC Community Boards",
         "outlet": "CivStart State of GovTech 2026",
-        "url": "https://data.nycuriosity.com/cb-tools/sogt-2026/Building_an_AI_Powered_Knowledge_Base_SOGT26.pdf"
+        "url": "https://data.nycuriosity.com/tools/community-boards/sogt-2026/Building_an_AI_Powered_Knowledge_Base_SOGT26.pdf"
       },
       {
         "date": "2026-08-19",
