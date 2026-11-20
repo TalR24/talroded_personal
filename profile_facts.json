@@ -143,13 +143,13 @@
   "numbers": {
     "_about": "Live sources are fetched by copy_check.py; 'value' is the last observed value. 'display' rules: exact | floor10plus (330+) | floor100plus (8,200+) | floor1000plus.",
     "posts": {
-      "value": 77,
+      "value": 78,
       "source": "writing_page",
       "display": "exact",
       "note": "NYCuriosity rows in #archive on the writing page; the anonymous Substack API returns only ~23 posts so it is never used for counts"
     },
     "archive_rows": {
-      "value": 78,
+      "value": 79,
       "source": "writing_page",
       "display": "exact"
     },
@@ -375,8 +375,14 @@
       "note": "the People card at the foot of the About page; set Sep 3 2026"
     }
   },
-  "numbers_observed": "2026-11-16",
+  "numbers_observed": "2026-11-19",
   "talks": [
+    {
+      "title": "Urban Data Science Fits Around a Corporate Day Job",
+      "venue": "NYU CUSP, Innovative City Governance (guest lecture)",
+      "city": "Brooklyn, NY",
+      "date": "2026-11-19"
+    },
     {
       "title": "Turning Public Records into Local Knowledge and Civic Infrastructure",
       "venue": "Responsive Cities Network Sprint, Harvard Kennedy School (Data-Smart City Solutions at the Bloomberg Center for Cities + Knight Foundation)",
