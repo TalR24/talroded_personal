@@ -194,7 +194,7 @@
       "source": "https://data.nycuriosity.com/tools/community-boards/block-party/data/stats.json",
       "path": "resolutions",
       "display": "exact",
-      "note": "Block Party resolutions on the live (active) boards; stats.json is written by data_website/cb-tools/block-party/update_stats.py from the engine's weekly export or a live database count. Added Nov 10 2026 after three different figures had drifted across the sites."
+      "note": "Block Party resolutions on the live (active) boards; stats.json is written by data_website/tools/community-boards/block-party/update_stats.py from the engine's weekly export or a live database count. Added Nov 10 2026 after three different figures had drifted across the sites."
     }
   },
   "embedded_numbers": [
