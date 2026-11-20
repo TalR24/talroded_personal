@@ -13,9 +13,7 @@
 
 ## Numbers rewritten in copy
 
-- index.html
-- resume/index.html
-- writing/index.html
+- none
 
 ## Needs a human
 
@@ -23,7 +21,4 @@
 
 ## Log
 
-- sync_posts.py added 1 new post(s) to writing/index.html
-- index.html: `78` -> `79` (archive_rows)
-- writing/index.html: `78` -> `79` (archive_rows)
-- resume/index.html: `77` -> `78` (posts)
+- sync_posts.py: no new posts
